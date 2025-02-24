@@ -20,6 +20,54 @@ body .contactos img {
     width: 3em;
     border-radius: 50%;
 }
+
+body .online {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 1.5em;
+    border: solid 1px #BEC1BB;
+    border-bottom: none;
+}
+
+body .iconos-online {
+    display: flex;
+    align-items: center;
+}
+
+body .icon {
+    margin-left: 1em;
+}
+
+body .usuario-online {
+    display: flex;
+    margin: 0.5em;
+    margin: 0;
+    padding: 0.6em;
+    padding-left: 2em;
+}
+
+body .usuario-online img {
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+}
+
+body .datos-usuario-online {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1em;
+}
+
+body .datos-usuario-online h5 {
+    font-size: 14px;
+}
+
+body .datos-usuario-online p {
+    font-size: 10px;
+    color: #828485;
+}
+
 body .usuario {
     display: flex;
     margin: 0.5em;
