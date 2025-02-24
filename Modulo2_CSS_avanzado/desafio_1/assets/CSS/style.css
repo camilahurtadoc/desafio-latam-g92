@@ -26,7 +26,7 @@ body .usuario {
     border: solid 1px #BEC1BB;
     border-bottom: none;
     margin: 0;
-    padding: 0.5em;
+    padding: 0.6em;
     padding-left: 2em;
 }
 
@@ -47,7 +47,8 @@ body .datos-usuario h5 {
 
 body .boton {
     padding: 2em;
-    text-align: center;
+    display: flex;
+    justify-content: center;
     border: solid 1px #BEC1BB;
     border-bottom: none;
 }
