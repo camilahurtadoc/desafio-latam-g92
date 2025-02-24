@@ -1,3 +1,5 @@
+
+
 * {
     margin: 0;
     padding: 0;
@@ -10,17 +12,18 @@ body .contenido {
 body .contactos {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
     flex: 0 0 20%;
 }
 
 body .contactos img {
-    height: 4em;
-    width: 4em;
+    height: 3em;
+    width: 3em;
     border-radius: 50%;
 }
 body .usuario {
     display: flex;
-    margin: 1em;
+    margin: 0.5em;
 }
 
 body .datos-usuario {
@@ -54,6 +57,7 @@ body .boton button:focus {
 body .principal {
     display: flex;
     flex-direction: column;
+    flex: 0 0 80%;
     justify-content: center;
     align-items: center;
 }
@@ -63,6 +67,6 @@ body .principal p {
 }
 
 body .principal img {
-    width: 50%;
+    width: 30%;
 }
 
