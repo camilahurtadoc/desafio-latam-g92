@@ -36,13 +36,20 @@ body .boton {
 
 }
 
-body .btn-nuevo-chat{
+body .boton button{
     background-color:  #A491D2;
     color: #FFF;
     padding: 1em 3em;
     border: none;
 }
 
+body .boton button:hover {
+    background-color: #CDC3E6;
+}
+
+body .boton button:focus {
+    background-color: #BEC1BB;
+}
 
 body .principal {
     display: flex;
