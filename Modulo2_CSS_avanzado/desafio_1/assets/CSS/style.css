@@ -94,7 +94,7 @@ body .datos-usuario h5 {
 }
 
 body .boton {
-    padding: 2em;
+    height: 7em;
     display: flex;
     justify-content: center;
     align-items: center;
