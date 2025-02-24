@@ -1,5 +1,3 @@
-
-
 * {
     margin: 0;
     padding: 0;
@@ -13,8 +11,8 @@ body .contenido {
 body .contactos {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     flex: 0 0 20%;
+    min-height: 100vh;
 }
 
 body .contactos img {
@@ -25,6 +23,11 @@ body .contactos img {
 body .usuario {
     display: flex;
     margin: 0.5em;
+    border: solid 1px #BEC1BB;
+    border-bottom: none;
+    margin: 0;
+    padding: 0.5em;
+    padding-left: 2em;
 }
 
 body .datos-usuario {
@@ -34,10 +37,19 @@ body .datos-usuario {
     margin-left: 1em;
 }
 
-body .boton {
-    margin: 2em;
-    text-align: center;
+body .datos-usuario p {
+    font-size: 14px;
+}
 
+body .datos-usuario h5 {
+    font-size: 14px;
+}
+
+body .boton {
+    padding: 2em;
+    text-align: center;
+    border: solid 1px #BEC1BB;
+    border-bottom: none;
 }
 
 body .boton button{
@@ -61,6 +73,7 @@ body .principal {
     flex: 0 0 80%;
     justify-content: center;
     align-items: center;
+    background-color: #E8EBE4;
 }
 
 body .principal p {
