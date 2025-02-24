@@ -10,7 +10,7 @@ body .contenido {
 body .contactos {
     display: flex;
     flex-direction: column;
-    flex: 0 0 40vh;
+    flex: 0 0 20%;
 }
 
 body .contactos img {
