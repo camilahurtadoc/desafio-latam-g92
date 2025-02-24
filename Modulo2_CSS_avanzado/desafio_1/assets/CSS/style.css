@@ -125,6 +125,10 @@ body .principal {
     background-color: #E8EBE4;
 }
 
+body .parrafo-principal {
+    max-width: 60vh;
+}
+
 body .principal p {
     text-align: center;
 }
