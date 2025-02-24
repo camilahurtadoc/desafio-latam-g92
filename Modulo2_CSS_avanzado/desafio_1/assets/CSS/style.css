@@ -29,15 +29,6 @@ body .online {
     border-bottom: none;
 }
 
-body .iconos-online {
-    display: flex;
-    align-items: center;
-}
-
-body .icon {
-    margin-left: 1em;
-}
-
 body .usuario-online {
     display: flex;
     margin: 0.5em;
@@ -66,6 +57,15 @@ body .datos-usuario-online h5 {
 body .datos-usuario-online p {
     font-size: 10px;
     color: #828485;
+}
+
+body .iconos-online {
+    display: flex;
+    align-items: center;
+}
+
+body .icon {
+    margin-left: 1em;
 }
 
 body .usuario {
