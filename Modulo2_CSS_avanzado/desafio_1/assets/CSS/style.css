@@ -15,12 +15,6 @@ body .contactos {
     min-height: 100vh;
 }
 
-body .contactos img {
-    height: 3em;
-    width: 3em;
-    border-radius: 50%;
-}
-
 body .online {
     display: flex;
     justify-content: space-between;
@@ -66,6 +60,12 @@ body .iconos-online {
 
 body .icon {
     margin-left: 1em;
+}
+
+body .contactos img {
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
 }
 
 body .usuario {
