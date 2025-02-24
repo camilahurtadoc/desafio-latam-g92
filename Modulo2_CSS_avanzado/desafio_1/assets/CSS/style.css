@@ -97,6 +97,7 @@ body .boton {
     padding: 2em;
     display: flex;
     justify-content: center;
+    align-items: center;
     border: solid 1px #BEC1BB;
     border-bottom: none;
 }
