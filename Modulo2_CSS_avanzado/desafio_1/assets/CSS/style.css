@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body .contenido {
+    display: flex;
+}
+
+body .contactos {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 40vh;
+}
+
+body .contactos img {
+    height: 4em;
+    width: 4em;
+    border-radius: 50%;
+}
+body .usuario {
+    display: flex;
+    margin: 1em;
+}
+
+body .datos-usuario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1em;
+}
+
+body .boton {
+    margin: 2em;
+    text-align: center;
+
+}
+
+body .btn-nuevo-chat{
+    background-color:  #A491D2;
+    color: #FFF;
+    padding: 1em 3em;
+    border: none;
+}
+
+
+body .principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body .principal p {
+    text-align: center;
+}
+
+body .principal img {
+    width: 50%;
+}
+
