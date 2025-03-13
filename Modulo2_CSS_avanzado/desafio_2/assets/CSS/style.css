@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+    'nav nav nav nav nav'
+    'menu main main main main'
+    'footer footer footer footer footer';
+}
+
+nav {
+    grid-area: nav;
+}
+
+menu {
+    grid-area: menu;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+}
+
+
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1em;
+    text-align: center;
+}
+
+.main-grid-item img {
+    max-width: 100%;
+}
