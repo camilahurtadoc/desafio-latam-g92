@@ -6,7 +6,7 @@ En este repositorio se encuentran los distintos entregables (desafíos/tareas/pr
 - Módulo 2: CSS Avanzado
 
 ## Módulos Disponibles
-- Módulo 1: Introducción al Desarrollo Web
+- Módulo 1: Introducción al Desarrollo Web (pendiente)
 - Módulo 2: CSS Avanzado 
 
 > Nota: `Este es un trabajo personal con fines académicos. Favor no realizar copias directas del material disponible.`
