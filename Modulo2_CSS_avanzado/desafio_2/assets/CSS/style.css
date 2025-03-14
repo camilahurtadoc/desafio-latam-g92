@@ -14,9 +14,9 @@ body {
 .grid-container {
     display: grid;
     grid-template-areas: 
-    'nav nav nav nav nav'
-    'menu main main main main'
-    'footer footer footer footer footer';
+    'nav nav '
+    'menu main '
+    'footer footer';
 }
 
 nav {
