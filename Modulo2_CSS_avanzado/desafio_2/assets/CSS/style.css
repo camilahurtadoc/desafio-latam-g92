@@ -13,9 +13,11 @@ body {
 
 .grid-container {
     display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto;
     grid-template-areas: 
-    'nav nav '
-    'menu main '
+    'nav nav'
+    'menu main'
     'footer footer';
 }
 
@@ -53,7 +55,6 @@ menu {
     display: flex;
     flex-direction: column;
     margin: 1em;
-    padding-right: 4em;
     row-gap: 0.4em;
 }
 
