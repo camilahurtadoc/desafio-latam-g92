@@ -12,9 +12,12 @@ body {
 
 .container-max {
     height: 100vh;
+    display: grid;
+    grid-template-areas: "nav" "section" "main" "footer";
 }
 
 nav {
+    grid-area: nav;
     background-color: #798645;
     display: flex;
     align-items: center;
@@ -59,6 +62,7 @@ nav li {
 }
 
 section {
+    grid-area: section;
     background-color: #cbcbcb;
     padding: 0.5em;
     text-align: center;
@@ -76,6 +80,10 @@ section select {
     margin: 0 0.5em;
     padding: 0.5em;
     width: 90%;
+}
+
+main {
+    grid-area: main;
 }
 
 main .grid-container {
@@ -144,6 +152,7 @@ main .paginas button {
 }
 
 footer {
+    grid-area: footer;
     background-color: #4d5839;
     color: #F1F1F1;
     display: flex;
@@ -159,4 +168,5 @@ footer i {
 
 footer p {
     margin-top: 0.5em;
+    text-align: center;
 }
