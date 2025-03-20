@@ -127,6 +127,22 @@ main .desk {
     display: none;
 }
 
+main .paginas {
+    display: flex;
+    margin: 1em 0 2em 0;
+    justify-content: center;
+}
+
+main .paginas button {
+    border: solid 1px #cbcbcb;
+    box-shadow: none;
+    color: #405a0f;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 0.5em 0.7em;
+    
+}
+
 footer {
     background-color: #4d5839;
     color: #F1F1F1;
