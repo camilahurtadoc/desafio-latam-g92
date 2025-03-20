@@ -36,9 +36,22 @@ nav .icon {
     color: #F1F1F1;
 }
 
+nav .menu {
+    display: none;
+}
 
+nav ul {
+    color: #F1F1F1;
+    font-size: 1.2em;
+    font-weight: 500;
+    list-style: none;
+    margin: 2em;
+}
 
-
+nav li {
+    margin: 0.5em;
+    text-align: center;
+}
 
 footer {
     background-color: #4d5839;
