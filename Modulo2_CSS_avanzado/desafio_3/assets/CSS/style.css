@@ -83,15 +83,44 @@ section select {
 }
 
 main {
+    display: grid;
+    grid-template-areas: "grid-container" "paginas";
+    grid-template-rows: calc(100% - 5.5em) 5.5em;
     grid-area: main;
+    height: 100%;
+    overflow: hidden;
 }
 
 main .grid-container {
     display: grid;
     gap: 0.5em;
+    grid-area: grid-container;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     padding: 0.5em;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+
+
+main .grid-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+main .grid-container::-webkit-scrollbar-track {
+    background: #405a0f;
+}
+
+main .grid-container::-webkit-scrollbar-thumb {
+    background-color: #798645;
+}
+
+@supports (scrollbar-color: green darkgreen) {
+    * {
+        scrollbar-color: #798645 #4d5839;
+        scrollbar-width: auto;
+    }
 }
 
 main .grid-item {
@@ -131,14 +160,12 @@ main .grid-item button {
     width: 40%;
 }
 
-main .desk {
-    display: none;
-}
 
 main .paginas {
     display: flex;
-    margin: 1em 0 2em 0;
     justify-content: center;
+    grid-area: paginas;
+    margin: 1em 0 2em 0;
 }
 
 main .paginas button {
@@ -148,18 +175,20 @@ main .paginas button {
     cursor: pointer;
     font-size: 1em;
     padding: 0.5em 0.7em;
-    
 }
 
 footer {
-    grid-area: footer;
     background-color: #4d5839;
     color: #F1F1F1;
     display: flex;
     flex-direction: column;
+    grid-area: footer;
     justify-content: center;
     align-items: center;
     padding: 1em;
+    /* position: fixed;
+    bottom: 0;
+    width: 100%; */
 }
 
 footer i {
@@ -169,4 +198,33 @@ footer i {
 footer p {
     margin-top: 0.5em;
     text-align: center;
+}
+
+@media (min-width: 576px) {
+    .container-max {
+        grid-template-areas: "nav section" "nav main" "footer main";
+        grid-template-columns: 25% 1fr;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    nav .fa-bars {
+        display: none;
+    }
+
+    nav .menu {
+        display:block;
+    }
+
+    main .grid-container {
+        display: grid;
+        gap: 0.5em;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        padding: 0.5em;
+    }
 }
