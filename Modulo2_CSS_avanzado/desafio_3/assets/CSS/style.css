@@ -1,8 +1,8 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: Helvetica ,Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -11,9 +11,9 @@ body {
 }
 
 .container-max {
-    height: 100vh;
     display: grid;
     grid-template-areas: "nav" "section" "main" "footer";
+    height: 100vh;
 }
 
 nav {
@@ -98,14 +98,12 @@ main .grid-container {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     padding: 0.5em;
-    overflow: hidden;
+    overflow-x: hidden;
     overflow-y: scroll;
 }
 
-
-
 main .grid-container::-webkit-scrollbar {
-    width: 10px;
+    width: 10px !important;
 }
 
 main .grid-container::-webkit-scrollbar-track {
@@ -114,13 +112,6 @@ main .grid-container::-webkit-scrollbar-track {
 
 main .grid-container::-webkit-scrollbar-thumb {
     background-color: #798645;
-}
-
-@supports (scrollbar-color: green darkgreen) {
-    * {
-        scrollbar-color: #798645 #4d5839;
-        scrollbar-width: auto;
-    }
 }
 
 main .grid-item {
@@ -160,7 +151,6 @@ main .grid-item button {
     width: 40%;
 }
 
-
 main .paginas {
     display: flex;
     justify-content: center;
@@ -186,9 +176,6 @@ footer {
     justify-content: center;
     align-items: center;
     padding: 1em;
-    /* position: fixed;
-    bottom: 0;
-    width: 100%; */
 }
 
 footer i {
