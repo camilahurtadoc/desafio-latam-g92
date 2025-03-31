@@ -20,12 +20,31 @@ body {
 }
 
 nav {
+    display: flex;
     grid-area: nav;
+    justify-content: space-between;
+}
+
+nav .titulo-tienda {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav .fa-tree, .fa-bars {
+    font-size: 1.5em;
+    margin: 1em;
+}
+
+nav .menu {
+    display: none;
 }
 
 main {
     grid-area: main;
 }
+
+
 
 footer {
     grid-area: footer;
