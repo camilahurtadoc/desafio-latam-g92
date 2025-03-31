@@ -44,11 +44,72 @@ main {
     grid-area: main;
 }
 
+main .grid-productos {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 1fr;
+    margin: 2em;
+}
 
+main .grid-item {
+    display: flex;
+    position: relative;
+}
+
+main .grid-item img {
+    border-radius: 10px;
+    height: auto;
+    max-width: 100%;
+    transition: 1s ease;
+}
+
+main .grid-item h4 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 1s ease;
+    opacity: 0;
+}
+
+main .grid-item button {
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+    transform: translate(-50%, -50%);
+    transition: 1s ease;
+    opacity: 0;
+}
+
+main .grid-item:hover img {
+    opacity: 0.3;
+}
+
+main .grid-item:hover h4{
+    opacity: 1;
+}
+
+main .grid-item:hover button{
+    opacity: 1;
+}
+
+main .mostrar-mas {
+    text-align: center;
+}
+
+main .mostrar-mas button {
+    background-color: #1B263B;
+    color: #778DA9;
+    font-size: 1em;
+    padding: 1em;
+    width: 50%;
+}
 
 footer {
     grid-area: footer;
 }
+
+
 
 /* PALETA DE COLORES
 0D1B2A - azul oscuro
