@@ -45,10 +45,13 @@ main {
 }
 
 main .grid-productos {
+    background-color: #1B263B;
+    border-radius: 10px;
     display: grid;
     gap: 1em;
     grid-template-columns: 1fr;
-    margin: 2em;
+    margin: 1em 1em 1em 0;
+    padding: 1em;
 }
 
 main .grid-item {
@@ -89,6 +92,7 @@ main .mostrar-mas {
 
 main .mostrar-mas button {
     background-color: #1B263B;
+    border-radius: 10px;
     color: #778DA9;
     font-size: 1em;
     padding: 1em;
