@@ -53,6 +53,7 @@ main .grid-productos {
 
 main .grid-item {
     display: flex;
+    justify-content: center;
     position: relative;
 }
 
@@ -75,22 +76,10 @@ main .grid-item h4 {
 main .grid-item button {
     position: absolute;
     left: 50%;
-    bottom: 20%;
+    bottom: 10%;
     transform: translate(-50%, -50%);
     transition: 1s ease;
     opacity: 0;
-}
-
-main .grid-item:hover img {
-    opacity: 0.3;
-}
-
-main .grid-item:hover h4{
-    opacity: 1;
-}
-
-main .grid-item:hover button{
-    opacity: 1;
 }
 
 main .mostrar-mas {
@@ -109,6 +98,58 @@ footer {
     grid-area: footer;
 }
 
+
+@media (min-width: 576px) {
+    .grid-container {
+        grid-template-areas: "nav main" "nav main" "footer footer";
+        grid-template-columns: 25% 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        justify-content:flex-start ;
+    }
+
+    nav .fa-bars {
+        display: none;
+    }
+
+    nav .menu {
+        display: block;
+    }
+
+    nav ul {
+        font-size: 1.2em;
+        font-weight: 500;
+        list-style: none;
+    }
+
+    nav li {
+        margin: 1em 0.5em;
+        text-align: center;
+    }
+
+    main .grid-productos {
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: auto;
+    }
+
+    main .grid-item button {
+        bottom: 0%;
+    }
+
+    main .grid-item:hover img {
+        opacity: 0.3;
+    }
+    
+    main .grid-item:hover h4{
+        opacity: 1;
+    }
+    
+    main .grid-item:hover button{
+        opacity: 1;
+    }
+}
 
 
 /* PALETA DE COLORES
