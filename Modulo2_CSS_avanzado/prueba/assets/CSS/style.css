@@ -71,6 +71,7 @@ main .grid-item h4 {
     transform: translate(-50%, -50%);
     transition: 1s ease;
     opacity: 0;
+    text-align: center;
 }
 
 main .grid-item button {
@@ -96,10 +97,38 @@ main .mostrar-mas button {
 
 footer {
     grid-area: footer;
+    margin: 2em;
 }
 
+footer .info {
+    margin-bottom: 2em;
+}
 
-@media (min-width: 576px) {
+footer .info ul {
+    list-style: none;
+}
+
+footer .info li{
+    margin: 1em;
+}
+
+footer .follow i {
+    margin: 1em;
+    font-size: 1.5em;
+    color: #E0E1DD;
+}
+
+footer .copy {
+    margin: 1em;
+    text-align: center;
+}
+
+footer .chc {
+    margin: 1em;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
     .grid-container {
         grid-template-areas: "nav main" "nav main" "footer footer";
         grid-template-columns: 25% 1fr;
@@ -148,6 +177,29 @@ footer {
     
     main .grid-item:hover button{
         opacity: 1;
+    }
+
+    footer {
+        display: grid;
+        grid-template-areas: "info follow" "copy chc";
+        gap: 1em;
+        margin: 2em;
+    }
+
+    footer .info {
+        grid-area: info;
+    }
+
+    footer .follow {
+        grid-area: follow;
+    }
+
+    footer .copy {
+        grid-area: copy;
+    }
+
+    footer .chc {
+        grid-area: chc;
     }
 }
 
