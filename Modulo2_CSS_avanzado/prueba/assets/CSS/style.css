@@ -87,9 +87,14 @@ main .grid-item h4 {
 }
 
 main .grid-item button {
+    background-color: #778DA9;
+    border-radius: 10px;
+    color: #040B12;
+    font-weight: 400;
     position: absolute;
     left: 50%;
     bottom: 10%;
+    padding: 0.2em 0.5em;
     transform: translate(-50%, -50%);
     transition: 1s ease;
     opacity: 0;
@@ -97,6 +102,7 @@ main .grid-item button {
 
 main .mostrar-mas {
     text-align: center;
+    margin: 1em;
 }
 
 main .mostrar-mas button {
@@ -104,6 +110,7 @@ main .mostrar-mas button {
     border-radius: 10px;
     color: #778DA9;
     font-size: 1em;
+    font-weight: 600;
     padding: 1em;
     width: 50%;
 }
