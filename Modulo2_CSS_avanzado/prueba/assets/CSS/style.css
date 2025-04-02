@@ -168,6 +168,29 @@ main .box h4 {
     opacity: 1;
 }
 
+form .form-section {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+}
+
+form .form-section label {
+    font-weight: 600;
+    margin: 0.5em;
+}
+
+form .form-section input {
+    border-radius: 5px;
+    padding: 0.8em;
+    font-size: 1em;
+}
+
+form .form-section textarea {
+    border-radius: 5px;
+    padding: 1em;
+    font-size: 1em;
+}
+
 footer {
     background-color: #415A77;
     grid-area: footer;
