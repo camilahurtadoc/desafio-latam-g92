@@ -45,7 +45,7 @@ main {
     grid-area: main;
 }
 
-main .main-productos {
+main .main-productos, .box {
     background-color: #1B263B;
     border-radius: 10px;
     margin: 1em;
@@ -56,8 +56,23 @@ main .main-titulo {
     margin-bottom:1.5em;
 }
 
-main .grid-productos {
-    
+main .box p {
+    text-align: justify;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+main .destacados p {
+    text-align: justify;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+main .box a {
+    color: #E0E1DD;
+}
+
+main .grid-productos, .grid-productos-ciudad {
     display: grid;
     gap: 1.5em;
     grid-template-columns: 1fr;
@@ -70,6 +85,7 @@ main .grid-item {
 }
 
 main .grid-item img {
+    aspect-ratio: 3 / 2;
     border-radius: 10px;
     height: auto;
     max-width: 100%;
@@ -113,6 +129,13 @@ main .grid-item:hover button{
     opacity: 1;
 }
 
+main .estrellas {
+    color: gold;
+    margin: 0.5em 0.5em 0 0;
+    position: absolute;
+    right: 0;
+}
+
 main .mostrar-mas {
     text-align: center;
     margin: 1em;
@@ -131,6 +154,18 @@ main .mostrar-mas button {
 main .mostrar-mas button:hover {
     cursor: pointer;
     box-shadow: 4px 4px 6px #415A77;
+}
+
+main .grid-productos-ciudad img {
+    object-fit: cover;
+    overflow: hidden;
+}
+
+main .box h4 {
+    background-color: #415A77;
+    border-radius: 5px;
+    padding: 0.3em;
+    opacity: 1;
 }
 
 footer {
@@ -211,7 +246,7 @@ footer .chc {
         color: #778DA9;
     }
 
-    main .grid-productos {
+    main .grid-productos, .grid-productos-ciudad {
         grid-template-columns: repeat(2,1fr);
         grid-template-rows: auto;
     }
@@ -255,7 +290,7 @@ footer .chc {
 }
 
 @media (min-width: 992px) {
-    main .grid-productos {
+    main .grid-productos, .grid-productos-ciudad {
         grid-template-columns: repeat(3,1fr);
     }
 }
