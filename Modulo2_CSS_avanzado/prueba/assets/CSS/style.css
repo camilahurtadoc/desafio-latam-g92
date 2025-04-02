@@ -73,7 +73,7 @@ main .grid-item img {
     border-radius: 10px;
     height: auto;
     max-width: 100%;
-    transition: 1s ease;
+    transition: opacity 0.3s ease;
 }
 
 main .grid-item h4 {
@@ -81,7 +81,7 @@ main .grid-item h4 {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    transition: 1s ease;
+    transition: opacity 0.3s ease;
     opacity: 0;
     text-align: center;
 }
@@ -90,14 +90,27 @@ main .grid-item button {
     background-color: #778DA9;
     border-radius: 10px;
     color: #040B12;
+    cursor: pointer;
     font-weight: 400;
     position: absolute;
     left: 50%;
     bottom: 10%;
     padding: 0.2em 0.5em;
     transform: translate(-50%, -50%);
-    transition: 1s ease;
+    transition: opacity 0.3s ease;
     opacity: 0;
+}
+
+main .grid-item:hover img {
+    opacity: 0.3;
+}
+
+main .grid-item:hover h4{
+    opacity: 1;
+}
+
+main .grid-item:hover button{
+    opacity: 1;
 }
 
 main .mostrar-mas {
@@ -116,8 +129,9 @@ main .mostrar-mas button {
 }
 
 footer {
+    background-color: #415A77;
     grid-area: footer;
-    margin: 2em;
+    padding: 2em;
 }
 
 footer .info {
@@ -133,7 +147,7 @@ footer .info li{
 }
 
 footer .follow i {
-    margin: 1em;
+    margin: 0.5em;
     font-size: 1.5em;
     color: #E0E1DD;
 }
@@ -183,31 +197,29 @@ footer .chc {
         grid-template-rows: auto;
     }
 
+    main .grid-item img {
+        transition: opacity 1s ease;
+    }
+    
+    main .grid-item h4 {
+        transition: opacity 1s ease;
+    }
+    
     main .grid-item button {
         bottom: 0%;
-    }
-
-    main .grid-item:hover img {
-        opacity: 0.3;
-    }
-    
-    main .grid-item:hover h4{
-        opacity: 1;
-    }
-    
-    main .grid-item:hover button{
-        opacity: 1;
+        transition: opacity 1s ease;
     }
 
     footer {
         display: grid;
         grid-template-areas: "info follow" "copy chc";
+        grid-template-columns: 3fr 2fr;
         gap: 1em;
-        margin: 2em;
     }
 
     footer .info {
         grid-area: info;
+        margin-bottom: 0;
     }
 
     footer .follow {
