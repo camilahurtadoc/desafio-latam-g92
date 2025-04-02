@@ -128,6 +128,11 @@ main .mostrar-mas button {
     width: 50%;
 }
 
+main .mostrar-mas button:hover {
+    cursor: pointer;
+    box-shadow: 4px 4px 6px #415A77;
+}
+
 footer {
     background-color: #415A77;
     grid-area: footer;
@@ -146,10 +151,19 @@ footer .info li{
     margin: 1em;
 }
 
+footer .info li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 footer .follow i {
     margin: 0.5em;
     font-size: 1.5em;
     color: #E0E1DD;
+}
+
+footer .follow i:hover {
+    color: #1B263B;
 }
 
 footer .copy {
@@ -190,6 +204,11 @@ footer .chc {
     nav li {
         margin: 1em 0.5em;
         text-align: center;
+    }
+
+    nav li:hover {
+        cursor: pointer;
+        color: #778DA9;
     }
 
     main .grid-productos {
