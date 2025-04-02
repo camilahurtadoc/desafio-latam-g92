@@ -264,7 +264,12 @@ footer .chc {
         text-align: center;
     }
 
-    nav li:hover {
+    nav .menu a {
+        color: #E0E1DD;
+        text-decoration: none;
+    }
+
+    nav .menu a:hover {
         cursor: pointer;
         color: #778DA9;
     }
