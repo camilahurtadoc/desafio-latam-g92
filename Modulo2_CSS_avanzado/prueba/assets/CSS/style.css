@@ -335,6 +335,10 @@ footer .chc a {
     main .grid-item h4 {
         transition: all 1s ease;
     }
+
+    #paseos-disponibles .grid-item:hover h4{
+        font-size: large;
+    }
     
     main .grid-item button {
         bottom: 0%;
