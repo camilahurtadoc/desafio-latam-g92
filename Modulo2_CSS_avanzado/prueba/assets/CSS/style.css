@@ -214,7 +214,7 @@ form button:hover {
 footer {
     background-color: #415A77;
     grid-area: footer;
-    padding: 2em;
+    padding: 2em 2em 0 2em;
 }
 
 footer .info {
@@ -234,8 +234,12 @@ footer .info li:hover {
     text-decoration: underline;
 }
 
+footer .follow {
+    margin-bottom: 2em;
+}
+
 footer .follow i {
-    margin: 0.5em;
+    margin: 0.5em 0.5em 0 0.5em;
     font-size: 1.5em;
     color: #E0E1DD;
 }
@@ -244,14 +248,35 @@ footer .follow i:hover {
     color: #1B263B;
 }
 
+footer .find {
+    margin-bottom: 2em;
+}
+
+footer .find div {
+    margin: 0.5em;
+}
+
+footer .find-info {
+    display: flex;
+    align-items: center;
+}
+
+footer .find-info i {
+    margin-right: 0.3em;
+}
+
 footer .copy {
-    margin: 1em;
+    margin: 2em;
     text-align: center;
 }
 
 footer .chc {
-    margin: 1em;
+    margin: 2em 2em 0 2em;
     text-align: center;
+}
+
+footer .chc a {
+    color: #E0E1DD;
 }
 
 @media (min-width: 768px) {
@@ -314,7 +339,7 @@ footer .chc {
 
     footer {
         display: grid;
-        grid-template-areas: "info follow" "copy chc";
+        grid-template-areas: "info follow" "info find" "copy chc";
         grid-template-columns: 3fr 2fr;
         gap: 1em;
     }
@@ -326,6 +351,10 @@ footer .chc {
 
     footer .follow {
         grid-area: follow;
+    }
+
+    footer .find {
+        grid-area: find;
     }
 
     footer .copy {
