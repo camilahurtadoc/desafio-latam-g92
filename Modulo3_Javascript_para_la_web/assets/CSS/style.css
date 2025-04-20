@@ -26,8 +26,8 @@ body {
 
 .card .img-card {
     height: 100px;
-    background-image: url("https://www.amd.com/system/files/2020-05/461767_MSI_Bravo_17_AMD_laptop_1260x709_0.png");
-    background-size: cover;
+    background-image: url(../img/msinotebook.png);
+    background-size:contain ;
     background-repeat: no-repeat;
     background-position: center ;
 }
