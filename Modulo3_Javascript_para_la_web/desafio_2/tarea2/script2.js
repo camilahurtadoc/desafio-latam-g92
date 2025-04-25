@@ -11,7 +11,11 @@ function verificarTotal() {
 
     if(suma > 10) {
         parrafo.innerHTML = 'Llevas demasiados stickers &#128532'
+    } else if (suma > 1 && suma <= 10){
+        parrafo.innerHTML = `Llevas ${suma} stickers &#128525`
+    } else if (suma == 1) {
+        parrafo.innerHTML = `Llevas ${suma} sticker &#128525`
     } else {
-        parrafo.innerHTML = `Llevas ${suma} stickers`
+        parrafo.innerHTML = '¡Escoge tus stickers!'
     }
 }
