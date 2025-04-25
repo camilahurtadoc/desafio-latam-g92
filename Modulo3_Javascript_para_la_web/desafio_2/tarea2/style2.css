@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+main .producto {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+}
+
+.sticker img {
+    width: 100%;
+}
+
+.producto input {
+    text-align: center;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+section button {
+    border-radius: 10px;
+    width: 30%;
+}
