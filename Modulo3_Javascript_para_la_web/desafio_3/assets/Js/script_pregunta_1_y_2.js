@@ -1,10 +1,11 @@
-// PREGUNTA 1
+// ----------------------------------
+// PREGUNTA 1 - Transformar función original a función de expresión
 // ----------------------------------
 
 // Versión original:
-function example(a, b, c) {
-    return a + b;
-}
+//function example(a, b, c) {
+//    return a + b;
+//}
 
 // Versión transformada a una función de expresión:
 const ejemplo = function(a, b, c) {
@@ -12,13 +13,14 @@ const ejemplo = function(a, b, c) {
 }
 
 
-// PREGUNTA 2
+// ----------------------------------
+// PREGUNTA 2 - Transformar función original a arrow function
 // ----------------------------------
 
 // Versión original:
-let suma = function(a, b) {
-    return a + b;
-}
+//let suma = function(a, b) {
+//    return a + b;
+//}
 
 // Versión transformada a arrow function:
 let suma2 = (a, b) => a + b;
