@@ -50,3 +50,65 @@ smoke: false,
 pets: false
 },
 ]
+
+
+
+const row = document.querySelector(".row");
+let html = "";
+let fumar = "";
+let mascotas = "";
+
+for (let venta of propiedades_venta) {
+    if (venta.smoke) {
+        fumar = `<p class="text-success">
+                    <i class="fas fa-smoking"></i> Permitido fumar
+                 </p>`
+    } else {
+        fumar = `<p class="text-danger">
+                    <i class="fas fa-smoking-ban"></i> No se permite fumar
+                 </p>`
+    }
+
+    if (venta.pets) {
+        mascotas = `<p class="text-success">
+                        <i class="fas fa-paw"></i> Mascotas permitidas
+                    </p>`
+    } else {
+        mascotas = `<p class="text-danger">
+                        <i class="fas fa-ban"></i> No se permiten mascotas
+                    </p>`
+    }
+
+    html += `
+        <div class="col-md-4 mb-4">
+            <div class="card">
+              <img
+                src="assets/img/Venta/${venta.id}.jpg"
+                class="card-img-top"
+                alt="Imagen de ${venta.nombre}"
+              />
+              <div class="card-body">
+                <h5 class="card-title">
+                  ${venta.nombre}
+                </h5>
+                <p class="card-text">
+                  ${venta.descripcion}
+                </p>
+                <p>
+                  <i class="fas fa-map-marker-alt"></i>
+                  ${venta.ubicacion} 
+                </p>
+                <p>
+                  <i class="fas fa-bed"></i> ${venta.habitaciones} Habitaciones
+                </p>
+                <p><i class="fas fa-dollar-sign"></i> ${venta.costo.toLocaleString()}</p>
+                ${fumar}
+                ${mascotas}
+              </div>
+            </div>
+        </div>
+    
+    `
+}
+
+row.innerHTML = html;
