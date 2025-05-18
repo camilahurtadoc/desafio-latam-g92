@@ -54,7 +54,7 @@ pets: false
 ]
 
 
-const ventaSection = document.querySelector(".row-venta");
+const ventaRow = document.querySelector(".row-venta");
 let html_venta = "";
 let fumar = "";
 let mascotas = "";
@@ -64,6 +64,7 @@ for (let venta of propiedades_venta) {
     if (contador_ventas == 3) {
         break;
     }
+    
     if (venta.smoke) {
         fumar = `<p class="text-success">
                     <i class="fas fa-smoking"></i> Permitido fumar
@@ -116,7 +117,7 @@ for (let venta of propiedades_venta) {
     contador_ventas += 1;
 }
 
-ventaSection.innerHTML = html_venta;
+ventaRow.innerHTML = html_venta;
 
 
 
@@ -176,33 +177,38 @@ pets: true
 ]
 
 
-const row = document.querySelector(".row");
-let html = "";
-let fumar = "";
-let mascotas = "";
+const alquilerRow = document.querySelector(".row-alquiler");
+let html_alquiler = "";
+let fumar_alquiler = "";
+let mascotas_alquiler = "";
+let contador_alquiler = 0;
 
 for (let alquiler of propiedades_alquiler) {
+    if (contador_alquiler == 3) {
+        break;
+    }
+
     if (alquiler.smoke) {
-        fumar = `<p class="text-success">
+        fumar_alquiler = `<p class="text-success">
                     <i class="fas fa-smoking"></i> Permitido fumar
                  </p>`
     } else {
-        fumar = `<p class="text-danger">
+        fumar_alquiler = `<p class="text-danger">
                     <i class="fas fa-smoking-ban"></i> No se permite fumar
                  </p>`
     }
 
     if (alquiler.pets) {
-        mascotas = `<p class="text-success">
+        mascotas_alquiler = `<p class="text-success">
                         <i class="fas fa-paw"></i> Mascotas permitidas
                     </p>`
     } else {
-        mascotas = `<p class="text-danger">
+        mascotas_alquiler = `<p class="text-danger">
                         <i class="fas fa-ban"></i> No se permiten mascotas
                     </p>`
     }
 
-    html += `
+    html_alquiler += `
         <div class="col-md-4 mb-4">
             <div class="card">
               <img
@@ -225,13 +231,14 @@ for (let alquiler of propiedades_alquiler) {
                   <i class="fas fa-bed"></i> ${alquiler.habitaciones} Habitaciones
                 </p>
                 <p><i class="fas fa-dollar-sign"></i> ${alquiler.costo.toLocaleString()}</p>
-                ${fumar}
-                ${mascotas}
+                ${fumar_alquiler}
+                ${mascotas_alquiler}
               </div>
             </div>
         </div>
     
     `
+    contador_alquiler += 1;
 }
 
-row.innerHTML = html;
+alquilerRow.innerHTML = html_alquiler;
