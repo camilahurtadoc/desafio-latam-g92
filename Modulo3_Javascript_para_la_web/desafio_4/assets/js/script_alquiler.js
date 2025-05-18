@@ -36,7 +36,7 @@ descripcion: 'Pequeña casita en la playa, perfecta para vacaciones en pareja',
 ubicacion: 'Calle en la arena 23, casa 5, Distrito 3',
 habitaciones: 1,
 costo: 450000,
-smoke: false,
+smoke: true,
 pets: false
 },
 {
@@ -46,7 +46,7 @@ descripcion: 'Casa en condominio privado, recién remodelada y full equipada',
 ubicacion: 'Avenida apartada 782, casa 12, Distrito 13',
 habitaciones: 4,
 costo: 4000000,
-smoke: true,
+smoke: false,
 pets: true
 },
 ]
