@@ -50,3 +50,64 @@ smoke: true,
 pets: true
 },
 ]
+
+
+const row = document.querySelector(".row");
+let html = "";
+let fumar = "";
+let mascotas = "";
+
+for (let alquiler of propiedades_alquiler) {
+    if (alquiler.smoke) {
+        fumar = `<p class="text-success">
+                    <i class="fas fa-smoking"></i> Permitido fumar
+                 </p>`
+    } else {
+        fumar = `<p class="text-danger">
+                    <i class="fas fa-smoking-ban"></i> No se permite fumar
+                 </p>`
+    }
+
+    if (alquiler.pets) {
+        mascotas = `<p class="text-success">
+                        <i class="fas fa-paw"></i> Mascotas permitidas
+                    </p>`
+    } else {
+        mascotas = `<p class="text-danger">
+                        <i class="fas fa-ban"></i> No se permiten mascotas
+                    </p>`
+    }
+
+    html += `
+        <div class="col-md-4 mb-4">
+            <div class="card">
+              <img
+                src="assets/img/Alquiler/${alquiler.id}.jpg"
+                class="card-img-top"
+                alt="Imagen de ${alquiler.nombre}"
+              />
+              <div class="card-body">
+                <h5 class="card-title">
+                  ${alquiler.nombre}
+                </h5>
+                <p class="card-text">
+                  ${alquiler.descripcion}
+                </p>
+                <p>
+                  <i class="fas fa-map-marker-alt"></i>
+                  ${alquiler.ubicacion} 
+                </p>
+                <p>
+                  <i class="fas fa-bed"></i> ${alquiler.habitaciones} Habitaciones
+                </p>
+                <p><i class="fas fa-dollar-sign"></i> ${alquiler.costo}</p>
+                ${fumar}
+                ${mascotas}
+              </div>
+            </div>
+        </div>
+    
+    `
+}
+
+row.innerHTML = html;
