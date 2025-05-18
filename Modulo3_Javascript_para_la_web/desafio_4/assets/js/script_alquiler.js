@@ -100,7 +100,7 @@ for (let alquiler of propiedades_alquiler) {
                 <p>
                   <i class="fas fa-bed"></i> ${alquiler.habitaciones} Habitaciones
                 </p>
-                <p><i class="fas fa-dollar-sign"></i> ${alquiler.costo}</p>
+                <p><i class="fas fa-dollar-sign"></i> ${alquiler.costo.toLocaleString()}</p>
                 ${fumar}
                 ${mascotas}
               </div>
