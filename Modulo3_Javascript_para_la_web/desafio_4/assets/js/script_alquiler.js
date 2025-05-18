@@ -22,7 +22,7 @@ pets: false
 {
 nombre: 'Casa a las afueras de la ciudad',
 id: '16157',
-descripcion: 'Amplia casa en sector tranquilo con amplio terreno',
+descripcion: 'Amplia casa en sector tranquilo con amplio terreno rodeado de naturaleza',
 ubicacion: 'Camino escondido 3256, Distrito 7',
 habitaciones: 7,
 costo: 5500000,
@@ -42,7 +42,7 @@ pets: false
 {
 nombre: 'Espectacular casa remodelada',
 id: '23773',
-descripcion: 'Casa en condominio privado, recién remodelada',
+descripcion: 'Casa en condominio privado, recién remodelada y full equipada',
 ubicacion: 'Avenida apartada 782, casa 12, Distrito 13',
 habitaciones: 4,
 costo: 4000000,
