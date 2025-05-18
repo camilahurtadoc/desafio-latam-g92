@@ -1,7 +1,7 @@
 const propiedades_alquiler = [
 {
 nombre: 'Lujoso departamento en rascacielos',
-id: '7289',
+id: '7289', //se utiliza para obtener el src de la img
 descripcion: 'Amplio y moderno departamento con doble techo y vista incomparable',
 ubicacion: 'Camino al cielo 9823, Distrito 0',
 habitaciones: 3,

@@ -1,7 +1,7 @@
 const propiedades_venta = [
 {
 nombre: 'Mágica casa al borde del lago',
-id: '157',
+id: '157', //se utiliza para obtener el src de la img
 descripcion: 'Hermosa casa con vista y ambiente inigualable al borde del lago',
 ubicacion: 'Camino del lago 12, Distrito 4',
 habitaciones: 20,
