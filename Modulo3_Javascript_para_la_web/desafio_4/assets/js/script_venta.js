@@ -12,7 +12,7 @@ pets: true
 {
 nombre: 'Casa en el cerro',
 id: '9528',
-descripcion: 'Casa en sector privado, tranquilo y seguro',
+descripcion: 'Casa en sector privado, tranquilo y seguro. Excelente ambiente familiar',
 ubicacion: 'Calle del cerro 453, Distrito 6',
 habitaciones: 5,
 costo: 800000000 , 
@@ -54,7 +54,7 @@ pets: false
 
 
 const row = document.querySelector(".row");
-let html = "";
+let html_venta = "";
 let fumar = "";
 let mascotas = "";
 
@@ -79,7 +79,7 @@ for (let venta of propiedades_venta) {
                     </p>`
     }
 
-    html += `
+    html_venta += `
         <div class="col-md-4 mb-4">
             <div class="card">
               <img
@@ -111,4 +111,4 @@ for (let venta of propiedades_venta) {
     `
 }
 
-row.innerHTML = html;
+row.innerHTML = html_venta;
