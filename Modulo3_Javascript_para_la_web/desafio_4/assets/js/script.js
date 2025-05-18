@@ -18,7 +18,7 @@ descripcion: 'Casa en sector privado, tranquilo y seguro. Excelente ambiente fam
 ubicacion: 'Calle del cerro 453, Distrito 6',
 habitaciones: 5,
 costo: 800000000 , 
-smoke: false,
+smoke: true,
 pets: true
 },
 {
@@ -39,7 +39,7 @@ ubicacion: 'Sendero a la playa 3278, Distrito 8',
 habitaciones: 3,
 costo: 200000000,
 smoke: true,
-pets: true
+pets: false
 },
 {
 nombre: 'Departamento nuevo en icónico barrio',
@@ -49,7 +49,7 @@ ubicacion: 'Av. La familia 5689, Distrito 9',
 habitaciones: 4,
 costo: 500000000,
 smoke: false,
-pets: false
+pets: true
 },
 ]
 
@@ -64,7 +64,7 @@ for (let venta of propiedades_venta) {
     if (contador_ventas == 3) {
         break;
     }
-    
+
     if (venta.smoke) {
         fumar = `<p class="text-success">
                     <i class="fas fa-smoking"></i> Permitido fumar
