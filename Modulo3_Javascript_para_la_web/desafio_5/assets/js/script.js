@@ -1,7 +1,8 @@
 const inputTareas = document.querySelector("#tareaInput");
 const btnAgregar = document.querySelector("#btnTarea");
-const listaTareas = document.querySelector("#listaTareas");
-const listaId = document.querySelector("#listaId");
+
+const listaTareas = document.querySelector("#listaTareas")
+
 const cuentaTareas = document.querySelector("#cuentaTareas");
 const cuentaTareasRealizadas = document.querySelector("#cuentaTareasRealizadas");
 const checkboxRealizada = document.querySelector("#inputCheckbox")
@@ -29,34 +30,25 @@ function agregarItemsALista(arreglo) {
     for (i = 0; i < arreglo.length; i++){
         if (arreglo[i].realizada === true) {
             htmlGeneral += `
-            <li style="color: blue">${arreglo[i].descripcion} <input type="checkbox" onchange="tareaRealizada(${arreglo[i].id})" checked></input><button onclick="borrarTarea(${arreglo[i].id})">Eliminar</button></li>
+            <tr>
+                <td style="color: blue">${arreglo[i].id}</td>
+                <td style="color: blue">${arreglo[i].descripcion}</td>
+                <td><input type="checkbox" onchange="tareaRealizada(${arreglo[i].id})" checked></input></td>
+                <td><button onclick="borrarTarea(${arreglo[i].id})">Eliminar</button></td>
+            </tr>
             `
         } else {
             htmlGeneral += `
-            <li>${arreglo[i].descripcion} <input type="checkbox" onchange="tareaRealizada(${arreglo[i].id})"></input><button onclick="borrarTarea(${arreglo[i].id})">Eliminar</button></li>
+            <tr>
+                <td>${arreglo[i].id}</td>
+                <td>${arreglo[i].descripcion}</td>
+                <td><input type="checkbox" onchange="tareaRealizada(${arreglo[i].id})"></input></td>
+                <td><button onclick="borrarTarea(${arreglo[i].id})">Eliminar</button></td>
+            </tr>
             `
         }
     }    
     return htmlGeneral;
-}
-
-function agregarIdALista(arreglo) {
-    let htmlListaId = "";
-
-    for (i = 0; i < arreglo.length; i++){
-        if (arreglo[i].realizada === true) {
-            
-            htmlListaId += `
-            <li style="color: blue">${arreglo[i].id}</li>
-            `
-        } else {
-            
-            htmlListaId += `
-            <li>${arreglo[i].id}</li>
-            `
-        }
-    }
-    return htmlListaId;
 }
 
 
@@ -75,7 +67,6 @@ function borrarTarea(id) {
 // Actualizar el DOM
 function renderTareas(arreglo) {
     listaTareas.innerHTML = agregarItemsALista(arreglo);
-    listaId.innerHTML = agregarIdALista(arreglo);
     cuentaTareas.innerHTML = `<p>Total: ${arreglo.length}</p>`
     cuentaTareasRealizadas.innerHTML = `<p>Realizadas: ${contadorRealizadas(arreglo)}</p>`
 }
@@ -87,31 +78,34 @@ function tareaRealizada(id) {
     tareas[index].realizada = !tareas[index].realizada
 
     let htmlGeneral = "";
-    let htmlListaId = "";
 
     for (i = 0; i < tareas.length; i++){
         if (tareas[i].realizada === true) {
+
             htmlGeneral += `
-            <li style="color: blue">${tareas[i].descripcion} <input type="checkbox" onchange="tareaRealizada(${tareas[i].id})" checked></input><button onclick="borrarTarea(${tareas[i].id})">Eliminar</button></li>
+            <tr>
+                <td style="color: blue">${tareas[i].id}</td>
+                <td style="color: blue">${tareas[i].descripcion}</td>
+                <td><input type="checkbox" onchange="tareaRealizada(${tareas[i].id})" checked></input></td>
+                <td><button onclick="borrarTarea(${tareas[i].id})">Eliminar</button></td>
+            </tr>
             `
-            htmlListaId += `
-            <li style="color: blue">${tareas[i].id}</li>
-            `
+
         } else {
             htmlGeneral += `
-            <li>${tareas[i].descripcion} <input type="checkbox" onchange="tareaRealizada(${tareas[i].id})"></input><button onclick="borrarTarea(${tareas[i].id})">Eliminar</button></li>
-            `
-            htmlListaId += `
-            <li>${tareas[i].id}</li>
+            <tr>
+                <td>${tareas[i].id}</td>
+                <td>${tareas[i].descripcion}</td>
+                <td><input type="checkbox" onchange="tareaRealizada(${tareas[i].id})"></input></td>
+                <td><button onclick="borrarTarea(${tareas[i].id})">Eliminar</button></td>
+            </tr>
             `
         }
     }    
 
     listaTareas.innerHTML = htmlGeneral;
-    listaId.innerHTML = htmlListaId;
     cuentaTareas.innerHTML = `<p>Total: ${tareas.length}</p>`
     cuentaTareasRealizadas.innerHTML = `<p>Realizadas: ${contadorRealizadas(tareas)}</p>`
-
 }
 
 
@@ -119,7 +113,6 @@ function tareaRealizada(id) {
 function contadorRealizadas(arreglo) {
     const contadorRealizadas = arreglo.filter(tarea => tarea.realizada === true);
     return contadorRealizadas.length;
-    
 }
 
 // Función para asignar un id a una tarea sin usar Date.now()
