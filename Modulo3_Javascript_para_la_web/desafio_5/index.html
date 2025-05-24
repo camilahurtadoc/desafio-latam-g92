@@ -9,14 +9,18 @@
 <body>
     <h1>To Do List</h1>
 
-    <input id="tareaInput" type="text" placeholder="Escribe la tarea">
-    <button id="btnTarea">Agregar</button> <br> <br>
+    <label for="tareaNueva">Nueva tarea:</label> 
+    <input id="tareaInput" type="text" placeholder="Escribe una tarea..." name="tareaNueva">
+    <button id="btnTarea">Agregar</button> 
     <input id="buscarInput" type="text" placeholder="Buscar">
     <button id="btnBuscar">Buscar</button>
 
 
     <h3>Tareas:</h3>
-    <ul id="listaInvitados"></ul>
+    <div id="boxTareas">
+        <ul id="listaId"></ul>
+        <ul id="listaTareas"></ul>
+    </div>
 
     <span id="cuentaTareas"></span>
 

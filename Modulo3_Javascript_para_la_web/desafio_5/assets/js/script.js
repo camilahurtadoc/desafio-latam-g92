@@ -1,6 +1,7 @@
 const inputTareas = document.querySelector("#tareaInput");
 const btnAgregar = document.querySelector("#btnTarea");
-const listaTareas = document.querySelector("#listaInvitados");
+const listaTareas = document.querySelector("#listaTareas");
+const listaId = document.querySelector("#listaId");
 const cuentaTareas = document.querySelector("#cuentaTareas");
 
 const tareas = [{id: 1, descripcion: "Comprar pan"}, {id: 2, descripcion: "Bañar al perro"}, {id: 3, descripcion: "Terminar desafío 5"}];
@@ -26,6 +27,16 @@ function agregarItemsALista(arreglo) {
     return htmlGeneral;
 }
 
+function agregarIdALista(arreglo) {
+    let htmlListaId = "";
+    for (let item of arreglo){
+        htmlListaId += `
+        <li>${item.id}</li>
+        `
+    }
+    return htmlListaId;
+}
+
 function borrarTarea(id) {
     const index = tareas.findIndex(tarea => tarea.id === id)
 
@@ -38,6 +49,7 @@ function borrarTarea(id) {
 
 function renderTareas(arreglo) {
     listaTareas.innerHTML = agregarItemsALista(arreglo);
+    listaId.innerHTML = agregarIdALista(arreglo);
     cuentaTareas.innerHTML = `<p>Cantidad de tareas: ${arreglo.length}</p>`
 }
 
