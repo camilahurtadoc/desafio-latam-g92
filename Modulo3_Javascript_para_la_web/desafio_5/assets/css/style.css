@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: Raleway, sans-serif;
+}
+
+body {
+    background-color: #e0b1cb;
+    color: #231942;
+}
+
+body h1 {
+    color: #5e548e;
+    margin: 0.5em;
+}
+
+body #boxInput {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.textoUsuario {
+    width: 100%;
+}
+
+.textoUsuario input {
+    width: 40%;
+}
+
+.textoUsuario button {
+    width: 20%;
+}
+
+body #contenedorTareas {
+    display: flex;
+    justify-content: left;
+}
+
+body #boxContador {
+    font-weight: 600;
+    width: 250px;
+}
+
+/* body #boxListas {
+    display: flex;
+}
+
+body #boxListas ul {
+    list-style: none;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+.boxID {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.boxID h4 {
+    margin-bottom: 0;
+}
+
+.boxID li {
+    margin: 0.2em;
+    min-height: 1.5em;
+}
+
+.boxTareas h4 {
+    margin-bottom: 0;
+    margin-left: 0.3em;
+
+}
+
+.boxTareas li {
+    margin: 0.2em;
+    min-height: 1.5em;
+}
+
+.boxTareas input {
+    margin-left: 6em;
+} */
