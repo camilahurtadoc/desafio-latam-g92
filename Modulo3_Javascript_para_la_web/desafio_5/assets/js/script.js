@@ -81,6 +81,7 @@ function renderTareas(arreglo) {
 }
 
 
+// Función para cambiar el style cuando una tarea fue realizada
 function tareaRealizada(id) {
     const index = tareas.findIndex(tarea => tarea.id === id)
     tareas[index].realizada = !tareas[index].realizada
@@ -113,6 +114,7 @@ function tareaRealizada(id) {
 
 }
 
+
 // Función para contador de tareas realizadas
 function contadorRealizadas(arreglo) {
     const contadorRealizadas = arreglo.filter(tarea => tarea.realizada === true);
@@ -120,6 +122,8 @@ function contadorRealizadas(arreglo) {
     
 }
 
+// Función para asignar un id a una tarea sin usar Date.now()
+// No importa que se reasigne el id de una tarea, si fue previamente eliminada
 function crearId(arreglo) {
     const tareasOrdenadasPorId = arreglo.sort(tarea => tarea.id);
     const maxId = tareasOrdenadasPorId[tareasOrdenadasPorId.length -1].id;
