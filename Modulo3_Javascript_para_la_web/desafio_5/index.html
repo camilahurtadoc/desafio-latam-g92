@@ -9,11 +9,10 @@
 <body>
     <h1>To Do List</h1>
 
-    <label for="tareaNueva">Nueva tarea:</label> 
-    <input id="tareaInput" type="text" placeholder="Escribe una tarea..." name="tareaNueva">
+    <label for="tareaInput">Nueva tarea:</label> 
+    <input id="tareaInput" type="text" placeholder="Escribe una tarea..." name="tareaInput">
     <button id="btnTarea">Agregar</button> 
-    <input id="buscarInput" type="text" placeholder="Buscar">
-    <button id="btnBuscar">Buscar</button>
+
 
 
     <h3>Tareas:</h3>
@@ -22,7 +21,10 @@
         <ul id="listaTareas"></ul>
     </div>
 
-    <span id="cuentaTareas"></span>
+    <div id="boxContador">
+        <span id="cuentaTareas"></span>
+        <span id="cuentaTareasRealizadas"></span>
+    </div>
 
     <script src="assets/js/script.js"></script>
 </body>
