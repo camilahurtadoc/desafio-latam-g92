@@ -5,13 +5,13 @@ const listaId = document.querySelector("#listaId");
 const cuentaTareas = document.querySelector("#cuentaTareas");
 const cuentaTareasRealizadas = document.querySelector("#cuentaTareasRealizadas");
 
-const tareas = [{id: 1, descripcion: "Comprar pan"}, {id: 2, descripcion: "Bañar al perro"}, {id: 3, descripcion: "Terminar desafío 5"}];
+const tareas = [{id: 1, descripcion: "Comprar pan", realizada: false}, {id: 2, descripcion: "Bañar al perro", realizada: false}, {id: 3, descripcion: "Terminar desafío 5", realizada: false}];
 renderTareas(tareas)
 
 
 btnAgregar.addEventListener("click", () => {
     const nuevaTarea = inputTareas.value;
-    tareas.push({id: Date.now(), descripcion:nuevaTarea});
+    tareas.push({id: Date.now(), descripcion:nuevaTarea, realizada: false});
     inputTareas.value = "";
 
     renderTareas(tareas)
@@ -58,13 +58,13 @@ function renderTareas(arreglo) {
 const buscarInput = document.querySelector("#buscarInput");
 const btnBuscar = document.querySelector("#btnBuscar");
 
-btnBuscar.addEventListener("click", () => {
-    const frase = buscarInput.value;
-    console.log(frase)
-    const tareasFiltradas = tareas.filter( 
-        tarea => tarea.descripcion.includes(frase)
+// btnBuscar.addEventListener("click", () => {
+//     const frase = buscarInput.value;
+//     console.log(frase)
+//     const tareasFiltradas = tareas.filter( 
+//         tarea => tarea.descripcion.includes(frase)
     
-     );
+//      );
 
-    renderTareas(tareasFiltradas)
-})
+//     renderTareas(tareasFiltradas)
+// })
