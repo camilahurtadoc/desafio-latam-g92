@@ -6,20 +6,23 @@ const cuentaTareas = document.querySelector("#cuentaTareas");
 const cuentaTareasRealizadas = document.querySelector("#cuentaTareasRealizadas");
 const checkboxRealizada = document.querySelector("#inputCheckbox")
 
+
+// Arreglo inicial con tareas
 const tareas = [{id: 1, descripcion: "Comprar pan", realizada: false}, {id: 2, descripcion: "Bañar al perro", realizada: false}, {id: 3, descripcion: "Terminar desafío 5", realizada: false}];
 renderTareas(tareas)
 
 
+// Agregar nuevas tareas desde usuario y actualizar DOM
 btnAgregar.addEventListener("click", () => {
     const nuevaTarea = inputTareas.value;
-    tareas.push({id: Date.now(), descripcion:nuevaTarea, realizada: false});
+    tareas.push({id: crearId(tareas), descripcion:nuevaTarea, realizada: false});
     inputTareas.value = "";
 
     renderTareas(tareas)
 })
 
 
-
+// Funciones para agregar descripción y id de tarea a las <li>
 function agregarItemsALista(arreglo) {
     let htmlGeneral = "";
    
@@ -36,8 +39,6 @@ function agregarItemsALista(arreglo) {
     }    
     return htmlGeneral;
 }
-
-
 
 function agregarIdALista(arreglo) {
     let htmlListaId = "";
@@ -59,6 +60,7 @@ function agregarIdALista(arreglo) {
 }
 
 
+// Función para borrar una tarea y actualizar el DOM
 function borrarTarea(id) {
     const index = tareas.findIndex(tarea => tarea.id === id)
 
@@ -70,6 +72,7 @@ function borrarTarea(id) {
 }
 
 
+// Actualizar el DOM
 function renderTareas(arreglo) {
     listaTareas.innerHTML = agregarItemsALista(arreglo);
     listaId.innerHTML = agregarIdALista(arreglo);
@@ -110,10 +113,15 @@ function tareaRealizada(id) {
 
 }
 
-
+// Función para contador de tareas realizadas
 function contadorRealizadas(arreglo) {
     const contadorRealizadas = arreglo.filter(tarea => tarea.realizada === true);
     return contadorRealizadas.length;
     
 }
 
+function crearId(arreglo) {
+    const tareasOrdenadasPorId = arreglo.sort(tarea => tarea.id);
+    const maxId = tareasOrdenadasPorId[tareasOrdenadasPorId.length -1].id;
+    return maxId +1;
+}
