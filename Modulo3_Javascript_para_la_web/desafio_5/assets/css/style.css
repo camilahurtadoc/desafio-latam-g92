@@ -19,7 +19,9 @@ body #boxInput {
     flex-direction: column;
     gap: 1em;
     margin-bottom: 1em;
+    margin-left: 2em;
     width: 100%;
+    font-weight: 500;
 }
 
 .textoUsuario {
@@ -36,50 +38,47 @@ body #boxInput {
 
 body #contenedorTareas {
     display: flex;
+    flex-direction: column;
+    gap: 2em;
     justify-content: left;
+    margin-left: 2em;
 }
 
 body #boxContador {
-    font-weight: 600;
-    width: 250px;
+    font-weight: 800;
 }
 
-/* body #boxListas {
-    display: flex;
+table {
+    table-layout: fixed;
+    width: 50%;
 }
 
-body #boxListas ul {
-    list-style: none;
-    margin: 0.5em;
-    padding: 0.5em;
+thead th {
+    text-align: left;
 }
 
-.boxID {
-    display: flex;
-    flex-direction: column;
-    align-items:center;
+thead th:nth-child(1) {
+    width: 5%;
 }
 
-.boxID h4 {
-    margin-bottom: 0;
+thead th:nth-child(2) {
+    width: 40%;
 }
 
-.boxID li {
-    margin: 0.2em;
-    min-height: 1.5em;
+thead th:nth-child(3) {
+    width: 10%;
+    text-align: center;
 }
 
-.boxTareas h4 {
-    margin-bottom: 0;
-    margin-left: 0.3em;
-
+thead th:nth-child(4) {
+    width: 10%;
+    text-align: center;
 }
 
-.boxTareas li {
-    margin: 0.2em;
-    min-height: 1.5em;
+tbody tr td:nth-child(3) {
+    text-align: center;
 }
 
-.boxTareas input {
-    margin-left: 6em;
-} */
+tbody tr td:nth-child(4) {
+    text-align: center;
+}

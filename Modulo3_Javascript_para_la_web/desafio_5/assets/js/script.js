@@ -31,8 +31,8 @@ function agregarItemsALista(arreglo) {
         if (arreglo[i].realizada === true) {
             htmlGeneral += `
             <tr>
-                <td style="color: blue">${arreglo[i].id}</td>
-                <td style="color: blue">${arreglo[i].descripcion}</td>
+                <td style="color: #9f86c0">${arreglo[i].id}</td>
+                <td style="color: #9f86c0">${arreglo[i].descripcion}</td>
                 <td><input type="checkbox" onchange="tareaRealizada(${arreglo[i].id})" checked></input></td>
                 <td><button onclick="borrarTarea(${arreglo[i].id})">Eliminar</button></td>
             </tr>
@@ -84,8 +84,8 @@ function tareaRealizada(id) {
 
             htmlGeneral += `
             <tr>
-                <td style="color: blue">${tareas[i].id}</td>
-                <td style="color: blue">${tareas[i].descripcion}</td>
+                <td style="color: #9f86c0">${tareas[i].id}</td>
+                <td style="color: #9f86c0">${tareas[i].descripcion}</td>
                 <td><input type="checkbox" onchange="tareaRealizada(${tareas[i].id})" checked></input></td>
                 <td><button onclick="borrarTarea(${tareas[i].id})">Eliminar</button></td>
             </tr>
