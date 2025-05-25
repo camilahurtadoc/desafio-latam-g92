@@ -122,3 +122,25 @@ function crearId(arreglo) {
     const maxId = tareasOrdenadasPorId[tareasOrdenadasPorId.length -1].id;
     return maxId +1;
 }
+
+
+// Función para resetear los ids (en caso que se salte numeros dp de haberlos
+// eliminado, los ordena partiendo de 1 nuevamente)
+const btnReset = document.querySelector("#reset");
+
+// function resetearIds(arreglo) {
+//     for (i = 0; i < arreglo.length; i++) { 
+//         console.log(i)
+//         arreglo[i].id = i + 2;
+//         console.log(arreglo)
+//     }
+//     renderTareas(arreglo);
+// }
+
+
+btnReset.addEventListener("click", () => {
+    for (i = 0; i < tareas.length; i++) { 
+        tareas[i].id = i + 1;
+    }
+    renderTareas(tareas);
+});
