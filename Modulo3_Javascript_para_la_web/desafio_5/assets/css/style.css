@@ -2,6 +2,7 @@
 
 * {
     font-family: Raleway, sans-serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -30,10 +31,16 @@ body #boxInput {
 
 .textoUsuario input {
     width: 40%;
+    height: 30px;
 }
 
 .textoUsuario button {
-    width: 20%;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px;
+    background-color: #be95c4;
+    border-color: #9f86c0;
+    color:#231942;
 }
 
 body #contenedorTareas {
@@ -62,16 +69,16 @@ thead th:nth-child(1) {
 }
 
 thead th:nth-child(2) {
-    width: 40%;
+    width: 45%;
 }
 
 thead th:nth-child(3) {
-    width: 10%;
+    width: 20%;
     text-align: center;
 }
 
 thead th:nth-child(4) {
-    width: 10%;
+    width: 20%;
     text-align: center;
 }
 
