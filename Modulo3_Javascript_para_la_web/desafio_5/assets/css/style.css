@@ -43,6 +43,10 @@ body #boxInput {
     color:#231942;
 }
 
+.textoUsuario button:hover {
+    cursor: pointer;
+}
+
 body #contenedorTareas {
     display: flex;
     flex-direction: column;
@@ -88,4 +92,17 @@ tbody tr td:nth-child(3) {
 
 tbody tr td:nth-child(4) {
     text-align: center;
+}
+
+tbody .fa-trash {
+    color: #5e548e;
+}
+
+tbody .fa-trash:hover {
+    color: #5e548e;
+    cursor: pointer;
+}
+
+tbody input:hover {
+    cursor: pointer;
 }
