@@ -34,7 +34,7 @@ function agregarItemsALista(arreglo) {
                 <td style="color: #9f86c0">${arreglo[i].id}</td>
                 <td style="color: #9f86c0">${arreglo[i].descripcion}</td>
                 <td><input type="checkbox" onchange="tareaRealizada(${arreglo[i].id})" checked></input></td>
-                <td><button onclick="borrarTarea(${arreglo[i].id})">Eliminar</button></td>
+                <td><i class="fa-solid fa-trash" onclick="borrarTarea(${arreglo[i].id})"></i></td>
             </tr>
             `
         } else {
@@ -43,7 +43,7 @@ function agregarItemsALista(arreglo) {
                 <td>${arreglo[i].id}</td>
                 <td>${arreglo[i].descripcion}</td>
                 <td><input type="checkbox" onchange="tareaRealizada(${arreglo[i].id})"></input></td>
-                <td><button onclick="borrarTarea(${arreglo[i].id})">Eliminar</button></td>
+                <td><i class="fa-solid fa-trash" onclick="borrarTarea(${arreglo[i].id})"></i></td>
             </tr>
             `
         }
@@ -87,7 +87,7 @@ function tareaRealizada(id) {
                 <td style="color: #9f86c0">${tareas[i].id}</td>
                 <td style="color: #9f86c0">${tareas[i].descripcion}</td>
                 <td><input type="checkbox" onchange="tareaRealizada(${tareas[i].id})" checked></input></td>
-                <td><button onclick="borrarTarea(${tareas[i].id})">Eliminar</button></td>
+                <td><i class="fa-solid fa-trash" onclick="borrarTarea(${tareas[i].id})"></i></td>
             </tr>
             `
 
@@ -97,7 +97,7 @@ function tareaRealizada(id) {
                 <td>${tareas[i].id}</td>
                 <td>${tareas[i].descripcion}</td>
                 <td><input type="checkbox" onchange="tareaRealizada(${tareas[i].id})"></input></td>
-                <td><button onclick="borrarTarea(${tareas[i].id})">Eliminar</button></td>
+                <td><i class="fa-solid fa-trash" onclick="borrarTarea(${tareas[i].id})"></i></td>
             </tr>
             `
         }
