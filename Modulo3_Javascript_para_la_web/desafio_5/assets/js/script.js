@@ -16,10 +16,15 @@ renderTareas(tareas)
 // Agregar nuevas tareas desde usuario y actualizar DOM
 btnAgregar.addEventListener("click", () => {
     const nuevaTarea = inputTareas.value;
-    tareas.push({id: crearId(tareas), descripcion:nuevaTarea, realizada: false});
-    inputTareas.value = "";
 
-    renderTareas(tareas)
+     if (validarInput(nuevaTarea) === false) {
+        alert("Tienes que escribir una tarea!");
+    } else {
+         tareas.push({id: crearId(tareas), descripcion:nuevaTarea, realizada: false});
+         inputTareas.value = "";
+         
+         renderTareas(tareas)
+        }
 })
 
 
@@ -134,3 +139,11 @@ btnReset.addEventListener("click", () => {
     }
     renderTareas(tareas);
 });
+
+
+//
+function validarInput(inputvalue) {
+    if (inputvalue.trim() === "") {
+        return false;
+    }
+}
