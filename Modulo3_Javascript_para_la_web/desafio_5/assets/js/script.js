@@ -141,7 +141,7 @@ btnReset.addEventListener("click", () => {
 });
 
 
-//
+// FUnción para validar que input de usuario no sea un string vacío
 function validarInput(inputvalue) {
     if (inputvalue.trim() === "") {
         return false;
