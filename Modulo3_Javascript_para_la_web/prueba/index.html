@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Módulo 3</title>
+</head>
+<body>
+    <h1>Conversos de monedas Nacional</h1>
+
+    <div>
+        <label for="inputCLP">Pesos CLP</label>
+        <input type="number" placeholder="Ingrese el monto en CLP" name="inputCLP" min="0">
+    
+        <label>Moneda a convertir</label>
+        <select name="convertir" id="convertir">
+            <option value="seleccion">Seleccione Moneda</option>
+            <option value="uf">UF</option>
+            <option value="dolar">Dólar observado</option>
+            <option value="euro">Euro</option>
+        </select>
+        <button>Buscar</button>
+        <p id="resultado"></p>   
+    </div>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
