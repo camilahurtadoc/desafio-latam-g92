@@ -1,27 +1,29 @@
-
-// Ver que moneda escogió (eventlistener)
 const btnBuscar = document.querySelector("#btnBuscar");
 let chartInUse;
 
+
+// Render de chart al clickear button
 btnBuscar.addEventListener('click', async () => {
     const inputCLP = document.querySelector("#inputCLP").value;
     const monedaUsuario = document.querySelector("#monedaUsuario").value;
     const tooltiptext = document.querySelector(".tooltiptext");
 
+    // Asegura que usuario escoge una moneda
     if (monedaUsuario == "seleccion") {
         tooltiptext.style.visibility = "visible";
     } else {
         tooltiptext.style.visibility = "hidden";
-        console.log(chartInUse)
+        // Permite un chart nuevo si ya hay uno creado
         if (chartInUse != undefined) {
             chartInUse.destroy();
         }
+        // Renderización de chart
         chartInUse = await renderChart(monedaUsuario, inputCLP, chartInUse)
     }
 })
 
 
-
+// GET moneda escogida por usuario desde API
 async function getMonedaEscogidaUsuario(monedaUsuario) {
     const res = await fetch(`https://mindicador.cl/api/${monedaUsuario}`);
     const moneda = await res.json();
@@ -29,13 +31,13 @@ async function getMonedaEscogidaUsuario(monedaUsuario) {
 }
 
 
-
+// Parseo de datos desde API
 async function parsearMoneda(monedaUsuario, inputCLP) {
     const moneda = await getMonedaEscogidaUsuario(monedaUsuario);
     const valorPesos = moneda.serie[0].valor;
-    const pResultado = document.querySelector("#resultado");
-    pResultado.innerHTML = `Resultado: $${(inputCLP/valorPesos).toFixed(2)}`;
+    mostrarResultado(inputCLP, valorPesos);
     
+    // Parseo de datos para chart
     let labels = [];
     let fecha = "";
     let counter = 0;
@@ -65,7 +67,14 @@ async function parsearMoneda(monedaUsuario, inputCLP) {
 }
 
 
+// Modifica DOM y muestra resultado de moneda seleccionada por usuario
+function mostrarResultado(inputCLP, valorPesos) {
+    const pResultado = document.querySelector("#resultado");
+    pResultado.innerHTML = `Resultado: $${(inputCLP/valorPesos).toFixed(2)}`;
+}
 
+
+// Parseo de datos para chart
 async function parsearChart(monedaUsuario, inputCLP) {
     const data = await parsearMoneda(monedaUsuario, inputCLP);
     const plugin = {
@@ -95,23 +104,14 @@ async function parsearChart(monedaUsuario, inputCLP) {
     return config;
 }
 
+
+// Renderización del chart
 async function renderChart(monedaUsuario, inputCLP, chartInUse) {
     const config = await parsearChart(monedaUsuario, inputCLP);
 
     const myChart = document.querySelector("#myChart");
     chartInUse = new Chart(myChart, config);
     
-
-
-    // if (chartInUse == undefined) {
-    //     chartInUse = new Chart(myChart, config);
-    //     console.log(chartInUse)
-    // } else {
-    //     console.log(chartInUse)
-    //     // console.log(chartInUse.PromiseResult)
-    //     chartInUse.destroy();
-    //     chartInUse = new Chart(myChart, config);
-    // }
     return chartInUse;
 }
 
