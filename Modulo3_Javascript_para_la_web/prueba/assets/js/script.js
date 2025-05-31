@@ -1,5 +1,15 @@
 
 // Ver que moneda escogió (eventlistener)
+const btnBuscar = document.querySelector("#btnBuscar");
+
+btnBuscar.addEventListener('click', () => {
+    const inputCLP = document.querySelector("#inputCLP").value;
+    const monedaUsuario = document.querySelector("#monedaUsuario").value;
+
+
+})
+
+
 // if else para ver qué conversión traigo? 
 //      => hacer function p traer cada moneda? /api/codigo
 //      => una sola función y `/api/${codigo}`

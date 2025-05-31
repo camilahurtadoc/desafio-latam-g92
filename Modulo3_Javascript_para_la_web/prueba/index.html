@@ -10,16 +10,16 @@
 
     <div>
         <label for="inputCLP">Pesos CLP</label>
-        <input type="number" placeholder="Ingrese el monto en CLP" name="inputCLP" min="0">
+        <input type="number" placeholder="Ingrese el monto en CLP" name="inputCLP" min="0" id="inputCLP">
     
         <label>Moneda a convertir</label>
-        <select name="convertir" id="convertir">
+        <select name="monedaUsuario" id="monedaUsuario">
             <option value="seleccion">Seleccione Moneda</option>
             <option value="uf">UF</option>
             <option value="dolar">Dólar observado</option>
             <option value="euro">Euro</option>
         </select>
-        <button>Buscar</button>
+        <button id="btnBuscar">Buscar</button>
         <p id="resultado"></p>   
     </div>
     <div>
