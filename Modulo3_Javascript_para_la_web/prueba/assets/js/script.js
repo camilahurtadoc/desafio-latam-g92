@@ -1,8 +1,9 @@
 
 // Ver que moneda escogió (eventlistener)
 const btnBuscar = document.querySelector("#btnBuscar");
+let chartInUse;
 
-btnBuscar.addEventListener('click', () => {
+btnBuscar.addEventListener('click', async () => {
     const inputCLP = document.querySelector("#inputCLP").value;
     const monedaUsuario = document.querySelector("#monedaUsuario").value;
     const tooltiptext = document.querySelector(".tooltiptext");
@@ -11,22 +12,24 @@ btnBuscar.addEventListener('click', () => {
         tooltiptext.style.visibility = "visible";
     } else {
         tooltiptext.style.visibility = "hidden";
-        renderChartyResultado(monedaUsuario, inputCLP);
+        console.log(chartInUse)
+        if (chartInUse != undefined) {
+            chartInUse.destroy();
+        }
+        chartInUse = await renderChart(monedaUsuario, inputCLP, chartInUse)
     }
 })
 
 
-// if else para ver qué conversión traigo? 
-//      => hacer function p traer cada moneda? /api/codigo
-//      => una sola función y `/api/${codigo}`
+
 async function getMonedaEscogidaUsuario(monedaUsuario) {
     const res = await fetch(`https://mindicador.cl/api/${monedaUsuario}`);
     const moneda = await res.json();
     return moneda;
 }
 
-//traer conversión hoy (async function) y (parsear info)
-//parsearDatosChart()
+
+
 async function parsearMoneda(monedaUsuario, inputCLP) {
     const moneda = await getMonedaEscogidaUsuario(monedaUsuario);
     const valorPesos = moneda.serie[0].valor;
@@ -61,11 +64,9 @@ async function parsearMoneda(monedaUsuario, inputCLP) {
     return {labels, datasets}
 }
 
-//renderChartyResultado
-//      => render queryselector("#resultado") y innerhtml = `${valor}`
-//      => render chart
 
-async function renderChartyResultado(monedaUsuario, inputCLP) {
+
+async function parsearChart(monedaUsuario, inputCLP) {
     const data = await parsearMoneda(monedaUsuario, inputCLP);
     const plugin = {
         id: 'customCanvasBackgroundColor',
@@ -90,10 +91,28 @@ async function renderChartyResultado(monedaUsuario, inputCLP) {
         },
         plugins: [plugin],
     }
+        
+    return config;
+}
+
+async function renderChart(monedaUsuario, inputCLP, chartInUse) {
+    const config = await parsearChart(monedaUsuario, inputCLP);
 
     const myChart = document.querySelector("#myChart");
-    new Chart(myChart, config);
+    chartInUse = new Chart(myChart, config);
+    
 
+
+    // if (chartInUse == undefined) {
+    //     chartInUse = new Chart(myChart, config);
+    //     console.log(chartInUse)
+    // } else {
+    //     console.log(chartInUse)
+    //     // console.log(chartInUse.PromiseResult)
+    //     chartInUse.destroy();
+    //     chartInUse = new Chart(myChart, config);
+    // }
+    return chartInUse;
 }
 
 
