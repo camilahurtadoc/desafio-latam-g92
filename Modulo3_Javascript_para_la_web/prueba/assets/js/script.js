@@ -6,7 +6,7 @@ btnBuscar.addEventListener('click', () => {
     const inputCLP = document.querySelector("#inputCLP").value;
     const monedaUsuario = document.querySelector("#monedaUsuario").value;
 
-    parsearMoneda(monedaUsuario, inputCLP);
+
     renderChartyResultado(monedaUsuario, inputCLP);
 
 })
@@ -62,7 +62,34 @@ async function parsearMoneda(monedaUsuario, inputCLP) {
 //      => render chart
 
 async function renderChartyResultado(monedaUsuario, inputCLP) {
-    
+    const data = await parsearMoneda(monedaUsuario, inputCLP);
+    const plugin = {
+        id: 'customCanvasBackgroundColor',
+        beforeDraw: (chart, args, options) => {
+            const {ctx} = chart;
+            ctx.save();
+            ctx.globalCompositeOperation = 'destination-over';
+            ctx.fillStyle = options.color || '#a0a3a3';
+            ctx.fillRect(0, 0, chart.width, chart.height);
+            ctx.restore();
+            }
+    };
+    const config = {
+        type: "line",
+        data,
+        options: {
+            plugins: {
+                customCanvasBackgroundColor: {
+                    color: "#ededed"
+                }
+            }
+        },
+        plugins: [plugin],
+    }
+
+    const myChart = document.querySelector("#myChart");
+    new Chart(myChart, config);
+
 }
 
 
