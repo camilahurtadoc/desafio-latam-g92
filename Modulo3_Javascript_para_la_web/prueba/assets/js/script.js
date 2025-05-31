@@ -53,8 +53,8 @@ async function parsearMoneda(monedaUsuario, inputCLP) {
 
     const datasets = [{
         label: "Historial últimos 10 días",
-        borderColor: "red",
-        backgroundColor: "blue",
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgb(165, 28, 58)",
         data: ejeY
     }]
     
@@ -73,7 +73,7 @@ async function renderChartyResultado(monedaUsuario, inputCLP) {
             const {ctx} = chart;
             ctx.save();
             ctx.globalCompositeOperation = 'destination-over';
-            ctx.fillStyle = options.color || '#a0a3a3';
+            ctx.fillStyle = options.color || '#ededed';
             ctx.fillRect(0, 0, chart.width, chart.height);
             ctx.restore();
             }
