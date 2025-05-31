@@ -13,6 +13,11 @@ btnBuscar.addEventListener('click', () => {
 // if else para ver qué conversión traigo? 
 //      => hacer function p traer cada moneda? /api/codigo
 //      => una sola función y `/api/${codigo}`
+async function getMonedaEscogidaUsuario(monedaUsuario) {
+    const res = await fetch(`https://mindicador.cl/api/${monedaUsuario}`);
+    const moneda = await res.json();
+    return moneda;
+}
 
 //traer conversión hoy (async function) y (parsear info)
 //parsearDatosChart()
