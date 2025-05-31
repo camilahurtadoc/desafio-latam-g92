@@ -41,7 +41,7 @@ async function parsearMoneda(monedaUsuario, inputCLP) {
     let ejeY = [];
     let valorDia = 0;
     counter = 0;
-    for (i = 9; i > 0; i --) {
+    for (i = 9; i > -1; i --) {
         valorDia = moneda.serie[i].valor;
         ejeY[counter] = valorDia;
         counter += 1;
