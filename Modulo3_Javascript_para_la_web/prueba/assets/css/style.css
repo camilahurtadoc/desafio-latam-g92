@@ -70,6 +70,36 @@ body .boxConversorContent {
     width: 100%;
 }
 
+.boxConversorContent .tooltip {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #483AA0;
+    color: #EEEEEE;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 8px;
+    margin-left: 3px;
+    opacity: 0%;
+    transition: 1s;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    /* visibility: visible; */
+    opacity: 100%;
+}
+
+
 .boxConversorContent #resultado {
     font-size: 1.2em;
     font-weight: 600;

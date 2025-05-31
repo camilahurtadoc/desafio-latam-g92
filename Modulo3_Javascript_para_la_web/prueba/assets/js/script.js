@@ -5,10 +5,14 @@ const btnBuscar = document.querySelector("#btnBuscar");
 btnBuscar.addEventListener('click', () => {
     const inputCLP = document.querySelector("#inputCLP").value;
     const monedaUsuario = document.querySelector("#monedaUsuario").value;
+    const tooltiptext = document.querySelector(".tooltiptext");
 
-
-    renderChartyResultado(monedaUsuario, inputCLP);
-
+    if (monedaUsuario == "seleccion") {
+        tooltiptext.style.visibility = "visible";
+    } else {
+        tooltiptext.style.visibility = "hidden";
+        renderChartyResultado(monedaUsuario, inputCLP);
+    }
 })
 
 
