@@ -3,25 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Prueba Módulo 3</title>
 </head>
 <body>
-    <h1>Conversos de monedas Nacional</h1>
+    <h1>Conversor de monedas Nacional</h1>
 
-    <div>
-        <label for="inputCLP">Pesos CLP</label>
-        <input type="number" placeholder="Ingrese el monto en CLP" name="inputCLP" min="0" id="inputCLP">
-    
-        <label>Moneda a convertir</label>
-        <select name="monedaUsuario" id="monedaUsuario">
-            <option value="seleccion">Seleccione Moneda</option>
-            <option value="dolar">Dólar observado</option>
-            <option value="euro">Euro</option>
-        </select>
-        <button id="btnBuscar">Buscar</button>
-        <p id="resultado"></p>   
+    <div class="boxConversor">
+        <div class="boxConversorContent">
+
+            <label for="inputCLP" class="labelInputPesos">Pesos CLP</label>
+            <input type="number" placeholder="Ingrese el monto en CLP" name="inputCLP" min="0" id="inputCLP" class="selector">
+        </div>
+        <div class="boxConversorContent">
+            <label>Moneda a convertir:</label>
+            <select name="monedaUsuario" id="monedaUsuario" class="selector">
+                <option value="seleccion">Seleccione Moneda</option>
+                <option value="dolar">Dólar observado</option>
+                <option value="euro">Euro</option>
+            </select>
+            <button id="btnBuscar">Buscar</button>
+            <p id="resultado"></p>   
+        </div>
     </div>
-    <div>
+    <div class="chart">
         <canvas id="myChart"></canvas>
     </div>
 
