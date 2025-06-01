@@ -85,9 +85,7 @@ body .boxConversorContent {
     text-align: center;
     border-radius: 6px;
     padding: 8px 8px;
-    margin-left: 3px;
-    opacity: 0%;
-    transition: 1s;
+    margin-left: 3px;  
 
     /* Position the tooltip */
     position: absolute;
@@ -96,7 +94,6 @@ body .boxConversorContent {
 
 .tooltip:hover .tooltiptext {
     /* visibility: visible; */
-    opacity: 100%;
 }
 
 
