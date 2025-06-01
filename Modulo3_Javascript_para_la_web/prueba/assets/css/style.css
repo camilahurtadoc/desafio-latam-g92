@@ -60,6 +60,10 @@ body .boxConversorContent {
     width: 100%;
 }
 
+.boxConversorContent #monedaUsuario:hover {
+    cursor: pointer;
+}
+
 .boxConversorContent button {
     background-color: #508C9B;
     border-radius: 8px;
@@ -68,6 +72,10 @@ body .boxConversorContent {
     height: 40px;
     text-align: center;
     width: 100%;
+}
+
+.boxConversorContent button:hover {
+    cursor: pointer;
 }
 
 .boxConversorContent .tooltip {
@@ -91,11 +99,6 @@ body .boxConversorContent {
     position: absolute;
     z-index: 1;
 }
-
-.tooltip:hover .tooltiptext {
-    /* visibility: visible; */
-}
-
 
 .boxConversorContent #resultado {
     font-size: 1.2em;
