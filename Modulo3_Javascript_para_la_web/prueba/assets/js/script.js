@@ -1,3 +1,5 @@
+// URL API sin moneda (se recibe de input en getMonedaEscogidaUsuario())
+const url = "https://mindicador.cl/api/"
 const btnBuscar = document.querySelector("#btnBuscar");
 let chartInUse;
 
@@ -22,15 +24,15 @@ btnBuscar.addEventListener('click', async () => {
             chartInUse.destroy();
         }
         // Renderización de datos dentro de un try / catch
-        chartInUse = await renderChart(monedaUsuario, inputCLP, chartInUse)
+        chartInUse = await renderChart(monedaUsuario, inputCLP, chartInUse, url)
     }
 })
 
 
 // GET moneda escogida por usuario desde API
-async function getMonedaEscogidaUsuario(monedaUsuario) {
+async function getMonedaEscogidaUsuario(monedaUsuario, url) {
     try {
-        const res = await fetch(`https://mindicador.cl/api/${monedaUsuario}`)
+        const res = await fetch(`${url}${monedaUsuario}`)
             .then((response) => {
 
                 if (!response.ok) {
@@ -52,9 +54,9 @@ async function getMonedaEscogidaUsuario(monedaUsuario) {
 
 
 // Parseo de datos desde API
-async function parsearMoneda(monedaUsuario, inputCLP) {
+async function parsearMoneda(monedaUsuario, inputCLP, url) {
     try {
-        const moneda = await getMonedaEscogidaUsuario(monedaUsuario);
+        const moneda = await getMonedaEscogidaUsuario(monedaUsuario, url);
         const valorPesos = moneda.serie[0].valor;
         mostrarResultado(inputCLP, valorPesos);
 
@@ -100,9 +102,9 @@ function mostrarResultado(inputCLP, valorPesos) {
 
 
 // Parseo de datos para chart
-async function parsearChart(monedaUsuario, inputCLP) {
+async function parsearChart(monedaUsuario, inputCLP, url) {
     try {
-        const data = await parsearMoneda(monedaUsuario, inputCLP);
+        const data = await parsearMoneda(monedaUsuario, inputCLP, url);
         const plugin = {
             id: 'customCanvasBackgroundColor',
             beforeDraw: (chart, args, options) => {
@@ -135,8 +137,8 @@ async function parsearChart(monedaUsuario, inputCLP) {
 
 
 // Renderización del chart
-async function renderChart(monedaUsuario, inputCLP, chartInUse) {
-    const config = await parsearChart(monedaUsuario, inputCLP);
+async function renderChart(monedaUsuario, inputCLP, chartInUse, url) {
+    const config = await parsearChart(monedaUsuario, inputCLP, url);
 
     const myChart = document.querySelector("#myChart");
     chartInUse = new Chart(myChart, config);
