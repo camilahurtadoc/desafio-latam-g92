@@ -1,5 +1,6 @@
 // URL API sin moneda (se recibe de input en getMonedaEscogidaUsuario())
 const url = "https://mindicador.cl/api/"
+
 const btnBuscar = document.querySelector("#btnBuscar");
 let chartInUse;
 
