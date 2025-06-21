@@ -1,8 +1,19 @@
-import pizzaHeader from '../assets/img/Header.jpg'
+import Carousel from 'react-bootstrap/Carousel';
+import pizzaHeader1 from '../assets/img/Header.jpg';
 
-function Header() {
+function Header({ title, description}) {
   return (
-    <div>Header</div>
+    <Carousel>
+        <Carousel.Item style={{backgroundColor: 'rgba(0, 0, 0)'}}>
+        <img src={pizzaHeader1} text="First slide" style={{height: '400px', width: '100%', objectFit: 'cover', opacity: '50%'}}/>
+        <Carousel.Caption>
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+
+             
+    </Carousel>
   )
 }
 

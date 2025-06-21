@@ -2,10 +2,11 @@ import Header from './Header'
 
 function Home() {
     return (
-        <main>
-            <Header title = "" description = ""/>
-            <div>Home</div>
-        </main>
+        <>
+            <Header
+                title="¡Pizzería Mamma Mia!"
+                description="¡Tenemos las mejores pizzas que podrás encontrar!" />
+        </>
     )
 }
 
