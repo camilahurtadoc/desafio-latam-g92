@@ -5,7 +5,7 @@ function Header({ title, description}) {
   return (
     <Carousel>
         <Carousel.Item style={{backgroundColor: 'rgba(0, 0, 0)'}}>
-        <img src={pizzaHeader1} text="First slide" style={{height: '400px', width: '100%', objectFit: 'cover', opacity: '50%'}}/>
+        <img src={pizzaHeader1} text="First slide" style={{height: '300px', width: '100%', objectFit: 'cover', opacity: '50%'}}/>
         <Carousel.Caption>
           <h3>{title}</h3>
           <p>{description}</p>
