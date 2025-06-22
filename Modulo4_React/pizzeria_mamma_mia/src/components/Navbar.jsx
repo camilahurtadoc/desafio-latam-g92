@@ -2,6 +2,13 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { faPizzaSlice } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { faDoorOpen } from '@fortawesome/free-solid-svg-icons'
+
 
 function NavbarTop() {
     const total = 25000;
@@ -14,16 +21,16 @@ function NavbarTop() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">Home</Nav.Link>
+                        <Nav.Link href="#features"><FontAwesomeIcon icon={faPizzaSlice}/> Home</Nav.Link>
                         { token ? (
                             <>
-                            <Nav.Link href="#pricing">Profile</Nav.Link>
-                            <Nav.Link href="#pricing">Logout</Nav.Link>
+                            <Nav.Link href="#pricing"><FontAwesomeIcon icon={faUser}/> Profile</Nav.Link>
+                            <Nav.Link href="#pricing"><FontAwesomeIcon icon={faDoorOpen}/> Logout</Nav.Link>
                             </>
                         ) : (
                             <>
-                            <Nav.Link href="#pricing">Login</Nav.Link>
-                            <Nav.Link href="#pricing">Register</Nav.Link>
+                            <Nav.Link href="#pricing"><FontAwesomeIcon icon={faUser}/> Login</Nav.Link>
+                            <Nav.Link href="#pricing"><FontAwesomeIcon icon={faUserPlus}/> Register</Nav.Link>
                             </>
                         )}
                         <NavDropdown title="Productos" id="collapsible-nav-dropdown">
@@ -39,7 +46,7 @@ function NavbarTop() {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#">Total: $ {total.toLocaleString('es-ES')}</Nav.Link>
+                        <Nav.Link href="#"><FontAwesomeIcon icon={faCartShopping}/> Total: $ {total.toLocaleString('es-ES')}</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
