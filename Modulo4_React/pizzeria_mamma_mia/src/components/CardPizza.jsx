@@ -13,7 +13,7 @@ function CardPizza({ name, price, ingredients, img }) {
     }
 
   return (
-    <Card style={{ width: '20rem' }}>
+    <Card style={{ width: '20rem' }} className='mb-5'>
       <Card.Img variant="top" src={img} />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
@@ -25,12 +25,11 @@ function CardPizza({ name, price, ingredients, img }) {
             <h6>Ingredientes</h6>
             {displayIngredients(ingredients)}
         </ListGroup.Item>
-        <ListGroup.Item style={{textAlign: 'center'}}><h5>Precio: ${price}</h5></ListGroup.Item>
+        <ListGroup.Item className='text-center'><h5>Precio: ${price}</h5></ListGroup.Item>
       </ListGroup>
-      <Card.Body className="d-flex justify-content-around" >
+      <Card.Body className="d-flex justify-content-around">
         <Button variant="light">Ver más</Button>
         <Button variant="dark" >Añadir</Button>
-
       </Card.Body>
     </Card>
   )
