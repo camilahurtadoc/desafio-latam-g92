@@ -1,6 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 function CardPizza({ name, price, ingredients, img }) {
@@ -29,7 +30,7 @@ function CardPizza({ name, price, ingredients, img }) {
       </ListGroup>
       <Card.Body className="d-flex justify-content-around">
         <Button variant="light">Ver más</Button>
-        <Button variant="dark" >Añadir</Button>
+        <Button variant="dark" >Añadir <FontAwesomeIcon icon="fa-solid fa-cart-shopping" /></Button>
       </Card.Body>
     </Card>
   )
