@@ -39,7 +39,7 @@ function NavbarTop() {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#">Total: $</Nav.Link>
+                        <Nav.Link href="#">Total: $ {total.toLocaleString('es-ES')}</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
