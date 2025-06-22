@@ -1,8 +1,10 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
+import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 function CardPizza({ name, price, ingredients, img }) {
     let items = "";
@@ -12,6 +14,7 @@ function CardPizza({ name, price, ingredients, img }) {
         }
         return items.slice(0, -2);
     }
+
 
   return (
     <Card style={{ width: '20rem' }} className='mb-5'>
@@ -29,8 +32,8 @@ function CardPizza({ name, price, ingredients, img }) {
         <ListGroup.Item className='text-center'><h5>Precio: ${price}</h5></ListGroup.Item>
       </ListGroup>
       <Card.Body className="d-flex justify-content-around">
-        <Button variant="light">Ver más</Button>
-        <Button variant="dark" >Añadir <FontAwesomeIcon icon="fa-solid fa-cart-shopping" /></Button>
+        <Button variant="light">Ver más <FontAwesomeIcon icon={faMagnifyingGlass}/></Button>
+        <Button variant="dark" >Añadir <FontAwesomeIcon icon={faCartPlus}/></Button>
       </Card.Body>
     </Card>
   )
