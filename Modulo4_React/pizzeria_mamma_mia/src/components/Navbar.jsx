@@ -4,32 +4,42 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavbarTop() {
+    const total = 25000;
+    const token = false;
+
     return (
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
             <Container>
-                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Brand href="#home">Pizzería Mamma Mia </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
-                        <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                        <Nav.Link href="#features">Home</Nav.Link>
+                        { token ? (
+                            <>
+                            <Nav.Link href="#pricing">Profile</Nav.Link>
+                            <Nav.Link href="#pricing">Logout</Nav.Link>
+                            </>
+                        ) : (
+                            <>
+                            <Nav.Link href="#pricing">Login</Nav.Link>
+                            <Nav.Link href="#pricing">Register</Nav.Link>
+                            </>
+                        )}
+                        <NavDropdown title="Productos" id="collapsible-nav-dropdown">
+                            <NavDropdown.Item href="#action/3.1">Pizzas Tradicionales</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">
-                                Another action
+                                Pizzas Vegetarianas
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.3">Promociones</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.4">
-                                Separated link
+                                Postres
                             </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">More deets</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
-                            Dank memes
-                        </Nav.Link>
+                        <Nav.Link href="#">Total: $</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
