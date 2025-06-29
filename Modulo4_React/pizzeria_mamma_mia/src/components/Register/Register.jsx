@@ -13,6 +13,7 @@ const Register = () => {
     const [errorMandatory, setErrorMandatory] = useState(false);
     const [errorPasswordLength, setErrorPasswordLength] = useState(false)
     const [errorPasswordConfirmation, setErrorPasswordConfirmation] = useState(false)
+    const [success, setSuccess] = useState(false)
 
     const [eye, setEye] = useState(faEyeSlash)
     const [type, setType] = useState("password")
@@ -48,6 +49,7 @@ const Register = () => {
         }
         setErrorPasswordConfirmation(false)
 
+        setSuccess(true)
         setEmail("")
         setPassword("")
         setConfirmPassword("")
@@ -98,17 +100,21 @@ const Register = () => {
 
                 <div className='d-flex flex-column mb-3 align-items-center'>
                     {
-                        errorMandatory ? <p className='error-mandatory text-light bg-danger'>Todos los campos son obligatorios.</p> : null
+                        errorMandatory ? <p className='error text-light bg-danger'>Todos los campos son obligatorios.</p> : null
                     }
                     {
-                        errorPasswordLength ? <p className='error-mandatory text-light bg-danger'>La contraseña debe tener más de 6 caracteres.</p> : null
+                        errorPasswordLength ? <p className='error text-light bg-danger'>La contraseña debe tener más de 6 caracteres.</p> : null
                     }
                     {
-                        errorPasswordConfirmation ? <p className='error-mandatory text-light bg-danger'>La contraseña y confirmación de contraseña deben ser iguales.</p> : null
+                        errorPasswordConfirmation ? <p className='error text-light bg-danger'>La contraseña y confirmación de contraseña deben ser iguales.</p> : null
                     }
+                    
                     <Button variant="primary" type="submit">
                         Crear cuenta
                     </Button>
+                    {
+                        success ? <p className='error text-light bg-success mt-3'>Datos ingresados correctamente</p> : null
+                    }
                 </div>
             </Form>
         </div>
