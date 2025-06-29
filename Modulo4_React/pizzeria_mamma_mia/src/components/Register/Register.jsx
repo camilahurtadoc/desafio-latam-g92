@@ -72,7 +72,7 @@ const Register = () => {
         <div className='mx-auto p-2' style={{ width: "450px" }}>
             <h2 className='text-center'>Regístrate</h2>
             <Form className='p-3' onSubmit={validate}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3" controlId="formBasicEmailRegister">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                         type="text"
@@ -84,7 +84,7 @@ const Register = () => {
                     </Form.Text>
                 </Form.Group>
 
-                <Form.Group className="mb-3 position-relative" controlId="formBasicPassword">
+                <Form.Group className="mb-3 position-relative" controlId="formBasicPasswordRegister">
                     <Form.Label>Contraseña</Form.Label>
                     <Form.Control
                         type={type}
@@ -97,7 +97,7 @@ const Register = () => {
                     </span>
                 </Form.Group>
 
-                <Form.Group className="mb-3 position-relative" controlId="formBasicPassword">
+                <Form.Group className="mb-3 position-relative" controlId="formBasicPasswordConfirmationRegister">
                     <Form.Label>Confirmar contraseña</Form.Label>
                     <Form.Control
                         type="password"
