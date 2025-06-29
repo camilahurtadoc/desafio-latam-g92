@@ -5,15 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import './Register.css'
+import Swal from 'sweetalert2'
 
 const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [errorMandatory, setErrorMandatory] = useState(false);
-    const [errorPasswordLength, setErrorPasswordLength] = useState(false)
-    const [errorPasswordConfirmation, setErrorPasswordConfirmation] = useState(false)
-    const [success, setSuccess] = useState(false)
 
     const [eye, setEye] = useState(faEyeSlash)
     const [type, setType] = useState("password")
@@ -32,24 +29,38 @@ const Register = () => {
         event.preventDefault();
 
         if (!email.trim() || !password.trim() || !confirmPassword.trim()) {
-            setErrorMandatory(true)
+            Swal.fire({
+                title: "Campos Vacíos",
+                text: "Todos los campos son obligatorios.",
+                icon: "error"
+            })
             return
         }
-        setErrorMandatory(false)
 
         if (password.length < 6) {
-            setErrorPasswordLength(true)
+            Swal.fire({
+                title: "Contraseña",
+                text: "La contraseña debe tener al menos 6 caracteres.",
+                icon: "error"
+            })
             return
         }
-        setErrorPasswordLength(false)
 
         if (password != confirmPassword) {
-            setErrorPasswordConfirmation(true)
+            Swal.fire({
+                title: "Contraseña",
+                text: "La contraseña y confirmación de contraseña deben ser iguales.",
+                icon: "error"
+            })
             return
         }
-        setErrorPasswordConfirmation(false)
 
-        setSuccess(true)
+
+        Swal.fire({
+            title: "Registro Exitoso",
+            text: "Datos ingresados correctamente.",
+            icon: "success"
+        })
         setEmail("")
         setPassword("")
         setConfirmPassword("")
@@ -81,8 +92,8 @@ const Register = () => {
                         onChange={event => setPassword(event.target.value)}
                         value={password} />
                     <span className='span-icon position-absolute end-0 translate-middle-x'
-                    onClick={seePassword}>
-                        <FontAwesomeIcon icon={eye}/>
+                        onClick={seePassword}>
+                        <FontAwesomeIcon icon={eye} />
                     </span>
                 </Form.Group>
 
@@ -96,21 +107,9 @@ const Register = () => {
                 </Form.Group>
 
                 <div className='d-flex flex-column mb-3 align-items-center'>
-                    {
-                        errorMandatory ? <p className='error text-light bg-danger'>Todos los campos son obligatorios.</p> : null
-                    }
-                    {
-                        errorPasswordLength ? <p className='error text-light bg-danger'>La contraseña debe tener más de 6 caracteres.</p> : null
-                    }
-                    {
-                        errorPasswordConfirmation ? <p className='error text-light bg-danger'>La contraseña y confirmación de contraseña deben ser iguales.</p> : null
-                    }   
                     <Button variant="primary" type="submit">
                         Crear cuenta
                     </Button>
-                    {
-                        success ? <p className='error text-light bg-success mt-3'>Datos ingresados correctamente</p> : null
-                    }
                 </div>
             </Form>
         </div>
