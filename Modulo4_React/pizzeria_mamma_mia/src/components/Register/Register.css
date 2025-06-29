@@ -1,0 +1,11 @@
+.error-mandatory {
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.span-icon {
+    top: 55%;
+}
