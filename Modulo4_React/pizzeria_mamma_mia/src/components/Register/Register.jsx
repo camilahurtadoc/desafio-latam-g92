@@ -57,9 +57,6 @@ const Register = () => {
         setType("password")
     }
 
-
-
-
     return (
         <div className='mx-auto p-2' style={{ width: "450px" }}>
             <h2 className='text-center'>Regístrate</h2>
@@ -107,8 +104,7 @@ const Register = () => {
                     }
                     {
                         errorPasswordConfirmation ? <p className='error text-light bg-danger'>La contraseña y confirmación de contraseña deben ser iguales.</p> : null
-                    }
-                    
+                    }   
                     <Button variant="primary" type="submit">
                         Crear cuenta
                     </Button>
