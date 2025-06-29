@@ -5,13 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import './Login.css'
+import Swal from 'sweetalert2'
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [errorMandatory, setErrorMandatory] = useState(false);
-    const [errorPasswordLength, setErrorPasswordLength] = useState(false)
-    const [success, setSuccess] = useState(false)
 
     const [eye, setEye] = useState(faEyeSlash)
     const [type, setType] = useState("password")
@@ -30,19 +28,29 @@ const Login = () => {
         event.preventDefault();
 
         if (!email.trim() || !password.trim()) {
-            setErrorMandatory(true)
+            Swal.fire({
+                title: "Campos Vacíos",
+                text: "Todos los campos son obligatorios.",
+                icon: "error"
+            })
             return
         }
-        setErrorMandatory(false)
 
         if (password.length < 6) {
-            setErrorPasswordLength(true)
+            Swal.fire({
+                title: "Contraseña",
+                text: "La contraseña debe tener al menos 6 caracteres.",
+                icon: "error"
+            })
             return
         }
-        setErrorPasswordLength(false)
 
+        Swal.fire({
+            title: "Log In",
+            text: "Datos ingresados correctamente.",
+            icon: "success"
+        })
 
-        setSuccess(true)
         setEmail("")
         setPassword("")
         setEye(faEyeSlash)
@@ -70,25 +78,15 @@ const Login = () => {
                         onChange={event => setPassword(event.target.value)}
                         value={password} />
                     <span className='span-icon position-absolute end-0 translate-middle-x'
-                    onClick={seePassword}>
-                        <FontAwesomeIcon icon={eye}/>
+                        onClick={seePassword}>
+                        <FontAwesomeIcon icon={eye} />
                     </span>
                 </Form.Group>
 
                 <div className='d-flex flex-column mb-3 align-items-center'>
-                    {
-                        errorMandatory ? <p className='error text-light bg-danger'>Todos los campos son obligatorios.</p> : null
-                    }
-                    {
-                        errorPasswordLength ? <p className='error text-light bg-danger'>La contraseña debe tener al menos 6 caracteres.</p> : null
-                    }
-   
                     <Button variant="primary" type="submit">
                         Ingresar
                     </Button>
-                    {
-                        success ? <p className='error text-light bg-success mt-3'>Datos ingresados correctamente</p> : null
-                    }
                 </div>
             </Form>
         </div>
