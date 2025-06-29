@@ -9,7 +9,6 @@ import './Login.css'
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
     const [errorMandatory, setErrorMandatory] = useState(false);
     const [errorPasswordLength, setErrorPasswordLength] = useState(false)
     const [success, setSuccess] = useState(false)
@@ -42,16 +41,10 @@ const Login = () => {
         }
         setErrorPasswordLength(false)
 
-        if (password != confirmPassword) {
-            setErrorPasswordConfirmation(true)
-            return
-        }
-        setErrorPasswordConfirmation(false)
 
         setSuccess(true)
         setEmail("")
         setPassword("")
-        setConfirmPassword("")
         setEye(faEyeSlash)
         setType("password")
     }
