@@ -18,10 +18,11 @@ function Home() {
                 {
                     listaPizzas.map(item => (
                         <CardPizza 
+                            key={item.id}
                             name={item.name}
                             price={item.price}
                             ingredients={item.ingredients}
-                            img={item.img}                        
+                            img={item.img}
                         />
                     ))
                 }

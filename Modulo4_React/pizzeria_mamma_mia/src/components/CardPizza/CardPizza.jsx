@@ -5,28 +5,30 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
-function CardPizza({ name, price, ingredients, img }) {
-    let items = "";
-    function displayIngredients(ingredients) {
-        for (let item of ingredients) {
-            items += item + ", "
-        }
-        return items.slice(0, -2);
-    }
+function CardPizza({  name, price, ingredients, img }) {
 
+  const capitalizeFirstLetter = (word) => {
+    const firstLetterCapt = word.charAt(0).toUpperCase()
+    const otherLetters = word.slice(1)
+    return firstLetterCapt + otherLetters
+  }
 
   return (
     <Card style={{ width: '20rem' }} className='mb-5'>
       <Card.Img variant="top" src={img} />
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
+        <Card.Title>{capitalizeFirstLetter(name)}</Card.Title>
         <Card.Text>
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroup.Item style={{fontSize: '0.8em'}}>
             <h6>Ingredientes</h6>
-            {displayIngredients(ingredients)}
+            <ul>
+              {ingredients.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
         </ListGroup.Item>
         <ListGroup.Item className='text-center'><h5>Precio: ${price}</h5></ListGroup.Item>
       </ListGroup>
