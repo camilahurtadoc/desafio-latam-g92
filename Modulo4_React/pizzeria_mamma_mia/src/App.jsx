@@ -1,8 +1,8 @@
 import './App.css'
-import Footer from './components/Footer'
-import Home from './components/Home'
+import Footer from './components/Footer/Footer'
+import Home from './components/Home/Home'
 import Login from './components/Login/Login'
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar/Navbar'
 import Register from './components/Register/Register'
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Navbar />
-      {/* <Home /> */}
+      <Home />
       <Register />
       <Login />
       <Footer />

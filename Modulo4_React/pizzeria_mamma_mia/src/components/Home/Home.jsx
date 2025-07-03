@@ -1,5 +1,5 @@
-import CardPizza from './Cardpizza'
-import Header from './Header'
+import CardPizza from '../Cardpizza/CardPizza'
+import Header from '../Header/Header'
 
 
 function Home() {

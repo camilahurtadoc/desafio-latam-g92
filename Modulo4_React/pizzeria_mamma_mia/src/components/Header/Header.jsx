@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-import pizzaHeader1 from '../assets/img/Header.jpg';
+import pizzaHeader1 from '../../assets/img/Header.jpg';
 
 function Header({ title, description}) {
   return (
