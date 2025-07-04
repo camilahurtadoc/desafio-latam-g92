@@ -11,23 +11,31 @@ const Cart = () => {
         return firstLetterCapt + otherLetters
     }
 
+    const [cart, setCart] = useState(pizzaCart)
+
     let startingTotal = 0
-    const startingTotalArray = pizzaCart.map(pizza => startingTotal += pizza.count * pizza.price)
+    pizzaCart.map(pizza => startingTotal += pizza.count * pizza.price)
 
-
-    const [counterPizza, setCounterPizza] = useState(1)
     const [total, settotal] = useState(startingTotal)
 
     const minusPizza = (pizza) => {
-        if (counterPizza - 1 < 0) {
+        if (pizza.count - 1 < 0) {
             return
         }
-        setCounterPizza(counterPizza - 1)
+
+        let newCart = cart
+        newCart.map(cartItem => (cartItem.id === pizza.id ? (cartItem.count -= 1) : null))
+
+        setCart(newCart)
         settotal(total - pizza.price)
     }
 
     const plusPizza = (pizza) => {
-        setCounterPizza(counterPizza + 1)
+
+        let newCart = cart
+        newCart.map(cartItem => (cartItem.id === pizza.id ? (cartItem.count += 1) : null))
+
+        setCart(newCart)
         settotal(total + pizza.price)
     }
 
@@ -35,27 +43,27 @@ const Cart = () => {
     return (
         <div className="m-2">
             <h3>Detalles del pedido:</h3>
-            
-                {pizzaCart.map(item => (
-                    <div key={item.id}>
-                        {
-                            counterPizza > 0 ? (
-                                <div className="d-flex align-items-center m-4 ps-5 gap-4">
 
-                                    <img src={item.img} className="pizza-cart" />
-                                    <h4 className="pizza-name">{capitalizeFirstLetter(item.name)}</h4>
-                                    <span className="fw-bold">${item.price.toLocaleString("es-ES", { useGrouping: true })}</span>
-                                    <Button variant="danger" onClick={() => minusPizza(item)}>-</Button>
-                                    <span>{counterPizza}</span>
-                                    <Button variant="success" onClick={() => plusPizza(item)}>+</Button>
+            {cart.map(pizza => (
+                <div key={pizza.id}>
+                    {
+                        pizza.count > 0 ? (
+                            <div className="d-flex align-items-center m-4 ps-5 gap-4">
 
-                                </div>
-                            ) : null
-                        }
+                                <img src={pizza.img} className="pizza-cart" />
+                                <h4 className="pizza-name">{capitalizeFirstLetter(pizza.name)}</h4>
+                                <span className="fw-bold">${pizza.price.toLocaleString("es-ES", { useGrouping: true })}</span>
+                                <Button variant="danger" onClick={() => minusPizza(pizza)}>-</Button>
+                                <span>{pizza.count}</span>
+                                <Button variant="success" onClick={() => plusPizza(pizza)}>+</Button>
 
-                    </div>
-                ))}
-            
+                            </div>
+                        ) : null
+                    }
+
+                </div>
+            ))}
+
 
             <h2>Total: ${total.toLocaleString("es-ES", { useGrouping: true })}</h2>
             <Button>Pagar</Button>
