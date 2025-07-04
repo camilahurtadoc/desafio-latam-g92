@@ -41,14 +41,14 @@ const Cart = () => {
 
 
     return (
-        <div className="m-2">
-            <h3 className="ps-5">Detalles del pedido:</h3>
+        <div className="m-2 d-flex flex-column align-items-center">
+            <h3>Detalles del pedido:</h3>
 
             {cart.map(pizza => (
                 <div key={pizza.id}>
                     {
                         pizza.count > 0 ? (
-                            <div className="d-flex align-items-center m-4 ps-5 gap-4">
+                            <div className="d-flex align-items-center m-3 gap-4">
 
                                 <img src={pizza.img} className="pizza-cart" />
                                 <h4 className="pizza-name">{capitalizeFirstLetter(pizza.name)}</h4>
@@ -63,11 +63,14 @@ const Cart = () => {
 
                 </div>
             ))}
+            {
+                total === 0 ? <p className="text-secondary my-5" >Tu carrito está vacío</p> : null
+            }
 
-            <div className="ps-5">
+            <div className="d-flex flex-column align-content-center">
 
-            <h2>Total: ${total.toLocaleString("es-ES", { useGrouping: true })}</h2>
-            <Button>Pagar</Button>
+                <h2>Total: ${total.toLocaleString("es-ES", { useGrouping: true })}</h2>
+                <Button>Pagar</Button>
             </div>
         </div>
     )
