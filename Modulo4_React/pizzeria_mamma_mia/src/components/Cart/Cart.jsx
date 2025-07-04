@@ -1,7 +1,10 @@
-import { pizzaCart } from "../../assets/js/pizzas"
 import Button from 'react-bootstrap/Button';
-import './Cart.css'
+import { pizzaCart } from "../../assets/js/pizzas"
 import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faMinus } from '@fortawesome/free-solid-svg-icons'
+import './Cart.css'
 
 const Cart = () => {
 
@@ -53,9 +56,9 @@ const Cart = () => {
                                 <img src={pizza.img} className="pizza-cart" />
                                 <h4 className="pizza-name">{capitalizeFirstLetter(pizza.name)}</h4>
                                 <span className="fw-bold">${pizza.price.toLocaleString("es-ES", { useGrouping: true })}</span>
-                                <Button variant="danger" onClick={() => minusPizza(pizza)}>-</Button>
+                                <Button variant="danger" onClick={() => minusPizza(pizza)}><FontAwesomeIcon icon={faMinus}/></Button>
                                 <span>{pizza.count}</span>
-                                <Button variant="success" onClick={() => plusPizza(pizza)}>+</Button>
+                                <Button variant="success" onClick={() => plusPizza(pizza)}><FontAwesomeIcon icon={faPlus}/></Button>
 
                             </div>
                         ) : null
@@ -64,7 +67,7 @@ const Cart = () => {
                 </div>
             ))}
             {
-                total === 0 ? <p className="text-secondary my-5" >Tu carrito está vacío</p> : null
+                total === 0 ? <p className="text-secondary my-5" >Tu carrito está vacío.</p> : null
             }
 
             <div className="d-flex flex-column align-content-center">
