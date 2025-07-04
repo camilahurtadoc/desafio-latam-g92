@@ -31,24 +31,6 @@ const Cart = () => {
         settotal(total + pizza.price)
     }
 
-    const pizzaCartDisplay = pizzaCart.map(item =>
-
-
-
-
-
-        <div key={item.id} className="d-flex align-items-center m-4 ps-5 gap-4">
-            <img src={item.img} className="pizza-cart" />
-            <h4 className="pizza-name">{capitalizeFirstLetter(item.name)}</h4>
-            <span className="fw-bold">${item.price.toLocaleString("es-ES", { useGrouping: true })}</span>
-            <Button variant="danger" onClick={() => minusPizza(item)}>-</Button>
-            <span>{counterPizza}</span>
-            <Button variant="success" onClick={() => plusPizza(item)}>+</Button>
-        </div>
-
-
-
-    )
 
     return (
         <div className="m-2">
