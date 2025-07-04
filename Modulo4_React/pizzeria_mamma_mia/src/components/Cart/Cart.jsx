@@ -42,7 +42,7 @@ const Cart = () => {
 
     return (
         <div className="m-2">
-            <h3>Detalles del pedido:</h3>
+            <h3 className="ps-5">Detalles del pedido:</h3>
 
             {cart.map(pizza => (
                 <div key={pizza.id}>
@@ -64,9 +64,11 @@ const Cart = () => {
                 </div>
             ))}
 
+            <div className="ps-5">
 
             <h2>Total: ${total.toLocaleString("es-ES", { useGrouping: true })}</h2>
             <Button>Pagar</Button>
+            </div>
         </div>
     )
 }
