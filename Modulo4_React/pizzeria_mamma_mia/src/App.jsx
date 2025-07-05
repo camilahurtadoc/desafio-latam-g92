@@ -11,10 +11,10 @@ function App() {
   return (
     <>
       <Navbar />
-      <Cart />
-      {/* <Home /> */}
+      <Home />
       {/* <Register /> */}
       {/* <Login /> */}
+      <Cart />
       <Footer />
     </>
   )
