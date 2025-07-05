@@ -30,7 +30,7 @@ function CardPizza({  name, price, ingredients, img }) {
               ))}
             </ul>
         </ListGroup.Item>
-        <ListGroup.Item className='text-center'><h5>Precio: ${price}</h5></ListGroup.Item>
+        <ListGroup.Item className='text-center'><h5>Precio: ${price.toLocaleString("es-ES", { useGrouping: true })}</h5></ListGroup.Item>
       </ListGroup>
       <Card.Body className="d-flex justify-content-around">
         <Button variant="light">Ver más <FontAwesomeIcon icon={faMagnifyingGlass}/></Button>

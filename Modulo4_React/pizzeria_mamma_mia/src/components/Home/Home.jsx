@@ -17,11 +17,11 @@ function Home() {
                 title="¡Pizzería Mamma Mia!"
                 description="¡Tenemos las mejores pizzas que podrás encontrar!" />
 
-            <Container className='mt-5'>
+            <Container fluid className='mt-5'>
                 <Row md={3}>
                 {
                     listaPizzas.map(item => (
-                            <Col >
+                            <Col className='d-flex justify-content-center'>
                                 <CardPizza
                                     key={item.id}
                                     name={item.name}
