@@ -1,6 +1,6 @@
 import CardPizza from '../Cardpizza/CardPizza'
 import Header from '../Header/Header'
-import { pizzas } from '../../assets/js/pizzas'
+// import { pizzas } from '../../assets/js/pizzas'
 import { useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
