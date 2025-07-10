@@ -5,11 +5,26 @@ import { useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import axios from 'axios'
+import { useEffect } from 'react';
 
 
 function Home() {
 
-    const [listaPizzas, setListaPizzas] = useState(pizzas)
+    const [listaPizzas, setListaPizzas] = useState([])
+
+    async function getPizzaList() {
+  try {
+    const data = (await axios.get('http://localhost:5000/api/pizzas')).data;
+    setListaPizzas(data)
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+    useEffect(() => {
+        getPizzaList()
+    }, [])
 
     return (
         <>
@@ -21,7 +36,7 @@ function Home() {
                 <Row md={3}>
                 {
                     listaPizzas.map(item => (
-                            <Col className='d-flex justify-content-center'>
+                            <Col className='d-flex justify-content-center' key={item.id}>
                                 <CardPizza
                                     key={item.id}
                                     name={item.name}

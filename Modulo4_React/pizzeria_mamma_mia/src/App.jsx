@@ -14,7 +14,7 @@ function App() {
       <Home />
       {/* <Register /> */}
       {/* <Login /> */}
-      <Cart />
+      {/* <Cart /> */}
       <Footer />
     </>
   )
