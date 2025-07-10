@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios'
 import Button from "react-bootstrap/esm/Button";
+import ListGroup from 'react-bootstrap/ListGroup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import './Pizza.css'
@@ -36,13 +37,13 @@ const Pizza = () => {
                     <img className="pizza-img w-50" src={pizza.img} />
                     <div className="mx-5">
                         <h5>Ingredientes</h5>
-                        <ul className="list-group list-group-flush">
+                        <ListGroup className="list-group list-group-flush">
                             {
                                 pizza.ingredients && pizza.ingredients.map((ingr, index) => (
-                                    <li key={index} className="list-group-item list-group-item-success">{ingr}</li>
+                                    <ListGroup.Item key={index} variant="success">{ingr}</ListGroup.Item>
                                 ))
                             }
-                        </ul>
+                        </ListGroup>
                     </div>
                 </div>
                 <p className="my-5 w-75">{pizza.desc}</p>
