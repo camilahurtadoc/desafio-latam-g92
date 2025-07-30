@@ -1,7 +1,7 @@
 import './App.css'
 import Cart from './pages/Cart/Cart'
 import Footer from './components/Footer/Footer'
-import Home from './components/Home/Home'
+import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
 import Navbar from './components/Navbar/Navbar'
 import Pizza from './pages/Pizza/Pizza'
@@ -14,7 +14,7 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path='/' element/>
+        <Route path='/' element={<Home />}/>
       {/* <Home /> */}
       <Pizza />
       {/* <Register /> */}
