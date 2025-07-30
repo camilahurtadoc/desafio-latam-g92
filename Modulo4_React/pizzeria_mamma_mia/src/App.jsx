@@ -15,11 +15,12 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />}/>
-      {/* <Home /> */}
-      <Pizza />
-      {/* <Register /> */}
-      {/* <Login /> */}
-      {/* <Cart /> */}
+        <Route path='/register' element={<Register />}/>
+        <Route path='/login' element={<Login />}/>
+        <Route path='/cart' element={<Cart />}/>
+        <Route path='/pizza/p001' element={<Pizza />}/>
+        {/* <Route path='/profile' element={< />}/> */}
+        {/* <Route path='/404' element={}/> */}
       </Routes>
       <Footer />
     </>

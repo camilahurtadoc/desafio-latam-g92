@@ -1,5 +1,5 @@
-import CardPizza from '../Cardpizza/CardPizza'
-import Header from '../Header/Header'
+import CardPizza from '../../components/CardPizza/CardPizza'
+import Header from '../../components/Header/Header'
 // import { pizzas } from '../../assets/js/pizzas'
 import { useState } from 'react'
 import Container from 'react-bootstrap/Container';
