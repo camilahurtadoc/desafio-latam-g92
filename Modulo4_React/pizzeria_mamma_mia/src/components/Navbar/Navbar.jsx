@@ -34,7 +34,7 @@ function NavbarTop() {
                             <Link to="/register" className="d-flex align-items-center gap-1 ms-3 text-body text-decoration-none"><FontAwesomeIcon icon={faUserPlus}/> Register</Link>
                             </>
                         )}
-                        <NavDropdown title="Productos" id="collapsible-nav-dropdown" className="ms-2">
+                        {/* <NavDropdown title="Productos" id="collapsible-nav-dropdown" className="ms-2">
                             <NavDropdown.Item href="#action/3.1">Pizzas Tradicionales</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">
                                 Pizzas Vegetarianas
@@ -44,7 +44,7 @@ function NavbarTop() {
                             <NavDropdown.Item href="#action/3.4">
                                 Postres
                             </NavDropdown.Item>
-                        </NavDropdown>
+                        </NavDropdown> */}
                     </Nav>
                     <Nav>
                         <Link to="/cart" className="d-flex align-items-center gap-1 me-3 text-body text-decoration-none"><FontAwesomeIcon icon={faCartShopping}/> Total: $ {total.toLocaleString('es-ES')}</Link>
