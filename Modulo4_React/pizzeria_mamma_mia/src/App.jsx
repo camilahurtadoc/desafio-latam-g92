@@ -1,22 +1,26 @@
 import './App.css'
-import Cart from './components/Cart/Cart'
+import Cart from './pages/Cart/Cart'
 import Footer from './components/Footer/Footer'
 import Home from './components/Home/Home'
-import Login from './components/Login/Login'
+import Login from './pages/Login/Login'
 import Navbar from './components/Navbar/Navbar'
-import Pizza from './components/Pizza/Pizza'
-import Register from './components/Register/Register'
+import Pizza from './pages/Pizza/Pizza'
+import Register from './pages/Register/Register'
+import {Routes, Route} from 'react-router-dom'
 
 function App() {
 
   return (
     <>
       <Navbar />
+      <Routes>
+        <Route path='/' element/>
       {/* <Home /> */}
       <Pizza />
       {/* <Register /> */}
       {/* <Login /> */}
       {/* <Cart /> */}
+      </Routes>
       <Footer />
     </>
   )
