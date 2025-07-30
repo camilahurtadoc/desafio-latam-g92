@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar'
 import Pizza from './pages/Pizza/Pizza'
 import Register from './pages/Register/Register'
 import NotFound from './components/NotFound/NotFound'
+import Profile from './pages/Profile/Profile'
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
         <Route path='/login' element={<Login />}/>
         <Route path='/cart' element={<Cart />}/>
         <Route path='/pizza/p001' element={<Pizza />}/>
-        {/* <Route path='/profile' element={< />}/> */}
+        <Route path='/profile' element={<Profile />}/>
         <Route path='/*' element={<NotFound />}/>
       </Routes>
       <Footer />
