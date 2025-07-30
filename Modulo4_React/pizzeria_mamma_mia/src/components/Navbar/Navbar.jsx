@@ -24,6 +24,7 @@ function NavbarTop() {
                         <Nav.Link href="#features"><FontAwesomeIcon icon={faPizzaSlice}/> Home</Nav.Link>
                         { token ? (
                             <>
+                            <><FontAwesomeIcon icon={faUser}/> Profile</>
                             <Nav.Link href="#pricing"><FontAwesomeIcon icon={faUser}/> Profile</Nav.Link>
                             <Nav.Link href="#pricing"><FontAwesomeIcon icon={faDoorOpen}/> Logout</Nav.Link>
                             </>
