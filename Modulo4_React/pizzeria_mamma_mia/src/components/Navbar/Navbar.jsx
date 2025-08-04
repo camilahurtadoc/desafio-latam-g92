@@ -22,16 +22,24 @@ function NavbarTop() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to="/" className="d-flex align-items-center gap-1 ms-3 text-body text-decoration-none"><FontAwesomeIcon icon={faPizzaSlice}/> Home</Link>
-                        { token ? (
+                        <Link to="/" className="d-flex align-items-center gap-1 ms-3 text-body text-decoration-none"><FontAwesomeIcon icon={faPizzaSlice} /> Home</Link>
+                        {token ? (
                             <>
-                            <Link to="/profile" className="d-flex align-items-center gap-1 ms-3 text-body text-decoration-none"><FontAwesomeIcon icon={faUser}/> Profile</Link>
-                            <Link to="/" className="d-flex align-items-center gap-1 ms-3 text-body text-decoration-none"><FontAwesomeIcon icon={faDoorOpen}/> Logout</Link>
+                                <Link to="/profile" className="d-flex align-items-center gap-1 ms-3 text-body text-decoration-none"><FontAwesomeIcon icon={faUser} /> Profile</Link>
+                                <Link to="/" className="d-flex align-items-center gap-1 ms-3 text-body text-decoration-none"><FontAwesomeIcon icon={faDoorOpen} /> Logout</Link>
                             </>
+
                         ) : (
                             <>
-                            <Link to="/login" className="d-flex align-items-center gap-1 ms-3 text-body text-decoration-none"><FontAwesomeIcon icon={faUser}/> Login</Link>
-                            <Link to="/register" className="d-flex align-items-center gap-1 ms-3 text-body text-decoration-none"><FontAwesomeIcon icon={faUserPlus}/> Register</Link>
+                                <Link to="/login" className="d-flex align-items-center gap-1 ms-3 text-body text-decoration-none"><FontAwesomeIcon icon={faUser} /> Login</Link>
+                                <Link to="/register" className="d-flex align-items-center gap-1 ms-3 text-body text-decoration-none"><FontAwesomeIcon icon={faUserPlus} /> Register</Link>
+
+                                {/* <Link to="/ruta-deseada">
+                                    <Nav.Link as="span">Texto del enlace</Nav.Link>
+                                </Link> 
+                                para los Link:
+                                className="nav-link text-light mx-2"
+                                */}
                             </>
                         )}
                         {/* <NavDropdown title="Productos" id="collapsible-nav-dropdown" className="ms-2">
@@ -47,7 +55,7 @@ function NavbarTop() {
                         </NavDropdown> */}
                     </Nav>
                     <Nav>
-                        <Link to="/cart" className="d-flex align-items-center gap-1 me-3 text-body text-decoration-none"><FontAwesomeIcon icon={faCartShopping}/> Total: $ {total.toLocaleString('es-ES')}</Link>
+                        <Link to="/cart" className="d-flex align-items-center gap-1 me-3 text-body text-decoration-none"><FontAwesomeIcon icon={faCartShopping} /> Total: $ {total.toLocaleString('es-ES')}</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
