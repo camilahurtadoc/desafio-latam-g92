@@ -7,7 +7,7 @@ import Login from './pages/Login/Login'
 import Navbar from './components/Navbar/Navbar'
 import Pizza from './pages/Pizza/Pizza'
 import Register from './pages/Register/Register'
-import NotFound from './components/NotFound/NotFound'
+import NotFound from './pages/NotFound/NotFound'
 import Profile from './pages/Profile/Profile'
 
 function App() {
