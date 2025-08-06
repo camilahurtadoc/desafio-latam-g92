@@ -1,6 +1,6 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import ContextProvider from './context/CartContext'
+import CartProvider from './context/CartContext'
 import Cart from './pages/Cart/Cart'
 import Footer from './components/Footer/Footer'
 import Home from './pages/Home/Home'
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      <ContextProvider>
+      <CartProvider>
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -27,7 +27,7 @@ function App() {
           <Route path='/404' element={<NotFound />} />
           <Route path='/*' element={<NotFound />} />
         </Routes>
-      </ContextProvider>
+      </CartProvider>
       <Footer />
     </>
   )
