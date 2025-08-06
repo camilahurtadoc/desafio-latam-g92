@@ -11,8 +11,7 @@ import { faCartShopping, faPizzaSlice, faUser, faUserPlus, faDoorOpen } from '@f
 
 
 function NavbarTop() {
-    const {total, setTotal} = useContext(CartContext);
-    // const total = 25000;
+    const {total} = useContext(CartContext);
     const token = false;
 
 
