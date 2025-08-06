@@ -1,19 +1,20 @@
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
+
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
-import { faPizzaSlice } from '@fortawesome/free-solid-svg-icons'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
-import { faDoorOpen } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping, faPizzaSlice, faUser, faUserPlus, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 
 
 function NavbarTop() {
-    const total = 25000;
+    const {total, setTotal} = useContext(CartContext);
+    // const total = 25000;
     const token = false;
+
 
     return (
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
