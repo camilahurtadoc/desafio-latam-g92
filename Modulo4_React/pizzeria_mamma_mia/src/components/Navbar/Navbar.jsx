@@ -53,7 +53,7 @@ function NavbarTop() {
                         </NavDropdown> */}
                     </Nav>
                     <Nav>
-                        <Link to="/cart" className="nav-link mx-1"><FontAwesomeIcon icon={faCartShopping} /> Total: $ {total.toLocaleString('es-ES')}</Link>
+                        <Link to="/cart" className="nav-link mx-1"><FontAwesomeIcon icon={faCartShopping} /> Total: $ {total.toLocaleString("es-ES", { useGrouping: true })}</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
