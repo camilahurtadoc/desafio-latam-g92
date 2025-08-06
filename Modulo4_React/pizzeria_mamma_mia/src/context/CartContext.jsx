@@ -1,15 +1,15 @@
-import { useContext } from "react";
+import { createContext, useState } from "react";
 
-export const CartContext = useContext();
+export const CartContext = createContext();
 
-const ContextProvider = ({ children }) => {
+const CartProvider = ({ children }) => {
     const [total, setTotal] = useState(0)
 
     return (
-        <ContextProvider>
+        <CartContext.Provider value={{ total, setTotal }}>
             {children}
-        </ContextProvider>
+        </CartContext.Provider>
     )
 }
 
-export default ContextProvider;
+export default CartProvider;
