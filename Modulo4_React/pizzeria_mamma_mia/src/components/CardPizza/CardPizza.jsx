@@ -1,9 +1,11 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 function CardPizza({  name, price, ingredients, img }) {
 
@@ -12,6 +14,8 @@ function CardPizza({  name, price, ingredients, img }) {
     const otherLetters = word.slice(1)
     return firstLetterCapt + otherLetters
   }
+
+  const { total, setTotal } = useContext(CartContext)
 
   return (
     <Card style={{ width: '20rem' }} className='mb-5'>
@@ -34,7 +38,7 @@ function CardPizza({  name, price, ingredients, img }) {
       </ListGroup>
       <Card.Body className="d-flex justify-content-around">
         <Button variant="light">Ver más <FontAwesomeIcon icon={faMagnifyingGlass}/></Button>
-        <Button variant="dark" >Añadir <FontAwesomeIcon icon={faCartPlus}/></Button>
+        <Button variant="dark" onClick={() => setTotal(total + price)}>Añadir <FontAwesomeIcon icon={faCartPlus}/></Button>
       </Card.Body>
     </Card>
   )
