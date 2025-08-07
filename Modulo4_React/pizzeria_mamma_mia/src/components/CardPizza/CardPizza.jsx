@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus, faMagnifyingGlass, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
@@ -19,7 +19,6 @@ function CardPizza({ name, price, ingredients, img, id }) {
   const { cart, setCart } = useContext(CartContext)
 
   const handleClick = () => {
-
     if (cart.length === 0) {
       const pizzaToAdd = {
         id: id,
@@ -36,7 +35,6 @@ function CardPizza({ name, price, ingredients, img, id }) {
 
       newCart[index].count += 1
       setCart(newCart)
-
     } else {
       const pizzaToAdd = {
         id: id,
@@ -51,6 +49,10 @@ function CardPizza({ name, price, ingredients, img, id }) {
     setTotal(total + price)
   }
 
+  const pizzaCount = () => {
+    const index = cart.findIndex(pizza => pizza.id === id)
+    return cart[index].count
+  }
 
   return (
     <Card style={{ width: '20rem' }} className='mb-5'>
@@ -73,7 +75,25 @@ function CardPizza({ name, price, ingredients, img, id }) {
       </ListGroup>
       <Card.Body className="d-flex justify-content-around">
         <Button variant="light">Ver más <FontAwesomeIcon icon={faMagnifyingGlass} /></Button>
-        <Button variant="dark" onClick={handleClick}>Añadir <FontAwesomeIcon icon={faCartPlus} /></Button>
+        {
+          cart.findIndex(pizza => pizza.id === id) === -1 ? (
+            <Button variant="dark" onClick={handleClick}>
+              Añadir <FontAwesomeIcon icon={faCartPlus} />
+            </Button>
+          ) : (
+            <div className="d-flex align-items-center gap-3" >
+              <Button variant="danger"><FontAwesomeIcon icon={faMinus} /></Button>
+              <span>{pizzaCount()}</span>
+              <Button variant="success"><FontAwesomeIcon icon={faPlus} /></Button>
+              {/* <Button variant="danger" onClick={() => minusPizza(pizza)}><FontAwesomeIcon icon={faMinus} /></Button>
+              <span>{pizza.count}</span>
+              <Button variant="success" onClick={() => plusPizza(pizza)}><FontAwesomeIcon icon={faPlus} /></Button> */}
+            </div>
+          )
+        }
+
+
+
       </Card.Body>
     </Card>
   )
