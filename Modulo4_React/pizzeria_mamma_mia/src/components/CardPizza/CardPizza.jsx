@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus, faMagnifyingGlass, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 
 function CardPizza({ name, price, ingredients, img, id }) {
@@ -18,6 +18,16 @@ function CardPizza({ name, price, ingredients, img, id }) {
   const { total, setTotal } = useContext(CartContext)
   const { cart, setCart } = useContext(CartContext)
 
+  const index = cart.findIndex(pizza => pizza.id === id)
+  let initialValue;
+  if (index == -1) {
+    initialValue = 0
+  } else {
+    initialValue = cart[index].count
+  }
+
+  const [pizzaCount, setPizzaCount] = useState(initialValue)
+
   const handleClick = () => {
     if (cart.length === 0) {
       const pizzaToAdd = {
@@ -28,6 +38,7 @@ function CardPizza({ name, price, ingredients, img, id }) {
         img: img,
       }
       setCart([pizzaToAdd])
+      setPizzaCount(1)
     } else if (cart.some(pizza => pizza.id === id)) {
 
       let newCart = cart
@@ -35,6 +46,7 @@ function CardPizza({ name, price, ingredients, img, id }) {
 
       newCart[index].count += 1
       setCart(newCart)
+      setPizzaCount(cart[index].count)
     } else {
       const pizzaToAdd = {
         id: id,
@@ -44,15 +56,11 @@ function CardPizza({ name, price, ingredients, img, id }) {
         img: img,
       }
       setCart([...cart, pizzaToAdd])
+      setPizzaCount(1)
     }
-
     setTotal(total + price)
   }
 
-  const pizzaCount = () => {
-    const index = cart.findIndex(pizza => pizza.id === id)
-    return cart[index].count
-  }
 
   const minusPizza = () => {
 
@@ -65,11 +73,21 @@ function CardPizza({ name, price, ingredients, img, id }) {
     let newCart = cart
     newCart.map(cartItem => (cartItem.id === cart[index].id ? (cartItem.count -= 1) : null))
 
+    let finalCount
+    if (cart[index].count === 0) {
+      newCart.splice(index, 1)
+      finalCount = 0
+    } else {
+      finalCount = cart[index].count
+    }
+    
+
     setCart(newCart)
+    setPizzaCount(finalCount)
     setTotal(total - price)
   }
 
-  const plusPizza = (pizza) => {
+  const plusPizza = () => {
 
     const index = cart.findIndex(pizza => pizza.id === id)
 
@@ -77,6 +95,7 @@ function CardPizza({ name, price, ingredients, img, id }) {
     newCart.map(cartItem => (cartItem.id === cart[index].id ? (cartItem.count += 1) : null))
 
     setCart(newCart)
+    setPizzaCount(cart[index].count)
     setTotal(total + price)
   }
 
@@ -110,13 +129,11 @@ function CardPizza({ name, price, ingredients, img, id }) {
           ) : (
             <div className="d-flex align-items-center gap-3" >
               <Button variant="danger" onClick={minusPizza}><FontAwesomeIcon icon={faMinus} /></Button>
-              <span>{pizzaCount()}</span>
+              <span>{pizzaCount}</span>
               <Button variant="success" onClick={plusPizza}><FontAwesomeIcon icon={faPlus} /></Button>
             </div>
           )
         }
-
-
 
       </Card.Body>
     </Card>
