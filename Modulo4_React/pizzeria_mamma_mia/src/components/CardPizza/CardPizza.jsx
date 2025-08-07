@@ -54,6 +54,33 @@ function CardPizza({ name, price, ingredients, img, id }) {
     return cart[index].count
   }
 
+  const minusPizza = () => {
+
+    const index = cart.findIndex(pizza => pizza.id === id)
+
+    if (cart[index].count - 1 < 0) {
+      return
+    }
+
+    let newCart = cart
+    newCart.map(cartItem => (cartItem.id === cart[index].id ? (cartItem.count -= 1) : null))
+
+    setCart(newCart)
+    setTotal(total - price)
+  }
+
+  const plusPizza = (pizza) => {
+
+    const index = cart.findIndex(pizza => pizza.id === id)
+
+    let newCart = cart
+    newCart.map(cartItem => (cartItem.id === cart[index].id ? (cartItem.count += 1) : null))
+
+    setCart(newCart)
+    setTotal(total + price)
+  }
+
+
   return (
     <Card style={{ width: '20rem' }} className='mb-5'>
       <Card.Img variant="top" src={img} />
@@ -82,12 +109,9 @@ function CardPizza({ name, price, ingredients, img, id }) {
             </Button>
           ) : (
             <div className="d-flex align-items-center gap-3" >
-              <Button variant="danger"><FontAwesomeIcon icon={faMinus} /></Button>
+              <Button variant="danger" onClick={minusPizza}><FontAwesomeIcon icon={faMinus} /></Button>
               <span>{pizzaCount()}</span>
-              <Button variant="success"><FontAwesomeIcon icon={faPlus} /></Button>
-              {/* <Button variant="danger" onClick={() => minusPizza(pizza)}><FontAwesomeIcon icon={faMinus} /></Button>
-              <span>{pizza.count}</span>
-              <Button variant="success" onClick={() => plusPizza(pizza)}><FontAwesomeIcon icon={faPlus} /></Button> */}
+              <Button variant="success" onClick={plusPizza}><FontAwesomeIcon icon={faPlus} /></Button>
             </div>
           )
         }
