@@ -43,6 +43,7 @@ function Home() {
                                     price={item.price}
                                     ingredients={item.ingredients}
                                     img={item.img}
+                                    id={item.id}
                                 />
                             </Col>
                     ))

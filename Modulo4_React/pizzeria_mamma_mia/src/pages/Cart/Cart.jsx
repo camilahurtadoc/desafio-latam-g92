@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faMinus } from '@fortawesome/free-solid-svg-icons'
 import './Cart.css'
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 const Cart = () => {
 
@@ -14,12 +16,13 @@ const Cart = () => {
         return firstLetterCapt + otherLetters
     }
 
-    const [cart, setCart] = useState(pizzaCart)
+    const { total, setTotal } = useContext(CartContext)
+    const { cart, setCart } = useContext(CartContext)
 
-    let startingTotal = 0
-    pizzaCart.map(pizza => startingTotal += pizza.count * pizza.price)
+    // let startingTotal = 0
+    // pizzaCart.map(pizza => startingTotal += pizza.count * pizza.price)
 
-    const [total, settotal] = useState(startingTotal)
+    // const [total, settotal] = useState(startingTotal)
 
     const minusPizza = (pizza) => {
         if (pizza.count - 1 < 0) {
@@ -30,7 +33,7 @@ const Cart = () => {
         newCart.map(cartItem => (cartItem.id === pizza.id ? (cartItem.count -= 1) : null))
 
         setCart(newCart)
-        settotal(total - pizza.price)
+        setTotal(total - pizza.price)
     }
 
     const plusPizza = (pizza) => {
@@ -39,7 +42,7 @@ const Cart = () => {
         newCart.map(cartItem => (cartItem.id === pizza.id ? (cartItem.count += 1) : null))
 
         setCart(newCart)
-        settotal(total + pizza.price)
+        setTotal(total + pizza.price)
     }
 
 
