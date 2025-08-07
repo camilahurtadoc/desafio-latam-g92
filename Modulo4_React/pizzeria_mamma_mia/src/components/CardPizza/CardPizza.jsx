@@ -4,9 +4,8 @@ import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
-import { useEffect } from 'react';
 
 function CardPizza({ name, price, ingredients, img, id }) {
 
@@ -20,22 +19,36 @@ function CardPizza({ name, price, ingredients, img, id }) {
   const { cart, setCart } = useContext(CartContext)
 
   const handleClick = () => {
-    
-    let newCart = cart
-    newCart.map(cartItem => {(cartItem.id === cart.id ? (cartItem.count += 1) : null)})
 
-    // falta agregar condicion sobre q escoger, newCart o el pizzatoAdd
+    if (cart.length === 0) {
+      const pizzaToAdd = {
+        id: id,
+        name: name,
+        price: price,
+        count: 1,
+        img: img,
+      }
+      setCart([pizzaToAdd])
+    } else if (cart.some(pizza => pizza.id === id)) {
 
-    const pizzaToAdd = {
-      id: id,
-      name: name,
-      price: price,
-      count: 1,
-      img: img,
+      let newCart = cart
+      const index = cart.findIndex(pizza => pizza.id === id)
+
+      newCart[index].count += 1
+      setCart(newCart)
+
+    } else {
+      const pizzaToAdd = {
+        id: id,
+        name: name,
+        price: price,
+        count: 1,
+        img: img,
+      }
+      setCart([...cart, pizzaToAdd])
     }
 
     setTotal(total + price)
-    setCart([...cart, pizzaToAdd])
   }
 
 
