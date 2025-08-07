@@ -32,6 +32,11 @@ const Cart = () => {
         let newCart = cart
         newCart.map(cartItem => (cartItem.id === pizza.id ? (cartItem.count -= 1) : null))
 
+        const index = cart.findIndex(pizzaItem => pizzaItem.id === pizza.id)
+        if (cart[index].count === 0) {
+            newCart.splice(index, 1)
+        }
+
         setCart(newCart)
         setTotal(total - pizza.price)
     }
@@ -59,9 +64,9 @@ const Cart = () => {
                                 <img src={pizza.img} className="pizza-cart" />
                                 <h4 className="pizza-name">{capitalizeFirstLetter(pizza.name)}</h4>
                                 <span className="fw-bold">${pizza.price.toLocaleString("es-ES", { useGrouping: true })}</span>
-                                <Button variant="danger" onClick={() => minusPizza(pizza)}><FontAwesomeIcon icon={faMinus}/></Button>
+                                <Button variant="danger" onClick={() => minusPizza(pizza)}><FontAwesomeIcon icon={faMinus} /></Button>
                                 <span>{pizza.count}</span>
-                                <Button variant="success" onClick={() => plusPizza(pizza)}><FontAwesomeIcon icon={faPlus}/></Button>
+                                <Button variant="success" onClick={() => plusPizza(pizza)}><FontAwesomeIcon icon={faPlus} /></Button>
 
                             </div>
                         ) : null
