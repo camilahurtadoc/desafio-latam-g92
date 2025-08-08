@@ -10,24 +10,27 @@ import Pizza from './pages/Pizza/Pizza'
 import Register from './pages/Register/Register'
 import NotFound from './pages/NotFound/NotFound'
 import Profile from './pages/Profile/Profile'
+import AxiosPizzasProvider from './context/AxiosPizzasContext'
 
 function App() {
 
   return (
     <>
-      <CartProvider>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/pizza/p001' element={<Pizza />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/404' element={<NotFound />} />
-          <Route path='/*' element={<NotFound />} />
-        </Routes>
-      </CartProvider>
+      <AxiosPizzasProvider>
+        <CartProvider>
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/pizza/p001' element={<Pizza />} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/404' element={<NotFound />} />
+            <Route path='/*' element={<NotFound />} />
+          </Routes>
+        </CartProvider>
+      </AxiosPizzasProvider>
       <Footer />
     </>
   )

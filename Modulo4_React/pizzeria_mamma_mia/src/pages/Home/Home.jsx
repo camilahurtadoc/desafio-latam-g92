@@ -1,26 +1,18 @@
 import CardPizza from '../../components/CardPizza/CardPizza'
 import Header from '../../components/Header/Header'
 // import { pizzas } from '../../assets/js/pizzas'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios'
 import { useEffect } from 'react';
+import { AxiosPizzasContext } from '../../context/AxiosPizzasContext';
 
 
 function Home() {
 
-    const [listaPizzas, setListaPizzas] = useState([])
-
-    async function getPizzaList() {
-  try {
-    const data = (await axios.get('http://localhost:5000/api/pizzas')).data;
-    setListaPizzas(data)
-  } catch (error) {
-    console.error(error);
-  }
-}
+    const { listaPizzas, getPizzaList } = useContext(AxiosPizzasContext)
 
     useEffect(() => {
         getPizzaList()
@@ -34,8 +26,8 @@ function Home() {
 
             <Container fluid className='mt-5'>
                 <Row md={3}>
-                {
-                    listaPizzas.map(item => (
+                    {
+                        listaPizzas.map(item => (
                             <Col className='d-flex justify-content-center' key={item.id}>
                                 <CardPizza
                                     key={item.id}
@@ -46,8 +38,8 @@ function Home() {
                                     id={item.id}
                                 />
                             </Col>
-                    ))
-                }
+                        ))
+                    }
                 </Row>
             </Container>
 
