@@ -7,22 +7,12 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons'
 import './Cart.css'
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import CapitalizeFirstLetter from '../../components/CapitalizeFirstLetter/CapitalizeFirstLetter';
 
 const Cart = () => {
 
-    const capitalizeFirstLetter = (word) => {
-        const firstLetterCapt = word.charAt(0).toUpperCase()
-        const otherLetters = word.slice(1)
-        return firstLetterCapt + otherLetters
-    }
-
     const { total, setTotal } = useContext(CartContext)
     const { cart, setCart } = useContext(CartContext)
-
-    // let startingTotal = 0
-    // pizzaCart.map(pizza => startingTotal += pizza.count * pizza.price)
-
-    // const [total, settotal] = useState(startingTotal)
 
     const minusPizza = (pizza) => {
         if (pizza.count - 1 < 0) {
@@ -62,7 +52,7 @@ const Cart = () => {
                             <div className="d-flex align-items-center m-3 gap-4">
 
                                 <img src={pizza.img} className="pizza-cart" />
-                                <h4 className="pizza-name">{capitalizeFirstLetter(pizza.name)}</h4>
+                                <h4 className="pizza-name">{<CapitalizeFirstLetter word={pizza.name} />}</h4>
                                 <span className="fw-bold">${pizza.price.toLocaleString("es-ES", { useGrouping: true })}</span>
                                 <Button variant="danger" onClick={() => minusPizza(pizza)}><FontAwesomeIcon icon={faMinus} /></Button>
                                 <span>{pizza.count}</span>
