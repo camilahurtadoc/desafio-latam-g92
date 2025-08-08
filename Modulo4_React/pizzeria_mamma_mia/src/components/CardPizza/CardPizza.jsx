@@ -3,20 +3,14 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus, faMagnifyingGlass, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import CapitalizeFirstLetter from '../CapitalizeFirstLetter/CapitalizeFirstLetter';
 
 import { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 
 function CardPizza({ name, price, ingredients, img, id }) {
 
-  const capitalizeFirstLetter = (word) => {
-    const firstLetterCapt = word.charAt(0).toUpperCase()
-    const otherLetters = word.slice(1)
-    return firstLetterCapt + otherLetters
-  }
-
-  const { total, setTotal } = useContext(CartContext)
-  const { cart, setCart } = useContext(CartContext)
+  const { total, setTotal, cart, setCart } = useContext(CartContext)
 
   const index = cart.findIndex(pizza => pizza.id === id)
   let initialValue;
@@ -104,7 +98,7 @@ function CardPizza({ name, price, ingredients, img, id }) {
     <Card style={{ width: '20rem' }} className='mb-5'>
       <Card.Img variant="top" src={img} />
       <Card.Body>
-        <Card.Title>{capitalizeFirstLetter(name)}</Card.Title>
+        <Card.Title>{ <CapitalizeFirstLetter word={name}/> }</Card.Title>
         <Card.Text>
         </Card.Text>
       </Card.Body>
