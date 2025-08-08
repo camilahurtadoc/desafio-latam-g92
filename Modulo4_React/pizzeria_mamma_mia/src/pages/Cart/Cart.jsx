@@ -16,7 +16,7 @@ const Cart = () => {
 
     const minusPizza = (pizza) => {
         if (pizza.count - 1 < 0) {
-            return
+            return 
         }
 
         let newCart = cart
@@ -44,7 +44,7 @@ const Cart = () => {
     return (
         <div className="m-2 d-flex flex-column align-items-center">
             <h3>Detalles del pedido:</h3>
-
+            
             {cart.map(pizza => (
                 <div key={pizza.id}>
                     {

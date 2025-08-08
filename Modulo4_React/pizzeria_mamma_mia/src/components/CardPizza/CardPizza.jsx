@@ -23,35 +23,51 @@ function CardPizza({ name, price, ingredients, img, id }) {
   const [pizzaCount, setPizzaCount] = useState(initialValue)
 
   const handleClick = () => {
-    if (cart.length === 0) {
-      const pizzaToAdd = {
-        id: id,
-        name: name,
-        price: price,
-        count: 1,
-        img: img,
-      }
-      setCart([pizzaToAdd])
-      setPizzaCount(1)
-    } else if (cart.some(pizza => pizza.id === id)) {
+    // if (cart.length === 0) {
+    //   const pizzaToAdd = {
+    //     id: id,
+    //     name: name,
+    //     price: price,
+    //     count: 1,
+    //     img: img,
+    //   }
+    //   setCart([pizzaToAdd])
+    //   setPizzaCount(1)
+    // } else if (cart.some(pizza => pizza.id === id)) {
 
-      let newCart = cart
-      const index = cart.findIndex(pizza => pizza.id === id)
+    //   let newCart = cart
+    //   const index = cart.findIndex(pizza => pizza.id === id)
 
-      newCart[index].count += 1
-      setCart(newCart)
-      setPizzaCount(cart[index].count)
-    } else {
-      const pizzaToAdd = {
-        id: id,
-        name: name,
-        price: price,
-        count: 1,
-        img: img,
-      }
-      setCart([...cart, pizzaToAdd])
-      setPizzaCount(1)
+    //   newCart[index].count += 1
+    //   setCart(newCart)
+    //   setPizzaCount(cart[index].count)
+    // } else {
+    //   const pizzaToAdd = {
+    //     id: id,
+    //     name: name,
+    //     price: price,
+    //     count: 1,
+    //     img: img,
+    //   }
+
+
+
+    //   setCart([...cart, pizzaToAdd])
+    //   setPizzaCount(1)
+    // }
+
+    const pizzaToAdd = {
+      id: id,
+      name: name,
+      price: price,
+      count: 1,
+      img: img,
     }
+    setCart([...cart, pizzaToAdd])
+    setPizzaCount(1)
+
+
+
     setTotal(total + price)
   }
 
@@ -74,7 +90,7 @@ function CardPizza({ name, price, ingredients, img, id }) {
     } else {
       finalCount = cart[index].count
     }
-    
+
 
     setCart(newCart)
     setPizzaCount(finalCount)
@@ -98,7 +114,7 @@ function CardPizza({ name, price, ingredients, img, id }) {
     <Card style={{ width: '20rem' }} className='mb-5'>
       <Card.Img variant="top" src={img} />
       <Card.Body>
-        <Card.Title>{ <CapitalizeFirstLetter word={name}/> }</Card.Title>
+        <Card.Title>{<CapitalizeFirstLetter word={name} />}</Card.Title>
         <Card.Text>
         </Card.Text>
       </Card.Body>
