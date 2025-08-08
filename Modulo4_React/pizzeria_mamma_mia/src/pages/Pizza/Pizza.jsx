@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from "react";
-import axios from 'axios'
+import { useContext, useEffect } from "react";
 import Button from "react-bootstrap/esm/Button";
 import ListGroup from 'react-bootstrap/ListGroup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

@@ -1,9 +1,6 @@
 import Button from 'react-bootstrap/Button';
-import { pizzaCart } from "../../assets/js/pizzas"
-import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import { faMinus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 import './Cart.css'
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
