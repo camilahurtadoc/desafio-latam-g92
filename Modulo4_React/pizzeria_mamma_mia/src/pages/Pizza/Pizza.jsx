@@ -6,16 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import './Pizza.css'
 import { AxiosPizzaP001Context } from "../../context/AxiosPizzaP001Context";
+import CapitalizeFirstLetter from "../../components/CapitalizeFirstLetter/CapitalizeFirstLetter";
 
 const Pizza = () => {
 
     const { pizza, getPizza } = useContext(AxiosPizzaP001Context)
-
-    const capitalizeFirstLetter = (word) => {
-        const firstLetterCapt = word.charAt(0).toUpperCase()
-        const otherLetters = word.slice(1)
-        return firstLetterCapt + otherLetters
-    }
 
     useEffect(() => {
         getPizza()
@@ -24,7 +19,7 @@ const Pizza = () => {
     return (
         <div className="d-flex justify-content-center w-100">
             <div className="pizza-card d-flex flex-column align-items-center bg-success-subtle w-75 m-3 p-2 border">
-                <h2 className="my-2">{pizza.name && capitalizeFirstLetter(pizza.name)}</h2>
+                <h2 className="my-2">{pizza.name && <CapitalizeFirstLetter word={pizza.name}/>}</h2>
                 <div className="d-flex align-items-center justify-content-center m-2">
                     <img className="pizza-img w-50" src={pizza.img} />
                     <div className="mx-5">
