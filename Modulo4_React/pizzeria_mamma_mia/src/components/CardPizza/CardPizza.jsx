@@ -23,39 +23,6 @@ function CardPizza({ name, price, ingredients, img, id }) {
   const [pizzaCount, setPizzaCount] = useState(initialValue)
 
   const handleClick = () => {
-    // if (cart.length === 0) {
-    //   const pizzaToAdd = {
-    //     id: id,
-    //     name: name,
-    //     price: price,
-    //     count: 1,
-    //     img: img,
-    //   }
-    //   setCart([pizzaToAdd])
-    //   setPizzaCount(1)
-    // } else if (cart.some(pizza => pizza.id === id)) {
-
-    //   let newCart = cart
-    //   const index = cart.findIndex(pizza => pizza.id === id)
-
-    //   newCart[index].count += 1
-    //   setCart(newCart)
-    //   setPizzaCount(cart[index].count)
-    // } else {
-    //   const pizzaToAdd = {
-    //     id: id,
-    //     name: name,
-    //     price: price,
-    //     count: 1,
-    //     img: img,
-    //   }
-
-
-
-    //   setCart([...cart, pizzaToAdd])
-    //   setPizzaCount(1)
-    // }
-
     const pizzaToAdd = {
       id: id,
       name: name,
@@ -65,9 +32,6 @@ function CardPizza({ name, price, ingredients, img, id }) {
     }
     setCart([...cart, pizzaToAdd])
     setPizzaCount(1)
-
-
-
     setTotal(total + price)
   }
 
