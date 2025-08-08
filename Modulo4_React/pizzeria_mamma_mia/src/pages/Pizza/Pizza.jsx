@@ -1,28 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from 'axios'
 import Button from "react-bootstrap/esm/Button";
 import ListGroup from 'react-bootstrap/ListGroup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import './Pizza.css'
+import { AxiosPizzaP001Context } from "../../context/AxiosPizzaP001Context";
 
 const Pizza = () => {
 
-    const [pizza, setPizza] = useState({})
+    const { pizza, getPizza } = useContext(AxiosPizzaP001Context)
 
     const capitalizeFirstLetter = (word) => {
         const firstLetterCapt = word.charAt(0).toUpperCase()
         const otherLetters = word.slice(1)
         return firstLetterCapt + otherLetters
-    }
-
-    async function getPizza() {
-        try {
-            const { data } = await axios.get('http://localhost:5000/api/pizzas/p001');
-            setPizza(data)
-        } catch (error) {
-            console.error(error);
-        }
     }
 
     useEffect(() => {
