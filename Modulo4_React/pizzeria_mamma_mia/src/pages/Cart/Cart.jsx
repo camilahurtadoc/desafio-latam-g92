@@ -13,7 +13,7 @@ const Cart = () => {
 
     const minusPizza = (pizza) => {
         if (pizza.count - 1 < 0) {
-            return 
+            return
         }
 
         let newCart = cart
@@ -41,24 +41,18 @@ const Cart = () => {
     return (
         <div className="m-2 d-flex flex-column align-items-center">
             <h3>Detalles del pedido:</h3>
-            
+
             {cart.map(pizza => (
                 <div key={pizza.id}>
-                    {
-                        pizza.count > 0 ? (
-                            <div className="d-flex align-items-center m-3 gap-4">
+                    <div className="d-flex align-items-center m-3 gap-4">
+                        <img src={pizza.img} className="pizza-cart" />
+                        <h4 className="pizza-name">{<CapitalizeFirstLetter word={pizza.name} />}</h4>
+                        <span className="fw-bold">${pizza.price.toLocaleString("es-ES", { useGrouping: true })}</span>
+                        <Button variant="danger" onClick={() => minusPizza(pizza)}><FontAwesomeIcon icon={faMinus} /></Button>
+                        <span>{pizza.count}</span>
+                        <Button variant="success" onClick={() => plusPizza(pizza)}><FontAwesomeIcon icon={faPlus} /></Button>
 
-                                <img src={pizza.img} className="pizza-cart" />
-                                <h4 className="pizza-name">{<CapitalizeFirstLetter word={pizza.name} />}</h4>
-                                <span className="fw-bold">${pizza.price.toLocaleString("es-ES", { useGrouping: true })}</span>
-                                <Button variant="danger" onClick={() => minusPizza(pizza)}><FontAwesomeIcon icon={faMinus} /></Button>
-                                <span>{pizza.count}</span>
-                                <Button variant="success" onClick={() => plusPizza(pizza)}><FontAwesomeIcon icon={faPlus} /></Button>
-
-                            </div>
-                        ) : null
-                    }
-
+                    </div>
                 </div>
             ))}
             {
