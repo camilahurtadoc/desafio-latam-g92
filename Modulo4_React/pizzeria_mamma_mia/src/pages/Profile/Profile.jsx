@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
+import { UserContext } from '../../context/UserContext';
 
 const Profile = () => {
+    const { token } = useContext(UserContext)
+
     return (
         <div className='mx-auto my-5' style={{ width: "450px" }}>
             <h2 className='text-center'>Perfil de Usuario</h2>

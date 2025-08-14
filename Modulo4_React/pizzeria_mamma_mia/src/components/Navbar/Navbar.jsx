@@ -26,14 +26,12 @@ function NavbarTop() {
                         {token ? (
                             <>
                                 <Link to="/profile" className="nav-link mx-1"><FontAwesomeIcon icon={faUser} /> Profile</Link>
-                                <Link to="/" className="nav-link mx-1" onClick={logout}><FontAwesomeIcon icon={faDoorOpen} /> Logout</Link>
-                            </>
+                                <Link to="/" className="nav-link mx-1" onClick={logout}><FontAwesomeIcon icon={faDoorOpen} /> Logout</Link>                            </>
 
                         ) : (
                             <>
                                 <Link to="/login" className="nav-link mx-1"><FontAwesomeIcon icon={faUser} /> Login</Link>
-                                <Link to="/register" className="nav-link mx-1"><FontAwesomeIcon icon={faUserPlus} /> Register</Link>
-                                
+                                <Link to="/register" className="nav-link mx-1"><FontAwesomeIcon icon={faUserPlus} /> Register</Link>                                
                                 {/* Versión opcional para Link, manteniendo el NavLink de bootstrap*/}
                                 {/* <Link to="/ruta-deseada" className="text-decoration-none">
                                     <Nav.Link as="span">Texto del enlace</Nav.Link>
