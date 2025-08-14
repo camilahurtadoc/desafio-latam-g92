@@ -6,9 +6,9 @@ export const AxiosPizzaP001Context = createContext();
 const AxiosPizzaP001Provider = ({ children }) => {
     const [pizza, setPizza] = useState({})
 
-    async function getPizza(pizzaid) {
+    async function getPizza(pizzaId) {
         try {
-            const { data } = await axios.get(`http://localhost:5000/api/pizzas/${pizzaid}`);
+            const { data } = await axios.get(`http://localhost:5000/api/pizzas/${pizzaId}`);
             setPizza(data)
         } catch (error) {
             console.error(error);
