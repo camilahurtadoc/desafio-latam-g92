@@ -8,12 +8,12 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faPizzaSlice, faUser, faUserPlus, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
+import { UserContext } from '../../context/UserContext';
 
 
 function NavbarTop() {
     const {total} = useContext(CartContext);
-    const token = false;
-
+    const {token, setToken, logout } = useContext(UserContext)
 
     return (
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
