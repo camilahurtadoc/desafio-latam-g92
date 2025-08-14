@@ -5,11 +5,13 @@ import './Cart.css'
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import CapitalizeFirstLetter from '../../components/CapitalizeFirstLetter/CapitalizeFirstLetter';
+import { UserContext } from '../../context/UserContext';
 
 const Cart = () => {
 
     const { total, setTotal } = useContext(CartContext)
     const { cart, setCart } = useContext(CartContext)
+    const { token } = useContext(UserContext)
 
     const minusPizza = (pizza) => {
         if (pizza.count - 1 < 0) {
@@ -62,7 +64,7 @@ const Cart = () => {
             <div className="d-flex flex-column align-content-center">
 
                 <h2>Total: ${total.toLocaleString("es-ES", { useGrouping: true })}</h2>
-                <Button>Pagar</Button>
+                <Button disabled={!token}>Pagar</Button>
             </div>
         </div>
     )
