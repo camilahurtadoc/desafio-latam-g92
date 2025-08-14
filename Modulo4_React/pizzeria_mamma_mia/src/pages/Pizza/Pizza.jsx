@@ -5,14 +5,14 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import './Pizza.css'
-import { AxiosPizzaP001Context } from "../../context/AxiosPizzaP001Context";
+import { AxiosPizzaIdContext } from "../../context/AxiosPizzasIdContext";
 import CapitalizeFirstLetter from "../../components/CapitalizeFirstLetter/CapitalizeFirstLetter";
 
 const Pizza = () => {
 
     const { pizzaId } = useParams()
 
-    const { pizza, getPizza } = useContext(AxiosPizzaP001Context)
+    const { pizza, getPizza } = useContext(AxiosPizzaIdContext)
 
     useEffect(() => {
         getPizza(pizzaId)

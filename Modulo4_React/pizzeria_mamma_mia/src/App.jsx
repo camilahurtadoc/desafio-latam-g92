@@ -11,7 +11,7 @@ import Register from './pages/Register/Register'
 import NotFound from './pages/NotFound/NotFound'
 import Profile from './pages/Profile/Profile'
 import AxiosPizzasProvider from './context/AxiosPizzasContext'
-import AxiosPizzaP001Provider from './context/AxiosPizzaP001Context'
+import AxiosPizzaIdProvider from './context/AxiosPizzasIdContext'
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
     <>
       <AxiosPizzasProvider>
         <CartProvider>
-          <AxiosPizzaP001Provider>
+          <AxiosPizzaIdProvider>
             <Navbar />
             <Routes>
               <Route path='/' element={<Home />} />
@@ -31,7 +31,7 @@ function App() {
               <Route path='/404' element={<NotFound />} />
               <Route path='/*' element={<NotFound />} />
             </Routes>
-          </AxiosPizzaP001Provider>
+          </AxiosPizzaIdProvider>
         </CartProvider>
       </AxiosPizzasProvider>
       <Footer />

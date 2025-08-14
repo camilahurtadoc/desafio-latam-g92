@@ -1,9 +1,9 @@
 import axios from "axios";
 import { createContext, useState } from "react";
 
-export const AxiosPizzaP001Context = createContext();
+export const AxiosPizzaIdContext = createContext();
 
-const AxiosPizzaP001Provider = ({ children }) => {
+const AxiosPizzaIdProvider = ({ children }) => {
     const [pizza, setPizza] = useState({})
 
     async function getPizza(pizzaId) {
@@ -16,10 +16,10 @@ const AxiosPizzaP001Provider = ({ children }) => {
     }
 
     return (
-        <AxiosPizzaP001Context.Provider value={{ pizza, getPizza }}>
+        <AxiosPizzaIdContext.Provider value={{ pizza, getPizza }}>
             { children }
-        </AxiosPizzaP001Context.Provider>
+        </AxiosPizzaIdContext.Provider>
     )
 }
 
-export default AxiosPizzaP001Provider;
+export default AxiosPizzaIdProvider;
