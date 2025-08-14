@@ -7,6 +7,7 @@ import CapitalizeFirstLetter from '../CapitalizeFirstLetter/CapitalizeFirstLette
 
 import { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 function CardPizza({ name, price, ingredients, img, id }) {
 
@@ -73,6 +74,11 @@ function CardPizza({ name, price, ingredients, img, id }) {
     setTotal(total + price)
   }
 
+  const navigate = useNavigate()
+  const goToPizza = () => {
+    navigate(`/pizzas/${id}`)
+  }
+
 
   return (
     <Card style={{ width: '20rem' }} className='mb-5'>
@@ -94,7 +100,7 @@ function CardPizza({ name, price, ingredients, img, id }) {
         <ListGroup.Item className='text-center'><h5>Precio: ${price.toLocaleString("es-ES", { useGrouping: true })}</h5></ListGroup.Item>
       </ListGroup>
       <Card.Body className="d-flex justify-content-around">
-        <Button variant="light">Ver más <FontAwesomeIcon icon={faMagnifyingGlass} /></Button>
+        <Button variant="light" onClick={goToPizza}>Ver más <FontAwesomeIcon icon={faMagnifyingGlass} /></Button>
         {
           cart.findIndex(pizza => pizza.id === id) === -1 ? (
             <Button variant="dark" onClick={handleClick}>
