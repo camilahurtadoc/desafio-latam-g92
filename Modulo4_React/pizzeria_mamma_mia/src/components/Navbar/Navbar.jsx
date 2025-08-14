@@ -26,7 +26,7 @@ function NavbarTop() {
                         {token ? (
                             <>
                                 <Link to="/profile" className="nav-link mx-1"><FontAwesomeIcon icon={faUser} /> Profile</Link>
-                                <Link to="/" className="nav-link mx-1"><FontAwesomeIcon icon={faDoorOpen} /> Logout</Link>
+                                <Link to="/" className="nav-link mx-1" onClick={logout}><FontAwesomeIcon icon={faDoorOpen} /> Logout</Link>
                             </>
 
                         ) : (
