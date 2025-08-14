@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 } */
+
+.active {
+  font-weight: 500;
+  text-decoration: underline;
+  background-color: rgba(227, 214, 60, 0.495);
+  border-radius: 10px;
+}
+
+.pending {
+  font-weight: 500;
+  background-color: rgba(220, 70, 33, 0.495);
+  border-radius: 10px;
+}
