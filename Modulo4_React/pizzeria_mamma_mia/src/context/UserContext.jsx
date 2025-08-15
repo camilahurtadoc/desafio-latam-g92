@@ -6,7 +6,7 @@ const UserProvider = ({ children }) => {
     const [token, setToken] = useState(true)
 
     const logout = () => {
-        setToken(false)
+        setToken(!token)
     }
     return (
         <UserContext.Provider value={{ token, setToken, logout }}>
