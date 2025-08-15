@@ -30,7 +30,7 @@ function App() {
         <Route path='/profile' element={token ? <Profile /> : <Navigate to="/"/>} />
         <Route path='/404' element={<NotFound />} />
         <Route path='/*' element={<NotFound />} />
-        <Route path='/logout' element={<Logout />}/>
+        <Route path='/logout' element={token ? <Logout /> : <Navigate to="/" />}/>
       </Routes>
       <Footer />
     </>
