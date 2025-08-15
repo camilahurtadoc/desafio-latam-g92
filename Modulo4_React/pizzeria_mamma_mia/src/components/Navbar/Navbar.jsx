@@ -29,7 +29,7 @@ function NavbarTop() {
                         {token ? (
                             <>
                                 <NavLink to="/profile" className={setActiveClass}><FontAwesomeIcon icon={faUser} /> Profile</NavLink>
-                                <NavLink to="/" onClick={logout} className={setActiveClass}><FontAwesomeIcon icon={faDoorOpen} /> Logout</NavLink>
+                                <NavLink to="/logout" className={setActiveClass}><FontAwesomeIcon icon={faDoorOpen} /> Logout</NavLink>
                             </>
 
                         ) : (

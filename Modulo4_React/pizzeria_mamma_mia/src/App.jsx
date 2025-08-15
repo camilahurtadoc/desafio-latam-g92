@@ -11,6 +11,7 @@ import NotFound from './pages/NotFound/NotFound'
 import Profile from './pages/Profile/Profile'
 import { useContext } from 'react'
 import { UserContext } from './context/UserContext'
+import Logout from './pages/Logout/Logout'
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path='/profile' element={token ? <Profile /> : <Navigate to="/"/>} />
         <Route path='/404' element={<NotFound />} />
         <Route path='/*' element={<NotFound />} />
+        <Route path='/logout' element={<Logout />}/>
       </Routes>
       <Footer />
     </>
