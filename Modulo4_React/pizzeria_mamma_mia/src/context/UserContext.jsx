@@ -13,6 +13,7 @@ const UserProvider = ({ children }) => {
 
     const logout = () => {
         setToken(!token)
+        localStorage.removeItem("token_jwt")
     }
 
     // hook para redirigir usuario cuando haga login o register
