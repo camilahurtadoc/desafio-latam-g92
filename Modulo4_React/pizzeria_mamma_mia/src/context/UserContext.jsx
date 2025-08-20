@@ -68,21 +68,28 @@ const UserProvider = ({ children }) => {
 
             if (!response.ok) {
                 console.log("error en el login")
-                //agregar swal fire aquí mejor
+                Swal.fire({
+                title: "Error en Log In",
+                text: "Datos de usuario y/o contraseña incorrectos.",
+                icon: "error"
+            })
             }
 
             const data = await response.json()
 
             localStorage.setItem("token_jwt", data.token)
 
-            Swal.fire({
-                title: "Log In",
-                text: "Datos ingresados correctamente.",
-                icon: "success"
-            })
+            if (response.ok) {
+                Swal.fire({
+                    title: "Log In",
+                    text: "Datos ingresados correctamente.",
+                    icon: "success"
+                })
 
-            setToken(true)
-            navigate("/")
+                setToken(true)
+                navigate("/")
+            }
+
 
         } catch (error) {
             console.log("error: ", error)
