@@ -9,11 +9,12 @@ export const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
     // token para definir si usuario está login o logout
-    const [token, setToken] = useState(true)
+    const [token, setToken] = useState(false)
 
     const logout = () => {
-        setToken(!token)
+        setToken(false)
         localStorage.removeItem("token_jwt")
+        localStorage.removeItem("email")
     }
 
     // hook para redirigir usuario cuando haga login o register
@@ -81,6 +82,7 @@ const UserProvider = ({ children }) => {
             const data = await response.json()
 
             localStorage.setItem("token_jwt", data.token)
+            localStorage.setItem("email", email)
 
             if (response.ok) {
                 Swal.fire({
@@ -153,6 +155,7 @@ const UserProvider = ({ children }) => {
             const data = await response.json()
 
             localStorage.setItem("token_jwt", data.token)
+            localStorage.setItem("email", email)
 
             if (response.ok) {
                 Swal.fire({
