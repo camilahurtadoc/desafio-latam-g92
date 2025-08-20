@@ -82,7 +82,6 @@ const UserProvider = ({ children }) => {
             })
 
             setToken(true)
-            // const navigate = useNavigate()
             navigate("/")
 
         } catch (error) {

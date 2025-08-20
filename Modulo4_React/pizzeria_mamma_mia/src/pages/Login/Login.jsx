@@ -9,54 +9,6 @@ import Swal from 'sweetalert2'
 import { UserContext } from '../../context/UserContext';
 
 const Login = () => {
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
-
-    // const [eye, setEye] = useState(faEyeSlash)
-    // const [type, setType] = useState("password")
-
-    // const seePassword = () => {
-    //     if (type === "password") {
-    //         setEye(faEye)
-    //         setType("text")
-    //     } else {
-    //         setEye(faEyeSlash)
-    //         setType("password")
-    //     }
-    // }
-
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-
-    //     if (!email.trim() || !password.trim()) {
-    //         Swal.fire({
-    //             title: "Campos Vacíos",
-    //             text: "Todos los campos son obligatorios.",
-    //             icon: "error"
-    //         })
-    //         return
-    //     }
-
-    //     if (password.length < 6) {
-    //         Swal.fire({
-    //             title: "Contraseña",
-    //             text: "La contraseña debe tener al menos 6 caracteres.",
-    //             icon: "error"
-    //         })
-    //         return
-    //     }
-
-    //     Swal.fire({
-    //         title: "Log In",
-    //         text: "Datos ingresados correctamente.",
-    //         icon: "success"
-    //     })
-
-    //     setEmail("")
-    //     setPassword("")
-    //     setEye(faEyeSlash)
-    //     setType("password")
-    // }
 
     const { email, setEmail,
         password, setPassword,
