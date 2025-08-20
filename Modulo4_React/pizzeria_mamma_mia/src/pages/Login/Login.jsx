@@ -24,7 +24,7 @@ const Login = () => {
         }
     }
 
-    const validate = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
 
         if (!email.trim() || !password.trim()) {
@@ -60,7 +60,7 @@ const Login = () => {
     return (
         <div className='mx-auto p-2' style={{ width: "450px" }}>
             <h2 className='text-center'>Ingresa a tu cuenta</h2>
-            <Form className='p-3' onSubmit={validate}>
+            <Form className='p-3' onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
