@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
@@ -12,9 +12,8 @@ const UserProvider = ({ children }) => {
     const [token, setToken] = useState(false)
 
     const logout = () => {
-        setToken(false)
         localStorage.removeItem("token_jwt")
-        localStorage.removeItem("email")
+        setToken(false)
     }
 
     // hook para redirigir usuario cuando haga login o register
@@ -82,7 +81,7 @@ const UserProvider = ({ children }) => {
             const data = await response.json()
 
             localStorage.setItem("token_jwt", data.token)
-            localStorage.setItem("email", email)
+            // localStorage.setItem("email", email)
 
             if (response.ok) {
                 Swal.fire({
@@ -149,13 +148,12 @@ const UserProvider = ({ children }) => {
             })
 
             if (!response.ok) {
-                console.log("error en el login")
+                console.log("error en el registro")
             }
 
             const data = await response.json()
 
             localStorage.setItem("token_jwt", data.token)
-            localStorage.setItem("email", email)
 
             if (response.ok) {
                 Swal.fire({
@@ -179,6 +177,41 @@ const UserProvider = ({ children }) => {
         setType("password")
     }
 
+    // Profile
+    // consumo de ruta para datos de usuario en el perfil desde backend
+
+    const [userEmail, setUserEmail] = useState(null)
+
+    const getUserInfo = async () => {
+        const token_jwt = localStorage.getItem("token_jwt")
+
+        if (!token_jwt) {
+            console.log("El usuario no posee token")
+            return
+        }
+
+        try {
+            const response = await fetch("http://localhost:5000/api/auth/me", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token_jwt}`
+                },
+            })
+
+            if (!response.ok) {
+                console.log("error en perfil usuario")
+            }
+
+            const data = await response.json()
+
+            setUserEmail(data.email)
+
+        } catch (error) {
+            console.log("error: ", error)
+        }
+    }
+
     return (
         <UserContext.Provider value={{
             token, setToken, logout,
@@ -188,7 +221,8 @@ const UserProvider = ({ children }) => {
             type, setType,
             seePassword, handleSubmit,
             confirmPassword, setConfirmPassword,
-            handleSubmitRegister
+            handleSubmitRegister,
+            getUserInfo, userEmail
         }}>
             {children}
         </UserContext.Provider>
