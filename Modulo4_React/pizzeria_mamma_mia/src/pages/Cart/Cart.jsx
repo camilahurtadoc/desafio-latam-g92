@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import CapitalizeFirstLetter from '../../components/CapitalizeFirstLetter/CapitalizeFirstLetter';
 import { UserContext } from '../../context/UserContext';
+import Swal from 'sweetalert2'
 
 const Cart = () => {
 
@@ -36,6 +37,36 @@ const Cart = () => {
 
         setCart(newCart)
         setTotal(total + pizza.price)
+    }
+
+    const sendCart = async () => {
+        const token_jwt = localStorage.getItem("token_jwt")
+
+        try {
+            const response = await fetch("http://localhost:5000/api/checkouts", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token_jwt}`
+                },
+                body: JSON.stringify({ cart })
+            })
+
+            if (!response.ok) {
+                console.log("error al enviar carrito")
+            }
+
+            if (response.ok) {
+                Swal.fire({
+                    title: "Pedido Enviado",
+                    text: "Su pedido ha sido registrado correctamente.",
+                    icon: "success"
+                })
+            }
+
+        } catch (error) {
+            console.log("error: ", error)
+        }
     }
 
 
