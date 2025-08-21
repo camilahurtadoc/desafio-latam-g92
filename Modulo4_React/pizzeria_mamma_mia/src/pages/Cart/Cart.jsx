@@ -62,6 +62,8 @@ const Cart = () => {
                     text: "Su pedido ha sido registrado correctamente.",
                     icon: "success"
                 })
+                setCart([])
+                setTotal(0)
             }
 
         } catch (error) {
@@ -94,7 +96,7 @@ const Cart = () => {
             <div className="d-flex flex-column align-content-center">
 
                 <h2>Total: ${total.toLocaleString("es-ES", { useGrouping: true })}</h2>
-                <Button disabled={!token}>Pagar</Button>
+                <Button disabled={!token} onClick={sendCart}>Pagar</Button>
             </div>
         </div>
     )
