@@ -4,4 +4,17 @@
 
 .pizza-img {
     border-radius: 10px;
+    width: 50%;
+}
+
+@media (max-width: 575.98px) {
+    
+    .img_container{
+        flex-direction: column;
+        gap: 1em;        
+    }
+    .pizza-img {
+        width: 75%;
+        border: solid black 1px;
+    }
 }
