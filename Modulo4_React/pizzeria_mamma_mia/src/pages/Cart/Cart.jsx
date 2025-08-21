@@ -9,8 +9,7 @@ import { UserContext } from '../../context/UserContext';
 
 const Cart = () => {
 
-    const { total, setTotal } = useContext(CartContext)
-    const { cart, setCart } = useContext(CartContext)
+    const { total, setTotal, cart, setCart } = useContext(CartContext)
     const { token } = useContext(UserContext)
 
     const minusPizza = (pizza) => {
