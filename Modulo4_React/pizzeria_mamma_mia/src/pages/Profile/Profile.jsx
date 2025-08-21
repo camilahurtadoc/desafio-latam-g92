@@ -10,7 +10,6 @@ const Profile = () => {
 
     const navigate = useNavigate()
 
-
     return (
         <div className='mx-auto my-5' style={{ width: "450px" }}>
             <h2 className='text-center'>Perfil de Usuario</h2>
