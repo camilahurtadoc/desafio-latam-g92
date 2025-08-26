@@ -15,7 +15,7 @@ const Profile = () => {
             <h2 className='text-center'>Perfil de Usuario</h2>
             <div className='d-flex align-items-baseline gap-3 mt-2'>
                 <h5>Mail:</h5>
-                <p>backend: {userEmail}</p>
+                <p>{userEmail}</p>
             </div>
             <div className='d-flex flex-column mb-3 align-items-center'>
                 <Button variant="primary" onClick={() => navigate("/logout")}>
