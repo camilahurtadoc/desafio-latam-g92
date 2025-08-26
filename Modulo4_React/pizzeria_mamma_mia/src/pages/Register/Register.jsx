@@ -50,7 +50,7 @@ const Register = () => {
                 <Form.Group className="mb-3 position-relative" controlId="formBasicPasswordConfirmationRegister">
                     <Form.Label>Confirmar contraseña</Form.Label>
                     <Form.Control
-                        type="password"
+                        type={type}
                         placeholder="Confirmar contraseña"
                         onChange={event => setConfirmPassword(event.target.value)}
                         value={confirmPassword} />
