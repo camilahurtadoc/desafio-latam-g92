@@ -4,8 +4,7 @@ import { CartContext } from '../../context/CartContext';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import {  NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faPizzaSlice, faUser, faUserPlus, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 import { UserContext } from '../../context/UserContext';
@@ -14,7 +13,7 @@ import { UserContext } from '../../context/UserContext';
 function NavbarTop() {
     const { total } = useContext(CartContext);
     const { tokenJwt } = useContext(UserContext)
-    
+
 
     const setActiveClass = ({ isActive, isPending }) => (isPending ? "pending nav-link" : isActive ? "active nav-link" : "nav-link")
 
@@ -39,17 +38,6 @@ function NavbarTop() {
                                 <NavLink to="/register" className={setActiveClass}><FontAwesomeIcon icon={faUserPlus} /> Register</NavLink>
                             </>
                         )}
-                        {/* <NavDropdown title="Productos" id="collapsible-nav-dropdown" className="ms-2">
-                            <NavDropdown.Item href="#action/3.1">Pizzas Tradicionales</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
-                            Pizzas Vegetarianas
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Promociones</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">
-                            Postres
-                            </NavDropdown.Item>
-                            </NavDropdown> */}
                     </Nav>
                     <Nav>
                         <NavLink to="/cart" className={setActiveClass}><FontAwesomeIcon icon={faCartShopping} /> Total: $ {total.toLocaleString("es-ES", { useGrouping: true })}</NavLink>

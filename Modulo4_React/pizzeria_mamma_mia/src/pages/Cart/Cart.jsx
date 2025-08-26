@@ -40,14 +40,13 @@ const Cart = () => {
     }
 
     const sendCart = async () => {
-        const token_jwt = localStorage.getItem("token_jwt")
 
         try {
             const response = await fetch("http://localhost:5000/api/checkouts", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token_jwt}`
+                    "Authorization": `Bearer ${tokenJwt}`
                 },
                 body: JSON.stringify({ cart })
             })

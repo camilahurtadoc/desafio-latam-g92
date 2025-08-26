@@ -1,5 +1,4 @@
-import { createContext, useEffect, useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { createContext, useState } from "react";
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import Swal from 'sweetalert2'

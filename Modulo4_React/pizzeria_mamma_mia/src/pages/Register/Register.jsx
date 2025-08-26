@@ -2,18 +2,15 @@ import { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-import { faEye } from '@fortawesome/free-solid-svg-icons'
 import './Register.css'
-import Swal from 'sweetalert2'
 import { UserContext } from '../../context/UserContext';
 
 const Register = () => {
 
     const { email, setEmail,
         password, setPassword,
-        eye, setEye,
-        type, setType,
+        eye, 
+        type, 
         seePassword,
         confirmPassword, setConfirmPassword,
         handleSubmitRegister } = useContext(UserContext)
