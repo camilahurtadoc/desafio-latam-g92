@@ -16,21 +16,21 @@ import Logout from './pages/Logout/Logout'
 
 function App() {
 
-  const { token } = useContext(UserContext)
+   const token_jwt = localStorage.getItem("token_jwt")
 
   return (
     <>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/register' element={token ? <Navigate to="/"/> : <Register />} />
-        <Route path='/login' element={token ? <Navigate to="/"/> : <Login />} />
+        <Route path='/register' element={token_jwt ? <Navigate to="/"/> : <Register />} />
+        <Route path='/login' element={token_jwt ? <Navigate to="/"/> : <Login />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/pizzas/:pizzaId' element={<Pizza />} />
-        <Route path='/profile' element={token ? <Profile /> : <Navigate to="/"/>} />
+        <Route path='/profile' element={token_jwt ? <Profile /> : <Navigate to="/"/>} />
         <Route path='/404' element={<NotFound />} />
         <Route path='/*' element={<NotFound />} />
-        <Route path='/logout' element={token ? <Logout /> : <Navigate to="/" />}/>
+        <Route path='/logout' element={token_jwt ? <Logout /> : <Navigate to="/" />}/>
       </Routes>
       <Footer />
     </>

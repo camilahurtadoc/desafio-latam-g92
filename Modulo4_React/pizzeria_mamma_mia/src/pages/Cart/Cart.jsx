@@ -12,6 +12,7 @@ const Cart = () => {
 
     const { total, setTotal, cart, setCart } = useContext(CartContext)
     const { token } = useContext(UserContext)
+    const token_jwt = localStorage.getItem("token_jwt")
 
     const minusPizza = (pizza) => {
         if (pizza.count - 1 < 0) {
@@ -96,7 +97,7 @@ const Cart = () => {
             <div className="d-flex flex-column align-content-center">
 
                 <h2>Total: ${total.toLocaleString("es-ES", { useGrouping: true })}</h2>
-                <Button disabled={!token} onClick={sendCart}>Pagar</Button>
+                <Button disabled={!token_jwt} onClick={sendCart}>Pagar</Button>
             </div>
         </div>
     )

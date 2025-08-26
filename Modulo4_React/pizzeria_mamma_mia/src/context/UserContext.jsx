@@ -13,6 +13,8 @@ const UserProvider = ({ children }) => {
 
     const logout = () => {
         localStorage.removeItem("token_jwt")
+        localStorage.removeItem("email")
+        localStorage.clear()
         setUserEmail(null)
         setToken(false)
     }
