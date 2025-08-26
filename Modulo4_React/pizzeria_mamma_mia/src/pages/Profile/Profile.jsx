@@ -6,9 +6,11 @@ import { useNavigate } from 'react-router-dom';
 const Profile = () => {
     const { getUserInfo, userEmail } = useContext(UserContext)
 
-    getUserInfo()
-
     const navigate = useNavigate()
+    
+    useEffect(() => {
+        getUserInfo()
+    }, [])
 
     return (
         <div className='mx-auto my-5' style={{ width: "450px" }}>
