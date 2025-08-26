@@ -13,11 +13,7 @@ import { UserContext } from '../../context/UserContext';
 
 function NavbarTop() {
     const { total } = useContext(CartContext);
-    const { isLoggedIn } = useContext(UserContext)
-    const token_jwt = localStorage.getItem("token_jwt")
-    console.log("token_jwt nav: ", token_jwt)
-    console.log("email nav: ", localStorage.getItem("email"))
-
+    const { tokenJwt } = useContext(UserContext)
     
 
     const setActiveClass = ({ isActive, isPending }) => (isPending ? "pending nav-link" : isActive ? "active nav-link" : "nav-link")
@@ -31,7 +27,7 @@ function NavbarTop() {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <NavLink to="/" className={setActiveClass}><FontAwesomeIcon icon={faPizzaSlice} /> Home</NavLink>
-                        {isLoggedIn ? (
+                        {tokenJwt ? (
                             <>
                                 <NavLink to="/profile" className={setActiveClass}><FontAwesomeIcon icon={faUser} /> Profile</NavLink>
                                 <NavLink to="/logout" className={setActiveClass}><FontAwesomeIcon icon={faDoorOpen} /> Logout</NavLink>

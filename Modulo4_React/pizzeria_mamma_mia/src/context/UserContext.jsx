@@ -8,13 +8,13 @@ import { useNavigate } from "react-router-dom";
 export const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-    // token para definir si usuario está login o logout
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    // token asociado a usuario
+    const [tokenJwt, setTokenJwt] = useState("")
 
     const logout = () => {
         localStorage.clear()
+        setTokenJwt("")
         setUserEmail(null)
-        setIsLoggedIn(false)
     }
 
     // hook para redirigir usuario cuando haga login o register
@@ -82,6 +82,7 @@ const UserProvider = ({ children }) => {
             const data = await response.json()
 
             localStorage.setItem("token_jwt", data.token)
+            setTokenJwt(localStorage.getItem("token_jwt"))
 
             if (response.ok) {
                 Swal.fire({
@@ -90,7 +91,6 @@ const UserProvider = ({ children }) => {
                     icon: "success"
                 })
 
-                setIsLoggedIn(true)
                 navigate("/")
             }
 
@@ -154,6 +154,7 @@ const UserProvider = ({ children }) => {
             const data = await response.json()
 
             localStorage.setItem("token_jwt", data.token)
+            setTokenJwt(localStorage.getItem("token_jwt"))
 
             if (response.ok) {
                 Swal.fire({
@@ -162,7 +163,6 @@ const UserProvider = ({ children }) => {
                     icon: "success"
                 })
 
-                setIsLoggedIn(true)
                 navigate("/")
             }
 
@@ -183,9 +183,9 @@ const UserProvider = ({ children }) => {
     const [userEmail, setUserEmail] = useState(null)
 
     const getUserInfo = async () => {
-        const token_jwt = localStorage.getItem("token_jwt")
+        setTokenJwt(localStorage.getItem("token_jwt"))
 
-        if (!token_jwt) {
+        if (!tokenJwt) {
             console.log("El usuario no posee token")
             return
         }
@@ -195,7 +195,7 @@ const UserProvider = ({ children }) => {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token_jwt}`
+                    "Authorization": `Bearer ${tokenJwt}`
                 },
             })
 
@@ -205,26 +205,17 @@ const UserProvider = ({ children }) => {
 
             const data = await response.json()
 
-            setUserEmail(data.email)
-            setIsLoggedIn(true)
-         
+            setUserEmail(data.email)      
 
         } catch (error) {
             console.log("error: ", error)
         }
     }
 
-    //Evitar que, si usuario está logueado, pueda usar barra buscador para ir a pgs restringidas mediante useState
-    useEffect(() => {
-        const token_jwt = localStorage.getItem("token_jwt")
-        if (token_jwt) {
-            setIsLoggedIn(true)
-        }
-    }, [])
-
     return (
         <UserContext.Provider value={{
-            isLoggedIn, logout,
+            tokenJwt, setTokenJwt, 
+            logout,
             email, setEmail,
             password, setPassword,
             eye, setEye,
