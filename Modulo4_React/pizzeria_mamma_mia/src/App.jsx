@@ -17,20 +17,25 @@ import Logout from './pages/Logout/Logout'
 function App() {
 
    const token_jwt = localStorage.getItem("token_jwt")
+   
+   console.log("token_jwt app: ", token_jwt)
+
+   const { isLoggedIn } = useContext(UserContext)
+   console.log("loggen in?: ", isLoggedIn)
 
   return (
     <>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/register' element={token_jwt ? <Navigate to="/"/> : <Register />} />
-        <Route path='/login' element={token_jwt ? <Navigate to="/"/> : <Login />} />
+        <Route path='/register' element={isLoggedIn ? <Navigate to="/"/> : <Register />} />
+        <Route path='/login' element={isLoggedIn ? <Navigate to="/"/> : <Login />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/pizzas/:pizzaId' element={<Pizza />} />
-        <Route path='/profile' element={token_jwt ? <Profile /> : <Navigate to="/"/>} />
+        <Route path='/profile' element={isLoggedIn ? <Profile /> : <Navigate to="/"/>} />
         <Route path='/404' element={<NotFound />} />
         <Route path='/*' element={<NotFound />} />
-        <Route path='/logout' element={token_jwt ? <Logout /> : <Navigate to="/" />}/>
+        <Route path='/logout' element={isLoggedIn ? <Logout /> : <Navigate to="/" />}/>
       </Routes>
       <Footer />
     </>

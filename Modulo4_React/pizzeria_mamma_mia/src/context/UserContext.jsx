@@ -9,14 +9,12 @@ export const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
     // token para definir si usuario está login o logout
-    const [token, setToken] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     const logout = () => {
-        localStorage.removeItem("token_jwt")
-        localStorage.removeItem("email")
         localStorage.clear()
         setUserEmail(null)
-        setToken(false)
+        setIsLoggedIn(false)
     }
 
     // hook para redirigir usuario cuando haga login o register
@@ -84,7 +82,6 @@ const UserProvider = ({ children }) => {
             const data = await response.json()
 
             localStorage.setItem("token_jwt", data.token)
-            // localStorage.setItem("email", email)
 
             if (response.ok) {
                 Swal.fire({
@@ -93,7 +90,7 @@ const UserProvider = ({ children }) => {
                     icon: "success"
                 })
 
-                setToken(true)
+                setIsLoggedIn(true)
                 navigate("/")
             }
 
@@ -165,7 +162,7 @@ const UserProvider = ({ children }) => {
                     icon: "success"
                 })
 
-                setToken(true)
+                setIsLoggedIn(true)
                 navigate("/")
             }
 
@@ -209,15 +206,25 @@ const UserProvider = ({ children }) => {
             const data = await response.json()
 
             setUserEmail(data.email)
+            setIsLoggedIn(true)
+         
 
         } catch (error) {
             console.log("error: ", error)
         }
     }
 
+    //Evitar que, si usuario está logueado, pueda usar barra buscador para ir a pgs restringidas mediante useState
+    useEffect(() => {
+        const token_jwt = localStorage.getItem("token_jwt")
+        if (token_jwt) {
+            setIsLoggedIn(true)
+        }
+    }, [])
+
     return (
         <UserContext.Provider value={{
-            token, setToken, logout,
+            isLoggedIn, logout,
             email, setEmail,
             password, setPassword,
             eye, setEye,
