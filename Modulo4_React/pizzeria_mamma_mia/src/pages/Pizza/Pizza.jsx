@@ -15,9 +15,7 @@ const Pizza = () => {
 
     const { pizza, getPizza } = useContext(AxiosPizzaIdContext)
 
-    const { total, setTotal, cart, setCart,
-        pizzaCount, setPizzaCount,
-        handleclick2,
+    const { cart, handleclick2,
         minusPizza2, plusPizza2 } = useContext(CartContext)
 
     const [pizzaInCart, setPizzaInCart] = useState(null)
@@ -29,7 +27,6 @@ const Pizza = () => {
 
     useEffect(() => {
         const index = cart.findIndex(ThisPizza => ThisPizza.id === pizza.id)
-        console.log(index)
         index === -1 ? (setPizzaInCart(0)) : (setPizzaInCart(cart[index].count))
     })
 
@@ -66,10 +63,6 @@ const Pizza = () => {
                             </div>
                         )
                     }
-                    {/* <Button variant="dark" className="d-flex align-items-center gap-2 fs-5 mb-2">
-                        <p className="fs-4 text-success my-auto me-3 fw-bold text-center align-middle">${pizza.price && pizza.price.toLocaleString("es-ES", { useGrouping: true })}</p>Añadir
-                        <FontAwesomeIcon icon={faCartPlus} />
-                    </Button> */}
                 </div>
             </div>
         </div>

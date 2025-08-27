@@ -11,9 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 function CardPizza({ name, price, ingredients, img, id }) {
 
-  const { total, setTotal, cart, setCart,
-    pizzaCount, setPizzaCount,
-    handleclick2,
+  const { cart, handleclick2,
     minusPizza2, plusPizza2 } = useContext(CartContext)
 
   const [pizzaInCart, setPizzaInCart] = useState(null)
@@ -22,8 +20,6 @@ function CardPizza({ name, price, ingredients, img, id }) {
   const goToPizza = () => {
     navigate(`/pizzas/${id}`)
   }
-
-  // console.log(cart)
 
   useEffect(() => {
     const index = cart.findIndex(pizza => pizza.id === id)
