@@ -10,34 +10,10 @@ import Swal from 'sweetalert2'
 
 const Cart = () => {
 
-    const { total, setTotal, cart, setCart } = useContext(CartContext)
+    const { total, setTotal, cart, setCart,
+        minusPizza2, plusPizza2 } = useContext(CartContext)
+    
     const { tokenJwt } = useContext(UserContext)
-
-    const minusPizza = (pizza) => {
-        if (pizza.count - 1 < 0) {
-            return
-        }
-
-        let newCart = cart
-        newCart.map(cartItem => (cartItem.id === pizza.id ? (cartItem.count -= 1) : null))
-
-        const index = cart.findIndex(pizzaItem => pizzaItem.id === pizza.id)
-        if (cart[index].count === 0) {
-            newCart.splice(index, 1)
-        }
-
-        setCart(newCart)
-        setTotal(total - pizza.price)
-    }
-
-    const plusPizza = (pizza) => {
-
-        let newCart = cart
-        newCart.map(cartItem => (cartItem.id === pizza.id ? (cartItem.count += 1) : null))
-
-        setCart(newCart)
-        setTotal(total + pizza.price)
-    }
 
     const sendCart = async () => {
 
@@ -81,9 +57,9 @@ const Cart = () => {
                         <img src={pizza.img} className="pizza-cart" />
                         <h4 className="pizza-name">{<CapitalizeFirstLetter word={pizza.name} />}</h4>
                         <span className="fw-bold">${pizza.price.toLocaleString("es-ES", { useGrouping: true })}</span>
-                        <Button variant="danger" onClick={() => minusPizza(pizza)}><FontAwesomeIcon icon={faMinus} /></Button>
+                        <Button variant="danger" onClick={() => minusPizza2(pizza.price, pizza.id)}><FontAwesomeIcon icon={faMinus} /></Button>
                         <span>{pizza.count}</span>
-                        <Button variant="success" onClick={() => plusPizza(pizza)}><FontAwesomeIcon icon={faPlus} /></Button>
+                        <Button variant="success" onClick={() => plusPizza2(pizza.price, pizza.id)}><FontAwesomeIcon icon={faPlus} /></Button>
 
                     </div>
                 </div>
