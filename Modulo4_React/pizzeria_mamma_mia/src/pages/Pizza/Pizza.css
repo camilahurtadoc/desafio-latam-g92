@@ -7,6 +7,10 @@
     width: 50%;
 }
 
+.button-container {
+    border-radius: 10px;
+}
+
 @media (max-width: 575.98px) {
     
     .img_container{
