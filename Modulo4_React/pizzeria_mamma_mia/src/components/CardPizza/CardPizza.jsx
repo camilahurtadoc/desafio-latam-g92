@@ -5,80 +5,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus, faMagnifyingGlass, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import CapitalizeFirstLetter from '../CapitalizeFirstLetter/CapitalizeFirstLetter';
 
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 
 function CardPizza({ name, price, ingredients, img, id }) {
 
-  const { total, setTotal, cart, setCart } = useContext(CartContext)
+  const { total, setTotal, cart, setCart,
+    pizzaCount, setPizzaCount,
+    handleclick2,
+    minusPizza2, plusPizza2 } = useContext(CartContext)
 
-  const index = cart.findIndex(pizza => pizza.id === id)
-  let initialValue;
-  if (index == -1) {
-    initialValue = 0
-  } else {
-    initialValue = cart[index].count
-  }
-
-  const [pizzaCount, setPizzaCount] = useState(initialValue)
-
-  const handleClick = () => {
-    const pizzaToAdd = {
-      id: id,
-      name: name,
-      price: price,
-      count: 1,
-      img: img,
-    }
-    setCart([...cart, pizzaToAdd])
-    setPizzaCount(1)
-    setTotal(total + price)
-  }
-
-
-  const minusPizza = () => {
-
-    const index = cart.findIndex(pizza => pizza.id === id)
-
-    if (cart[index].count - 1 < 0) {
-      return
-    }
-
-    let newCart = cart
-    newCart.map(cartItem => (cartItem.id === cart[index].id ? (cartItem.count -= 1) : null))
-
-    let finalCount
-    if (cart[index].count === 0) {
-      newCart.splice(index, 1)
-      finalCount = 0
-    } else {
-      finalCount = cart[index].count
-    }
-
-
-    setCart(newCart)
-    setPizzaCount(finalCount)
-    setTotal(total - price)
-  }
-
-  const plusPizza = () => {
-
-    const index = cart.findIndex(pizza => pizza.id === id)
-
-    let newCart = cart
-    newCart.map(cartItem => (cartItem.id === cart[index].id ? (cartItem.count += 1) : null))
-
-    setCart(newCart)
-    setPizzaCount(cart[index].count)
-    setTotal(total + price)
-  }
+  const [pizzaInCart, setPizzaInCart] = useState(null)
 
   const navigate = useNavigate()
   const goToPizza = () => {
     navigate(`/pizzas/${id}`)
   }
 
+  // console.log(cart)
+
+  useEffect(() => {
+    const index = cart.findIndex(pizza => pizza.id === id)
+    index === -1 ? (setPizzaInCart(0)) : (setPizzaInCart(cart[index].count))
+
+  })
 
   return (
     <Card style={{ width: '20rem' }} className='mb-5'>
@@ -103,14 +54,14 @@ function CardPizza({ name, price, ingredients, img, id }) {
         <Button variant="light" onClick={goToPizza}>Ver más <FontAwesomeIcon icon={faMagnifyingGlass} /></Button>
         {
           cart.findIndex(pizza => pizza.id === id) === -1 ? (
-            <Button variant="dark" onClick={handleClick}>
+            <Button variant="dark" onClick={() => handleclick2(name, price, img, id)}>
               Añadir <FontAwesomeIcon icon={faCartPlus} />
             </Button>
           ) : (
             <div className="d-flex align-items-center gap-3" >
-              <Button variant="danger" onClick={minusPizza}><FontAwesomeIcon icon={faMinus} /></Button>
-              <span>{pizzaCount}</span>
-              <Button variant="success" onClick={plusPizza}><FontAwesomeIcon icon={faPlus} /></Button>
+              <Button variant="danger" onClick={() => minusPizza2(price, id)}><FontAwesomeIcon icon={faMinus} /></Button>
+              <span>{pizzaInCart}</span>
+              <Button variant="success" onClick={() => plusPizza2(price, id)}><FontAwesomeIcon icon={faPlus} /></Button>
             </div>
           )
         }
