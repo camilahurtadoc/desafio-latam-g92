@@ -5,6 +5,7 @@ export const CartContext = createContext();
 const CartProvider = ({ children }) => {
     const [total, setTotal] = useState(0)
     const [cart, setCart] = useState([])
+    const [cartCount, setCartCount] = useState(0)
 
     const handleclick2 = (name, price, img, id) => {
 
@@ -48,13 +49,21 @@ const CartProvider = ({ children }) => {
         setTotal(total + price)
     }
 
+    const cartCounter = () => {
+        let count;
+        cart.map(pizza =>count += pizza.count)
+        setCartCount(count)
+        console.log("cartCount: ",cartCount)
+    }
+
     return (
         <CartContext.Provider
             value={{
                 total, setTotal,
                 cart, setCart,
                 handleclick2,
-                minusPizza2, plusPizza2
+                minusPizza2, plusPizza2,
+                cartCount, cartCounter
             }}>
             {children}
         </CartContext.Provider>
