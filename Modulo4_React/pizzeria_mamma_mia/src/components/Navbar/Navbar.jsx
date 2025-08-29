@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { CartContext } from '../../context/CartContext';
 
 import Container from 'react-bootstrap/Container';
@@ -11,12 +11,14 @@ import { UserContext } from '../../context/UserContext';
 
 
 function NavbarTop() {
-    const { total } = useContext(CartContext);
+    const { total, cartCount, cartCounter } = useContext(CartContext);
     const { tokenJwt } = useContext(UserContext)
-
 
     const setActiveClass = ({ isActive, isPending }) => (isPending ? "pending nav-link" : isActive ? "active nav-link" : "nav-link")
 
+    useEffect(() => {
+        cartCounter()
+    })
 
     return (
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
@@ -40,7 +42,7 @@ function NavbarTop() {
                         )}
                     </Nav>
                     <Nav>
-                        <NavLink to="/cart" className={setActiveClass}><FontAwesomeIcon icon={faCartShopping} /> Total: $ {total.toLocaleString("es-ES", { useGrouping: true })}</NavLink>
+                        <NavLink to="/cart" className={setActiveClass}><span>{cartCount}</span><FontAwesomeIcon icon={faCartShopping} /> Total: $ {total.toLocaleString("es-ES", { useGrouping: true })}</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

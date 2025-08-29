@@ -1,11 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
     const [total, setTotal] = useState(0)
     const [cart, setCart] = useState([])
-    const [cartCount, setCartCount] = useState(0)
+    const [cartCount, setCartCount] = useState(null)
 
     const handleclick2 = (name, price, img, id) => {
 
@@ -50,10 +50,9 @@ const CartProvider = ({ children }) => {
     }
 
     const cartCounter = () => {
-        let count;
-        cart.map(pizza =>count += pizza.count)
+        let count = 0;
+        cart.map(pizza => count += pizza.count)
         setCartCount(count)
-        console.log("cartCount: ",cartCount)
     }
 
     return (
