@@ -1,5 +1,7 @@
 import './App.css'
 import { Routes, Route, Navigate } from 'react-router-dom'
+import { useContext, useEffect } from 'react'
+import { UserContext } from './context/UserContext'
 import Cart from './pages/Cart/Cart'
 import Footer from './components/Footer/Footer'
 import Home from './pages/Home/Home'
@@ -9,8 +11,6 @@ import Pizza from './pages/Pizza/Pizza'
 import Register from './pages/Register/Register'
 import NotFound from './pages/NotFound/NotFound'
 import Profile from './pages/Profile/Profile'
-import { useContext, useEffect } from 'react'
-import { UserContext } from './context/UserContext'
 import Logout from './pages/Logout/Logout'
 
 

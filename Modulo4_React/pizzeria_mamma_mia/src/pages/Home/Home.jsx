@@ -1,6 +1,5 @@
 import CardPizza from '../../components/CardPizza/CardPizza'
 import Header from '../../components/Header/Header'
-// import { pizzas } from '../../assets/js/pizzas'
 import { useContext } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
