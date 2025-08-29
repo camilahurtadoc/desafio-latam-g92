@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { CartContext } from '../../context/CartContext';
 
 import Container from 'react-bootstrap/Container';
@@ -8,21 +8,21 @@ import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faPizzaSlice, faUser, faUserPlus, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 import { UserContext } from '../../context/UserContext';
-import './Navbar.css'
+import './Navbar.css';
 
 
 function NavbarTop() {
     const { total, cartCount, cartCounter } = useContext(CartContext);
-    const { tokenJwt } = useContext(UserContext)
+    const { tokenJwt } = useContext(UserContext);
 
-    const setActiveClass = ({ isActive, isPending }) => (isPending ? "pending nav-link" : isActive ? "active nav-link" : "nav-link")
+    const setActiveClass = ({ isActive, isPending }) => (isPending ? "pending nav-link" : isActive ? "active nav-link" : "nav-link");
 
     useEffect(() => {
-        cartCounter()
+        cartCounter();
     })
 
     return (
-        <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" className="bg-body-tertiary" fixed="top" >
             <Container>
                 <Navbar.Brand>Pizzería Mamma Mia </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
