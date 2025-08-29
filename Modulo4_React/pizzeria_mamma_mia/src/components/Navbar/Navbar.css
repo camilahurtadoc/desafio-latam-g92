@@ -1,0 +1,21 @@
+.cart-icon-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.cart-count {
+    position: absolute;
+    height: 22px;
+    line-height: 20px;
+    width: 22px;
+    top: -15px;
+    right: -12px;
+    background-color: white;
+    border: solid 1px gray;
+    border-radius: 50% 50%;
+    color: black;
+    font-size: 12px;
+    text-align: center;
+}

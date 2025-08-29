@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faPizzaSlice, faUser, faUserPlus, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 import { UserContext } from '../../context/UserContext';
+import './Navbar.css'
 
 
 function NavbarTop() {
@@ -42,7 +43,15 @@ function NavbarTop() {
                         )}
                     </Nav>
                     <Nav>
-                        <NavLink to="/cart" className={setActiveClass}><span>{cartCount}</span><FontAwesomeIcon icon={faCartShopping} /> Total: $ {total.toLocaleString("es-ES", { useGrouping: true })}</NavLink>
+                        <NavLink to="/cart" className={setActiveClass}>
+                            <span className='cart-icon-container'>
+                                {
+                                    cartCount > 0 ? <span className='cart-count'>{cartCount}</span> : null
+                                }
+                                <FontAwesomeIcon icon={faCartShopping} size="2xl" />
+                            </span>
+                            Total: $ {total.toLocaleString("es-ES", { useGrouping: true })}
+                        </NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
